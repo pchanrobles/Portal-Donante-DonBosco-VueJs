@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import DashboardLayout from '../layout/DashboardLayout.vue'
 import DashboardMain from '../views/DashboardMain.vue'
 import Login from '../layout/Login.vue'
+import ForgotPassword from '../layout/ForgotPassword.vue'
 
 
 Vue.use(VueRouter)
@@ -12,6 +13,14 @@ const routes = [
   path: '/login',
   name: 'Login',
   component: Login,
+  
+},
+
+{
+
+  path: '/forgot',
+  name: 'ForgotPassword',
+  component: ForgotPassword,
 },
 
 {
