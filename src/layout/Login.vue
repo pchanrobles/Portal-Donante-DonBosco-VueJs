@@ -9,7 +9,8 @@
             <v-card-title>
               <v-layout align-center justify-space-between>
                 <h3 class="headline">
-                  Portal Donante
+                 <div><h4 class="donante">PORTAL DONANTE</h4>   <v-img class="bosco" src="@/assets/bosco.png" alt="imagen Don bosco"></v-img></div>
+                
                 </h3>
                
               </v-layout>
@@ -17,6 +18,8 @@
             <v-divider></v-divider>
             <v-card-text>
               <p>Inicie sesión</p>
+        
+
               <v-form>
                 <v-text-field
                               outline
@@ -34,10 +37,11 @@
             <v-divider></v-divider>
             <v-card-actions :class="{ 'pa-3': $vuetify.breakpoint.smAndUp }">
                 <div style="display:flex; flex-direction:column; align-items:center;">
-                    <div style="display:flex; justify-content:space-between; width:100%; align-items:center;">
-
+                    <div style="display:flex; justify-content:space-between; width:100%; 
+                    align-items:center;">
+                     
                         <v-checkbox label="Recordar contraseña"></v-checkbox>
-
+                        
                         <v-btn  color="info" :large="$vuetify.breakpoint.smAndUp">
                             Login
                         </v-btn>
@@ -101,9 +105,32 @@ data () {
 </script>
 
 <style>
+.bosco{
+  height: 20%;
+  width: 20%;
+  position: relative;
+  left: 38%;
+}
+.donante{
+   
+    color:red;
+    align-items: center;
+    display: flex;
+    flex: 1 0 auto;
+    justify-content: center;
+    line-height: normal;
+    position: relative;
+    transition: inherit;
+    
+
+
+}
 
 .v-card__actions {
     display: block;
+ }
+ .layout{
+   display: unset !important;
  }
  
 
