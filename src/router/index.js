@@ -4,6 +4,7 @@ import DashboardLayout from '../layout/DashboardLayout.vue'
 import DashboardMain from '../views/DashboardMain.vue'
 import Login from '../layout/Login.vue'
 import ForgotPassword from '../layout/ForgotPassword.vue'
+import Formulario from '../layout/Formulario.vue'
 
 
 Vue.use(VueRouter)
@@ -21,6 +22,13 @@ const routes = [
   path: '/forgot',
   name: 'ForgotPassword',
   component: ForgotPassword,
+},
+
+{
+
+  path: '/formulario',
+  name: 'Formulario',
+  component: Formulario,
 },
 
 {
