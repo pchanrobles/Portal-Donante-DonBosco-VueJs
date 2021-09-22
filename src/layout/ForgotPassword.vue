@@ -25,28 +25,22 @@
               </v-card-title>
               <v-divider></v-divider>
               <v-card-text>
-                <p>¿Ha olvidado su contraseña?</p>
-
+                <v-btn color="info" text> Restablecer contraseña </v-btn>
+                
                 <v-form>
                   <v-text-field
                     outline
                     hide-details
                     label="DNI"
-                    type="password"
+                    type="text"
                     v-model="password"
                   ></v-text-field>
 
+                  
+
                   <v-text-field
                     outline
-                    hide-details
                     label="Email"
-                    type="resetpassword"
-                    v-model="password"
-                  ></v-text-field>
-
-                  <v-text-field
-                    outline
-                    label="Nueva contraseña"
                     type="text"
                     v-model="username"
                   ></v-text-field>
@@ -76,7 +70,7 @@
 
                   <v-spacer></v-spacer>
 
-                  <v-btn color="info" text> ¿Restablecer contraseña? </v-btn>
+                  
                 </div>
               </v-card-actions>
             </v-card>
