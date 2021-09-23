@@ -105,6 +105,13 @@ data () {
 </script>
 
 <style>
+
+
+
+.v-application--wrap{
+  justify-content: center !important;
+  background-color:#DADCDE;
+}
 .bosco{
   height: 20%;
   width: 20%;
@@ -113,7 +120,7 @@ data () {
 }
 .donante{
    
-    color:red;
+    color:#DC001B ;
     align-items: center;
     display: flex;
     flex: 1 0 auto;
