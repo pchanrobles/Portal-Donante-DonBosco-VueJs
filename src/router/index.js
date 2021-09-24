@@ -5,6 +5,8 @@ import DashboardMain from '../views/DashboardMain.vue'
 import Login from '../layout/Login.vue'
 import ForgotPassword from '../layout/ForgotPassword.vue'
 import Register from '../layout/Register.vue'
+import Privacy from '../layout/Privacy.vue'
+
 
 
 Vue.use(VueRouter)
@@ -22,6 +24,12 @@ const routes = [
   path: '/forgot',
   name: 'ForgotPassword',
   component: ForgotPassword,
+},
+{
+
+  path: '/privacy',
+  name: 'Privacy',
+  component: Privacy,
 },
 {
 
