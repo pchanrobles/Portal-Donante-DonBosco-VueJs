@@ -4,6 +4,7 @@ import DashboardLayout from '../layout/DashboardLayout.vue'
 import DashboardMain from '../views/DashboardMain.vue'
 import Login from '../layout/Login.vue'
 import ForgotPassword from '../layout/ForgotPassword.vue'
+import Register from '../layout/Register.vue'
 
 
 Vue.use(VueRouter)
@@ -22,6 +23,12 @@ const routes = [
   name: 'ForgotPassword',
   component: ForgotPassword,
 },
+{
+
+  path: '/register',
+  name: 'Register',
+  component: Register,
+},
 
 {
   path: '/',
@@ -35,7 +42,7 @@ const routes = [
       name: 'DashboardMain',
       component: DashboardMain,
     },
-
+   
 
   ]
 },

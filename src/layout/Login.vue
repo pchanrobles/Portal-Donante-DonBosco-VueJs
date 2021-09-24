@@ -23,14 +23,14 @@
               <v-form>
                 <v-text-field
                               outline
-                              label="Username"
+                              label="DNI"
                               type="text"
-                              v-model="username"></v-text-field>
+                              v-model="dni"></v-text-field>
                 <v-text-field
                               outline
                               hide-details
-                              label="Password"
-                              type="password"
+                              label="Contraseña"
+                              type="Contraseña"
                               v-model="password"></v-text-field>
               </v-form>
             </v-card-text>
@@ -42,16 +42,31 @@
                      
                         <v-checkbox label="Recordar contraseña"></v-checkbox>
                         
-                        <v-btn  color="info" :large="$vuetify.breakpoint.smAndUp">
+                        <v-btn  @click="show" color="info" :large="$vuetify.breakpoint.smAndUp">
                             Login
                         </v-btn>
                     </div>
 
                     <v-spacer></v-spacer>
                     
-                    <v-btn color="info" text>
+                    <v-btn @click="redirectToForgot" color="info" text>
                         ¿Se te olvidó tu contraseña?
                     </v-btn>
+                    <v-btn @click="redirectToRegister" color="info" text>
+                        Registrarse
+                    </v-btn>
+
+                        
+                     
+      <div class="d-flex align-items-center">
+       <v-checkbox></v-checkbox>
+      <a href="https://fundaciondonbosco.es/politica-privacidad/" target="_blank">Política de Privacidad de Datos</a>
+      </div>
+            
+
+ 
+                    
+
                 </div>
             </v-card-actions>
           </v-card>
@@ -77,13 +92,13 @@ data () {
       darkTheme: true,
       platformName: 'Platform name',
       password: null,
-      username: null
+      dni: null
     }
   },
   methods: {
     login(){
       let data = {
-        email: this.email,
+        email: this.dni,
         password: this.password
       }
 
@@ -96,7 +111,21 @@ data () {
         .catch((errors) => {
           console.log(errors);
         })
-    }
+    },
+    show(){
+      console.log(this.dni, this.password)
+    },
+    redirectToForgot(){
+      this.$router.push({
+        path: "/forgot"
+      })
+    },
+    redirectToRegister(){
+      this.$router.push({
+        path: "/register"
+      })
+    },
+
   }
 
   }
@@ -105,9 +134,10 @@ data () {
 </script>
 
 <style>
-
-
-
+.check {
+width:30px;
+height:30px;
+}
 .v-application--wrap{
   justify-content: center !important;
   background-color:#DADCDE;
@@ -132,7 +162,10 @@ data () {
 
 
 }
-
+.v-input--selection-controls{
+  margin: 0!important;
+  padding: 0!important;
+}
 .v-card__actions {
     display: block;
  }
