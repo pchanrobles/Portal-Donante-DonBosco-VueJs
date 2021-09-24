@@ -63,7 +63,7 @@
                       align-items: center;
                     "
                   >
-                    <v-btn   @click="mostrar()" color="info" :large="$vuetify.breakpoint.smAndUp">
+                    <v-btn   @click="fire()" color="info" :large="$vuetify.breakpoint.smAndUp">
                       Enviar
                     </v-btn>
                   </div>
@@ -99,10 +99,27 @@ export default {
   methods: {
     mostrar() {
       console.log(this.dni,this.email)
-      }
+      },
+   
+      fire(){
+      this.$fire({
+      text: "Se ha enviado un enlace a su correo electronico.",
+      type: "success",
+      
+  }).then(r => {
+  console.log(r.value);
+  });
+ 
+      },
+    
+  
 
+
+
+        
+    }
      
-    },
+    
   
 };
 </script>
