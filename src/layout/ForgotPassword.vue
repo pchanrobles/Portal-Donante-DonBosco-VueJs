@@ -25,45 +25,52 @@
               </v-card-title>
               <v-divider></v-divider>
               <v-card-text>
-                <p>Inicie sesión</p>
-
+                <v-btn color="info" text> Restablecer contraseña </v-btn>
+                
                 <v-form>
                   <v-text-field
                     outline
-                    label="Username"
+                    hide-details
+                    label="DNI"
                     type="text"
-                    v-model="username"
+                    v-model="password"
                   ></v-text-field>
+
+                  
+
                   <v-text-field
                     outline
-                    hide-details
-                    label="Password"
-                    type="password"
-                    v-model="password"
+                    label="Email"
+                    type="text"
+                    v-model="username"
                   ></v-text-field>
                 </v-form>
               </v-card-text>
               <v-divider></v-divider>
               <v-card-actions :class="{ 'pa-3': $vuetify.breakpoint.smAndUp }">
                 <div
-                  style="display:flex; flex-direction:column; align-items:center;"
+                  style="
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                  "
                 >
                   <div
-                    style="display:flex; justify-content:space-between; width:100%; 
-                    align-items:center;"
+                    style="
+                      display: flex;
+                      justify-content: space-between;
+                      width: 100%;
+                      align-items: center;
+                    "
                   >
-                    <v-checkbox label="Recordar contraseña"></v-checkbox>
-
                     <v-btn color="info" :large="$vuetify.breakpoint.smAndUp">
-                      Login
+                      Enviar
                     </v-btn>
                   </div>
 
-                  <router-link to="./forgot" tag="button">
-                    <v-btn color="info" text>
-                      ¿Se te olvidó tu contraseña?
-                    </v-btn></router-link
-                  >
+                  <v-spacer></v-spacer>
+
+                  
                 </div>
               </v-card-actions>
             </v-card>
