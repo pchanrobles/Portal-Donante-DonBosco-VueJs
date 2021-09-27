@@ -49,7 +49,6 @@ const routes = [{
         component: DashboardMain,
       },
 
-
     ]
   },
 ]

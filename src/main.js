@@ -9,6 +9,9 @@ import vuetify from './plugins/vuetify'
 /* Fontawesome */
 import '@fortawesome/fontawesome-free/css/all.css'
 import '@fortawesome/fontawesome-free/js/all.js'
+import VueSimpleAlert from "vue-simple-alert";
+
+Vue.use(VueSimpleAlert);
 
 /* Bootstrap CSS */
 import 'bootstrap';
