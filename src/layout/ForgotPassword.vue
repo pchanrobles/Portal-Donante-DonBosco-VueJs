@@ -16,11 +16,7 @@
                       <h4 class="donante">PORTAL DONANTE</h4>
                       <v-img
                         class="bosco"
-<<<<<<< HEAD
                         src="../assets/bosco.png"
-=======
-                        src="@/assets/bosco.png"
->>>>>>> origin/dani
                         alt="imagen Don bosco"
                       ></v-img>
                     </div>
@@ -37,11 +33,7 @@
                     hide-details
                     label="DNI"
                     type="text"
-<<<<<<< HEAD
-                    v-model="password"
-=======
                     v-model="dni"
->>>>>>> origin/dani
                   ></v-text-field>
 
                   
@@ -50,11 +42,7 @@
                     outline
                     label="Email"
                     type="text"
-<<<<<<< HEAD
-                    v-model="username"
-=======
                     v-model="email"
->>>>>>> origin/dani
                   ></v-text-field>
                 </v-form>
               </v-card-text>
@@ -75,11 +63,7 @@
                       align-items: center;
                     "
                   >
-<<<<<<< HEAD
-                    <v-btn color="info" :large="$vuetify.breakpoint.smAndUp">
-=======
                     <v-btn   @click="fire()" color="info" :large="$vuetify.breakpoint.smAndUp">
->>>>>>> origin/dani
                       Enviar
                     </v-btn>
                   </div>
@@ -101,41 +85,12 @@
 </template>
 
 <script>
-<<<<<<< HEAD
-import AuthService from "@/services/AuthService.js";
-=======
-
->>>>>>> origin/dani
 
 export default {
   data() {
     return {
       darkTheme: true,
       platformName: "Platform name",
-<<<<<<< HEAD
-      password: null,
-      username: null,
-    };
-  },
-  methods: {
-    login() {
-      let data = {
-        email: this.email,
-        password: this.password,
-      };
-
-      AuthService.login(data)
-        .then((res) => {
-          console.log(res);
-          localStorage.setItem("TokenFIRE", res.data.token);
-          localStorage.setItem("Usuario", res.data.Usuario.name);
-        })
-        .catch((errors) => {
-          console.log(errors);
-        });
-    },
-  },
-=======
       dni: null,
       email: null,
     };
@@ -165,7 +120,6 @@ export default {
      
     
   
->>>>>>> origin/dani
 };
 </script>
 
