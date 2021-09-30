@@ -1,40 +1,43 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import DashboardLayout from '../layout/DashboardLayout.vue'
-import DashboardMain from '../views/DashboardMain.vue'
-import Register from '../layout/Register.vue'
 import Login from '../layout/Login.vue'
 
 
 Vue.use(VueRouter)
 
 const routes = [
-  
-  {
-  path: '/register',
-  name: 'Register',
-  component: Register,
-  },
-  {
-  path: '/login',
+{
+  path: '/',
   name: 'Login',
   component: Login,
-  },
+},
   {
-  path: '/',
-  name: 'DashboardLayout',
-  component: DashboardLayout,
+    path: '/register',
+    name: 'Register',
+    component: () => import('../layout/Register.vue'),
+  },
 
-  children: [
+  {
+    path: '/forgot',
+    name: 'ForgotPassword',
+    component: () => import('../layout/ForgotPassword.vue'),
+  },
 
-    {
-      path: '/',
-      name: 'DashboardMain',
-      component: DashboardMain,
-    },
+  {
+    path: '/dashboard',
+    name: 'DashboardLayout',
+    component: () => import('../layout/DashboardLayout.vue'),
 
-  ]
-}, ]
+    children: [
+      {
+        path: '/dashboard',
+        name: 'DashboardMain',
+        component: () => import('../views/DashboardMain.vue'),
+      },
+
+    ]
+  },
+]
 
 const router = new VueRouter({
   mode: 'history',
