@@ -1,52 +1,59 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import DashboardLayout from '../layout/DashboardLayout.vue'
-import DashboardMain from '../views/DashboardMain.vue'
 import Login from '../layout/Login.vue'
 import ForgotPassword from '../layout/ForgotPassword.vue'
 import Formulario from '../layout/Formulario.vue'
 
 
+
+
+
 Vue.use(VueRouter)
+
+
 const routes = [
+
   {
 
-  path: '/login',
-  name: 'Login',
-  component: Login,
-  
-},
+    path: '/login',
+    name: 'Login',
+    component: Login,
 
-{
+  },
+    
+  {
 
-  path: '/forgot',
-  name: 'ForgotPassword',
-  component: ForgotPassword,
-},
+    path: '/forgot',
+    name: 'ForgotPassword',
+    component: ForgotPassword,
+  },
 
-{
+  {
 
-  path: '/formulario',
-  name: 'Formulario',
-  component: Formulario,
-},
+    path: '/formulario',
+    name: 'Formulario',
+    component: Formulario,
+  },
 
-{
-  path: '/',
-  name: 'DashboardLayout',
-  component: DashboardLayout,
+  {
+    path: '/',
+    name: 'DashboardLayout',
+    component: () => import(/* webpackChunkName: "DashboardLayout" */ '../layout/DashboardLayout.vue'),
 
-  children: [
+    children: [
+      {
+        path: '/',
+        name: 'Inicio',
+        component: () => import(/* webpackChunkName: "DashboardMain" */ '../views/DashboardMain.vue'),
 
-    {
-      path: '/',
-      name: 'DashboardMain',
-      component: DashboardMain,
-    },
+      },
+
+      
 
 
-  ]
-},
+     
+    ]
+  },
 ]
 
 const router = new VueRouter({

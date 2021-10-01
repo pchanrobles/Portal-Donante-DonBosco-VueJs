@@ -26,23 +26,21 @@
               <v-divider></v-divider>
               <v-card-text>
                 <v-btn color="info" text> Restablecer contraseña </v-btn>
-                
+
                 <v-form>
                   <v-text-field
                     outline
                     hide-details
                     label="DNI"
                     type="text"
-                    v-model="password"
+                    v-model="dni"
                   ></v-text-field>
-
-                  
 
                   <v-text-field
                     outline
                     label="Email"
                     type="text"
-                    v-model="username"
+                    v-model="email"
                   ></v-text-field>
                 </v-form>
               </v-card-text>
@@ -63,14 +61,16 @@
                       align-items: center;
                     "
                   >
-                    <v-btn color="info" :large="$vuetify.breakpoint.smAndUp">
+                    <v-btn
+                      @click="fire()"
+                      color="info"
+                      :large="$vuetify.breakpoint.smAndUp"
+                    >
                       Enviar
                     </v-btn>
                   </div>
 
                   <v-spacer></v-spacer>
-
-                  
                 </div>
               </v-card-actions>
             </v-card>
@@ -85,33 +85,27 @@
 </template>
 
 <script>
-import AuthService from "@/services/AuthService.js";
-
 export default {
   data() {
     return {
       darkTheme: true,
       platformName: "Platform name",
-      password: null,
-      username: null,
+      dni: null,
+      email: null,
     };
   },
   methods: {
-    login() {
-      let data = {
-        email: this.email,
-        password: this.password,
-      };
+    mostrar() {
+      console.log(this.dni, this.email);
+    },
 
-      AuthService.login(data)
-        .then((res) => {
-          console.log(res);
-          localStorage.setItem("TokenFIRE", res.data.token);
-          localStorage.setItem("Usuario", res.data.Usuario.name);
-        })
-        .catch((errors) => {
-          console.log(errors);
-        });
+    fire() {
+      this.$fire({
+        text: "Se ha enviado un enlace a su correo electronico.",
+        type: "success",
+      }).then((r) => {
+        console.log(r.value);
+      });
     },
   },
 };
@@ -134,7 +128,6 @@ export default {
   position: relative;
   transition: inherit;
 }
-
 .v-card__actions {
   display: block;
 }

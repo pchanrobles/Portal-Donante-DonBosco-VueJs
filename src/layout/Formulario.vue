@@ -1,6 +1,16 @@
 <template>
   <div id="app">
-      <br><h2>DATOS DEL DONANTE</h2>
+       <div>
+                     <br><br> <h2 class="donante">PORTAL DONANTE</h2>
+                     <br>
+                      <v-img
+                        class="bosco"
+                        src="@/assets/bosco.png"
+                        alt="imagen Don bosco"
+                      ></v-img>
+                        <br><h4>DATOS DEL DONANTE</h4>
+                    </div>
+    
   <v-app id="inspire">
     <v-row justify="center">
       <v-col
@@ -171,9 +181,15 @@ export default {
 </script>
 
 <style>
-h2{
-    color: red;
-    text-align: center;
+
+h4{
+    margin-left: 40%;
+    color: slategrey;
 }
+.bosco {
+  height: 10%;  
+  width: 10%;
+  margin-left: 8%;
+  }
 
 </style>

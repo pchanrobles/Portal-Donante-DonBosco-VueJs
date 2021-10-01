@@ -1,11 +1,11 @@
 <template>
-<div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut, qui dolor placeat, consectetur hic alias atque voluptate eaque inventore magni distinctio earum cupiditate velit sapiente neque assumenda, repellat porro commodi.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut, qui dolor placeat, consectetur hic alias atque voluptate eaque inventore magni distinctio earum cupiditate velit sapiente neque assumenda, repellat porro commodi.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut, qui dolor placeat, consectetur hic alias atque voluptate eaque inventore magni distinctio earum cupiditate velit sapiente neque assumenda, repellat porro commodi.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut, qui dolor placeat, consectetur hic alias atque voluptate eaque inventore magni distinctio earum cupiditate velit sapiente neque assumenda, repellat porro commodi.</div>
+  <div>
+    <!-- <router-link to="Profile">PERFIL</router-link>||
+    <router-link to="DashboardMain">INICIO</router-link> -->
+
+
+    <!-- <v-img class="img" src="@/assets/logoP.png" alt="Don bosco"></v-img> -->
+  </div>
 </template>
 
-<script>
 
-
-  export default {
-
-  }
-</script>
