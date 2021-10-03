@@ -1,26 +1,21 @@
 <template>
   <v-app>
     <v-stepper class="h-100" v-model="page">
-      <v-img
-        class="mb-5 mt-5 "
-        max-height="10%"
-        max-width="100%"
-        src="../assets/bosco.png"
-      ></v-img>
+      <v-img class=" picture mb-5 mt-5 " src="../assets/bosco.png"></v-img>
       <v-stepper-header class="headerstep">
         <v-stepper-step :complete="page > 1" step="1">
-          Datos Personales
+          Datos sobre donación
         </v-stepper-step>
 
         <v-divider></v-divider>
 
         <v-stepper-step :complete="page > 2" step="2">
-          Dirección
+          Datos personales
         </v-stepper-step>
 
         <v-divider></v-divider>
 
-        <v-stepper-step step="3"> Datos sobre donación </v-stepper-step>
+        <v-stepper-step step="3"> Dirección </v-stepper-step>
       </v-stepper-header>
 
       <!--STEPPER STEPS STARTS-------------------------------------------------------------------------->
@@ -264,6 +259,22 @@
                   required
                 ></v-text-field>
               </validation-provider>
+
+              <!--  DNI --------------------------------->
+              <validation-provider
+                v-slot="{ errors }"
+                name="DNI"
+                rules="DNI1|NIE1"
+              >
+                <v-text-field
+                  v-model="form.dni"
+                  :error-messages="errors"
+                  label="DNI"
+                  :counter="9"
+                  required
+                ></v-text-field>
+              </validation-provider>
+
               <!--  EMAIL --------------------------------->
               <validation-provider
                 v-slot="{ errors }"
@@ -281,7 +292,7 @@
               <v-btn
                 class="mr-4"
                 color="primary"
-                @click="page = 2"
+                @click="page = 3"
                 :disabled="invalid"
               >
                 Continuar
@@ -305,13 +316,13 @@
             <v-text-field
               v-model="form.bankAccount"
               :counter="10"
-              label="Name"
+              label="Cuenta Bancaria"
               required
             ></v-text-field>
 
             <v-text-field
               v-model="form.nameBank"
-              label="E-mail"
+              label="Nombre del Banco"
               required
             ></v-text-field>
 
@@ -334,9 +345,6 @@
 </template>
 
 <script>
-import Vue from "vue";
-import Vuetify from "vuetify/lib";
-
 Vue.use(Vuetify);
 const vuetify = new Vuetify({
   theme: {
@@ -353,6 +361,8 @@ const vuetify = new Vuetify({
     },
   },
 });
+import Vue from "vue";
+import Vuetify from "vuetify/lib";
 import { required, digits, email, max, regex } from "vee-validate/dist/rules";
 import {
   extend,
@@ -361,12 +371,56 @@ import {
   setInteractionMode,
 } from "vee-validate";
 
+function DNI(value) {
+  var nifRexp = /^[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKET]$/i;
+  var nieRexp = /^[XYZ][0-9]{7}[TRWAGMYFPDXBNJZSQVHLCKET]$/i;
+  var dni1 = value.toString().toUpperCase();
+
+  if (!nifRexp.test(dni1) && !nieRexp.test(dni1)) {
+    return false;
+  } else {
+    return true;
+  }
+}
+
+extend("DNI1", (dni) => {
+  return DNI(dni);
+});
+
+function NIE(value) {
+  var validChars = "TRWAGMYFPDXBNJZSQVHLCKET";
+  var dni1 = value.toString().toUpperCase();
+  var nie = dni1
+    .replace(/^[X]/, "0")
+    .replace(/^[Y]/, "1")
+    .replace(/^[Z]/, "2");
+
+  var letter = dni1.substr(-1);
+  var charIndex = parseInt(nie.substr(0, 8)) % 23;
+
+  if (validChars.charAt(charIndex) === letter) {
+    return true;
+  } else {
+    return false, "Debe ser un Nif o Nie válido";
+  }
+}
+
+extend("NIE1", (dni) => {
+  return NIE(dni);
+});
+
 setInteractionMode("eager");
+
+extend ('iban', {
+    validate: (str) => {
+        return IBAN.isValid (str);
+    },
+    message: 'This is not a valid IBAN'
+});
 
 extend("digits", {
   ...digits,
-  message:
-    "{_field_} tiene que ser de {length} dígitos. Y sólo puede contener números ({_value_})",
+  message: "{_field_} tiene que ser de {length} dígitos ({_value_})",
 });
 
 extend("required", {
@@ -381,7 +435,7 @@ extend("max", {
 
 extend("regex", {
   ...regex,
-  message: "{_value_} no es un número de teléfono válido",
+  message: "{_value_} no es válido",
 });
 
 extend("email", {
@@ -392,11 +446,13 @@ export default {
   components: {
     ValidationProvider,
     ValidationObserver,
+    IbanInput: () => import('@/components/IbanInput.vue')
   },
 
   data: () => ({
     page: 1,
     form: {
+      dni: null,
       otraCantidad: "",
       radio: "",
       cuota: null,
@@ -476,7 +532,7 @@ export default {
   }),
   methods: {
     show() {
-      console.log(this.form.radio);
+      console.log(this.form);
     },
     clear() {
       this.name = "";
@@ -492,6 +548,12 @@ export default {
 </script>
 
 <style>
+.picture {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 9%;
+}
 .primary {
   background-color: #f8576a !important;
 }
