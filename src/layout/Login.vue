@@ -1,6 +1,10 @@
 <template>
 
   <div id="app">
+     <div>
+    <v-btn color="blue" text> <a href="/"><i class="fas fa-arrow-circle-left"></i> INICIO</a>           
+              </v-btn>
+  </div>
   <v-app :class="{ 'pa-3': $vuetify.breakpoint.smAndUp }" :dark="darkTheme" id="inspire">
     <v-container>
       <v-layout wrap>
