@@ -6,6 +6,11 @@ import store from './store'
 /* Vuetify */
 import vuetify from './plugins/vuetify'
 
+
+// Prefered: as a plugin (directive + filter) + custom placeholders support
+import VueMask from 'v-mask'
+Vue.use(VueMask);
+
 /* Fontawesome */
 import '@fortawesome/fontawesome-free/css/all.css'
 import '@fortawesome/fontawesome-free/js/all.js'
