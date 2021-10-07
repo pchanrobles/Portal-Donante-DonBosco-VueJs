@@ -1,9 +1,27 @@
 <template>
 <div id="app">
-  <div>
-    <v-btn color="blue" text> <a href="/"><i class="fas fa-arrow-circle-left"></i> INICIO</a>           
-              </v-btn>
-  </div>
+  <div style="margin-top: 10px; display: flex;
+  justify-content: center">
+      <v-btn style="background-color: #dc001b">
+        <a href="/" style="color: white">
+        <i class="fas fa-laptop-house"></i> INICIO</a>
+      </v-btn>
+
+      <!-- <v-btn style="background-color: #dc001b">
+        <a href="./Login" style="color: white">
+        <i class="fas fa-user-astronaut"></i> LOGIN</a>
+      </v-btn> -->
+
+      <v-btn style="background-color: #dc001b">
+        <a href="./Preguntas" style="color: white">
+        <i class="far fa-question-circle"></i> Preguntas Frecuentes</a>
+      </v-btn>
+
+      <v-btn style="background-color: #dc001b">
+        <a href="./Releases" style="color: white">
+        <i class="fas fa-bell"></i>Comunicados</a>
+      </v-btn>
+    </div>
 
   <div class="container mt-5">
     <div class="row d-flex justify-content-center">
@@ -28,12 +46,21 @@
         </div>
     </div>
 </div>
-
+<Footer></Footer>
 </div>
   
   
 </template>
+<script>
 
+import Footer from "../components/Footer.vue";
+
+export default {
+  components: {
+    Footer,
+  },
+};
+</script>
 
 <style>
 body {

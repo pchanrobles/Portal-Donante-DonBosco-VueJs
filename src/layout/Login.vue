@@ -1,173 +1,180 @@
 <template>
-
   <div id="app">
-     <div>
-    <v-btn color="blue" text> <a href="/"><i class="fas fa-arrow-circle-left"></i> INICIO</a>           
-              </v-btn>
-  </div>
-  <v-app :class="{ 'pa-3': $vuetify.breakpoint.smAndUp }" :dark="darkTheme" id="inspire">
-    <v-container>
-      <v-layout wrap>
-        <v-flex sm12 md6 offset-md3>
-          <v-card elevation="4" light tag="section">
-            <v-card-title>
-              <v-layout align-center justify-space-between>
-                <h3 class="headline">
-                 <div><h4 class="donante">PORTAL DONANTE</h4>   <v-img class="bosco" src="@/assets/bosco.png" alt="imagen Don bosco"></v-img></div>
-                
-                </h3>
-               
-              </v-layout>
-            </v-card-title>
-            <v-divider></v-divider>
-            <v-card-text>
-              <p>Inicie sesión</p>
-        
+    <div style="background-color: #dc001b; height: 90px; margin-top: 0px; display: flex;
+                justify-content: center">
+      
+      <v-btn style="background-color: #dc001b; margin-top:15px;">
+        <a href="/" style="color: white">
+        <i class="fas fa-laptop-house"></i></i> INICIO</a>
+      </v-btn>
 
-              <v-form>
-                <v-text-field
-                              outline
-                              label="DNI"
-                              type="text"
-                              v-model="dni"></v-text-field>
-                <v-text-field
-                              outline
-                              hide-details
-                              label="Contraseña"
-                              type="Contraseña"
-                              v-model="password"></v-text-field>
-              </v-form>
-            </v-card-text>
-            <v-divider></v-divider>
-            <v-card-actions :class="{ 'pa-3': $vuetify.breakpoint.smAndUp }">
-                <div style="display:flex; flex-direction:column; align-items:center;">
-                    <div style="display:flex; justify-content:space-between; width:100%; 
-                    align-items:center;">
-                     
-                        <v-checkbox label="Recordar contraseña"></v-checkbox>
-                        
-                        <v-btn  @click="show" color="info" :large="$vuetify.breakpoint.smAndUp">
-                            Login
-                        </v-btn>
+      <v-btn style="background-color: #dc001b; margin-top:15px;">
+        <a href="./news" style="color: white">
+        <i class="far fa-file-alt"></i> News</a>
+      </v-btn>
+
+      <v-btn style="background-color: #dc001b; margin-top:15px;">
+        <a href="./Preguntas" style="color: white">
+        <i class="far fa-question-circle"></i> Preguntas Frecuentes</a>
+      </v-btn>
+
+      <v-btn style="background-color: #dc001b; margin-top:15px;">
+        <a href="./Releases" style="color: white">
+        <i class="fas fa-bell"></i>Comunicados</a>
+      </v-btn>
+    </div>
+    <v-app
+      :class="{ 'pa-3': $vuetify.breakpoint.smAndUp }"
+      :dark="darkTheme"
+      id="inspire"
+    >
+      <v-container style="margin-top:60px;">
+        <v-layout wrap>
+          <v-flex sm12 md6 offset-md3>
+            <v-card elevation="4" light tag="section">
+              <v-card-title>
+                <v-layout align-center justify-space-between>
+                  <h3 class="headline">
+                    <div>
+                      <v-img style="display: flex !important;
+                                    margin-left: 40%;
+                                    justify-content: center !important; 
+                                    height: 20% !important; 
+                                    width: 20% !important;"
+                        src="@/assets/bosco.png"
+                        alt="imagen Don bosco"></v-img>
+                      <h4 style="color: #dc001b; text-align: center;">PORTAL DONANTE</h4>
                     </div>
+                  </h3>
+                </v-layout>
+              </v-card-title>
+              <v-divider></v-divider>
+              <v-card-text>
+                <p>Inicie sesión</p>
 
-                    <v-spacer></v-spacer>
-                    
-                    <v-btn @click="redirectToForgot" color="info" text>
-                        ¿Se te olvidó tu contraseña?
+                <v-form>
+                  <v-text-field
+                    outline
+                    label="DNI"
+                    type="text"
+                    v-model="dni"
+                  ></v-text-field>
+                  <v-text-field
+                    outline
+                    hide-details
+                    label="Contraseña"
+                    type="Contraseña"
+                    v-model="password"
+                  ></v-text-field>
+                </v-form>
+              </v-card-text>
+              <v-divider></v-divider>
+              <v-card-actions :class="{ 'pa-3': $vuetify.breakpoint.smAndUp }">
+                <div
+                  style="
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    width: 100%">
+                  <div
+                    style="
+                      display: flex;
+                      justify-content: space-between;
+                      width: 100%;                      
+                      align-items: center;">
+                    <v-checkbox label="Recordar contraseña"></v-checkbox>
+
+                    <v-btn
+                      @click="show"
+                      color="info"
+                      :large="$vuetify.breakpoint.smAndUp">
+                      Login
                     </v-btn>
-                    <v-btn @click="redirectToRegister" color="info" text>
-                        Registrarse
-                    </v-btn>
+                  </div>
 
-                        
-                     
-      <div class="d-flex align-items-center">
-       <v-checkbox></v-checkbox>
-      <a href="https://fundaciondonbosco.es/politica-privacidad/" target="_blank">Política de Privacidad de Datos</a>
-      </div>
-            
+                  <v-spacer></v-spacer>
 
- 
-                    
+                  <v-btn @click="redirectToForgot" color="info" text>
+                    ¿Se te olvidó tu contraseña?
+                  </v-btn>
+                  <v-btn @click="redirectToRegister" color="info" text>
+                    Registrarse
+                  </v-btn>
 
+                  <div class="d-flex align-items-center">
+                    <v-checkbox></v-checkbox>
+                     <a href="https://fundaciondonbosco.es/politica-privacidad/"
+                      target="_blank"> Política de Privacidad de Datos</a>
+                  </div>
                 </div>
-            </v-card-actions>
-          </v-card>
-        </v-flex>
-        <v-flex sm12 md6 offset-md3>
-          <v-layout align-center justify-space-between>
-          </v-layout>
-        </v-flex>
-      </v-layout>
-    </v-container>
-  </v-app>
-</div>
-                                
-
+              </v-card-actions>
+            </v-card>
+          </v-flex>
+          <v-flex sm12 md6 offset-md3>
+            <v-layout align-center justify-space-between> </v-layout>
+          </v-flex>
+        </v-layout>
+      </v-container>
+    </v-app>
+    <Footer></Footer>
+  </div>
 </template>
 
 <script>
+import Footer from "../components/Footer.vue";
 import AuthService from "@/services/AuthService.js";
 export default {
-data () {
+  components: {
+    Footer,
+  },
+  data() {
     return {
       darkTheme: true,
-      platformName: 'Platform name',
+      platformName: "Platform name",
       password: null,
-      dni: null
-    }
+      dni: null,
+    };
   },
   methods: {
-    login(){
+    login() {
       let data = {
         email: this.dni,
-        password: this.password
-      }
+        password: this.password,
+      };
       AuthService.login(data)
-      .then(res =>{
-        console.log(res)
-        localStorage.setItem('TokenFIRE',res.data.token)
-        localStorage.setItem('Usuario',res.data.Usuario.name)
+        .then((res) => {
+          console.log(res);
+          localStorage.setItem("TokenFIRE", res.data.token);
+          localStorage.setItem("Usuario", res.data.Usuario.name);
         })
         .catch((errors) => {
           console.log(errors);
-        })
+        });
     },
-    show(){
-      console.log(this.dni, this.password)
+    show() {
+      console.log(this.dni, this.password);
     },
-    redirectToForgot(){
+    redirectToForgot() {
       this.$router.push({
-        path: "/forgot"
-      })
+        path: "/forgot",
+      });
     },
-    redirectToRegister(){
+    redirectToRegister() {
       this.$router.push({
-        path: "/register"
-      })
+        path: "/register",
+      });
     },
-  }
-  }
-   
+  },
+};
 </script>
 
 <style>
 .check {
-width:30px;
-height:30px;
+  width: 30px;
+  height: 30px;
 }
-.v-application--wrap{
-  justify-content: center !important;
-  background-color:#DADCDE;
+
+.layout {
+  display: unset !important;
 }
-.bosco{
-  height: 20%;
-  width: 20%;
-  position: relative;
-  left: 38%;
-}
-.donante{
-   
-    color:#DC001B ;
-    align-items: center;
-    display: flex;
-    flex: 1 0 auto;
-    justify-content: center;
-    line-height: normal;
-    position: relative;
-    transition: inherit;
-    
-}
-.v-input--selection-controls{
-  margin: 0!important;
-  padding: 0!important;
-}
-.v-card__actions {
-    display: block;
- }
- .layout{
-   display: unset !important;
- }
- 
 </style>

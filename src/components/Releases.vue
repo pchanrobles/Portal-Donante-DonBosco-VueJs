@@ -1,17 +1,39 @@
 <template>
-  <div>
-    <div style="margin-left: 50px" id="app">
-      <v-btn color="red" text>
-        <a href="/"><i class="fas fa-arrow-circle-left"></i> INICIO</a>
-      </v-btn>
-    </div>
-    <v-card
+  <div style="background-color: #dc001b;">
+    <h2 style="color: white; text-align: center;"><br>COMUNICADOS</h2>
+    <div >
+    <v-card 
+    
       style="margin-top: 50px; margin-left: 5%"
       :loading="loading"
       class="mx-auto my-12"
       max-width="500;"
     >
-      <v-card-title>Comunicado</v-card-title>
+    <div>
+      <div style="display: flex;
+                justify-content: center; margin-top:0px;">
+      <v-btn style="background-color: #dc001b; margin-top:15px;">
+        <a href="/" style="color: white">
+        <i class="fas fa-laptop-house"></i></i> INICIO</a>
+      </v-btn>
+
+      <!-- <v-btn style="background-color: #dc001b; margin-top:15px;">
+        <a href="./Login" style="color: white">
+        <i class="fas fa-user-astronaut"></i> LOGIN</a>
+      </v-btn> -->
+
+      <v-btn style="background-color: #dc001b; margin-top:15px;">
+        <a href="./Preguntas" style="color: white">
+        <i class="far fa-question-circle"></i> Preguntas Frecuentes</a>
+      </v-btn>
+
+      <v-btn style="background-color: #dc001b; margin-top:15px;">
+        <a href="./Profile" style="color: white">
+        <i class="fas fa-user-astronaut"></i>PERFIL</a>
+      </v-btn>
+    </div>
+    </div>
+      <v-card-title>Comunicado</v-card-title><br>
 
       <v-card-text>
         <v-row align="center" class="mx-0"> </v-row>
@@ -37,6 +59,17 @@
            Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, veniam explicabo minus fugiat, quia expedita modi et doloremque accusamus, placeat tenetur error ducimus commodi quasi suscipit numquam iste at quam.
        </p>
       </v-card-text>
-    </v-card>
+    </v-card></div>
+    <Footer> </Footer>
   </div>
 </template>
+
+<script>
+import Footer from "../components/Footer.vue";
+
+export default {
+  components: {
+    Footer,
+  },
+};
+</script>

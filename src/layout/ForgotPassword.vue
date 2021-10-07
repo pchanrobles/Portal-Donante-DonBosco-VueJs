@@ -1,5 +1,29 @@
 <template>
   <div id="app">
+    <div style="margin-top: 10px; display: flex;
+                justify-content: center">
+      <v-btn style="background-color: #dc001b">
+        <a href="/" style="color: white">
+        <i class="fas fa-laptop-house"></i>
+        INICIO</a>
+      </v-btn>
+
+      <v-btn style="background-color: #dc001b">
+        <a href="./Login" style="color: white">
+        <i class="fas fa-user-astronaut"></i> LOGIN</a>
+      </v-btn>
+
+      <v-btn style="background-color: #dc001b">
+        <a href="./preguntas" style="color: white">        
+        <i class="far fa-question-circle"></i> Preguntas Frecuentes</a>
+      </v-btn>
+
+      <v-btn style="background-color: #dc001b">
+        <a href="./releases" style="color: white">
+        <i class="fas fa-bell"></i>Comunicados</a>
+      </v-btn>
+    </div>
+
     <v-app
       :class="{ 'pa-3': $vuetify.breakpoint.smAndUp }"
       :dark="darkTheme"
@@ -13,12 +37,12 @@
                 <v-layout align-center justify-space-between>
                   <h3 class="headline">
                     <div>
-                      <h4 class="donante">PORTAL DONANTE</h4>
                       <v-img
                         class="bosco"
                         src="@/assets/bosco.png"
                         alt="imagen Don bosco"
                       ></v-img>
+                      <h4 class="donante">PORTAL DONANTE</h4>
                     </div>
                   </h3>
                 </v-layout>
@@ -81,11 +105,16 @@
         </v-layout>
       </v-container>
     </v-app>
+    <Footer></Footer>
   </div>
 </template>
 
 <script>
+import Footer from "../components/Footer.vue";
 export default {
+  components: {
+    Footer,
+  },
   data() {
     return {
       darkTheme: true,
@@ -119,7 +148,7 @@ export default {
   left: 38%;
 }
 .donante {
-  color: red;
+  color: #dc001b;
   align-items: center;
   display: flex;
   flex: 1 0 auto;
