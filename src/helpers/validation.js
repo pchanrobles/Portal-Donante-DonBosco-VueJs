@@ -226,12 +226,13 @@ extend("ibanCheck", (iban) => {
                 return false, "Debe escribir un IBAN válido";
         }
 });
-extend("radioInput", (radio) => {
-        if (radio !== null) {
-                return true;
-        } else {
-                return false, "Debe seleccionar alguno";
-        }
+extend("radioInput", (a,b) => {
+        console.log(a,b)
+        // if (btn10 !== null && btn20 !== null && btn30 !== null && btnOtra !== null) {
+        //         return true;
+        // } else {
+        //         return false, "Debe seleccionar alguno";
+        // }
 });
 
 extend("digits", {
