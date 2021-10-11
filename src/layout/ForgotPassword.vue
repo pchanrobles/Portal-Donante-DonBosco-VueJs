@@ -85,8 +85,6 @@
 </template>
 
 <script>
-
-
 export default {
   data() {
     return {
@@ -102,6 +100,7 @@ export default {
       },
    
       fire(){
+        
       this.$fire({
       text: "Se ha enviado un enlace a su correo electronico.",
       type: "success",
@@ -111,16 +110,8 @@ export default {
   });
  
       },
-    
-  
-
-
-
         
-    }
-     
-    
-  
+    } 
 };
 </script>
 

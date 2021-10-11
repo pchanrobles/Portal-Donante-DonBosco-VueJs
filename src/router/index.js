@@ -6,7 +6,7 @@ import Login from '../layout/Login.vue'
 import ForgotPassword from '../layout/ForgotPassword.vue'
 import Register from '../layout/Register.vue'
 import Privacy from '../layout/Privacy.vue'
-
+import NotFound from '../views/NotFound.vue'
 
 
 Vue.use(VueRouter)
@@ -16,6 +16,14 @@ const routes = [
   path: '/login',
   name: 'Login',
   component: Login,
+  
+},
+
+{
+
+  path: '/:CatchAll(.*)',
+  name: 'NotFound',
+  component: NotFound,
   
 },
 

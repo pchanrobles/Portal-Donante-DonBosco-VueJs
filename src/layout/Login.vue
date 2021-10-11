@@ -52,10 +52,10 @@
                     style="display:flex; justify-content:space-between; width:100%; 
                     align-items:center;"
                   >
-                    <v-checkbox label="Recordar contraseña"></v-checkbox>
+                    <v-checkbox  v-model="remember" label="Recordar contraseña"></v-checkbox>
 
                     <v-btn
-                      @click="show"
+                      @click="login"
                       color="info"
                       :large="$vuetify.breakpoint.smAndUp"
                     >
@@ -103,20 +103,24 @@ export default {
       platformName: "Platform name",
       password: null,
       dni: null,
+      remember:false,
     };
   },
   methods: {
     login() {
-      let data = {
-        email: this.dni,
+      const data = {
+        dni: this.dni,
         password: this.password,
+        remember_token: this.remember,
       };
-
+console.log(data)
       AuthService.login(data)
         .then((res) => {
           console.log(res);
-          localStorage.setItem("TokenFIRE", res.data.token);
-          localStorage.setItem("Usuario", res.data.Usuario.name);
+          localStorage.setItem("token", res.data.token);
+          localStorage.setItem("usuario", JSON.stringify(res.data.usuario));
+          this.redirectToDashboard();
+         
         })
         .catch((errors) => {
           console.log(errors);
@@ -133,6 +137,11 @@ export default {
     redirectToRegister() {
       this.$router.push({
         path: "/register",
+      });
+    },
+    redirectToDashboard() {
+      this.$router.push({
+        path: "/",
       });
     },
   },
