@@ -19,13 +19,7 @@ const routes = [
   
 },
 
-{
 
-  path: '/:CatchAll(.*)',
-  name: 'NotFound',
-  component: NotFound,
-  
-},
 
 {
 
@@ -61,6 +55,13 @@ const routes = [
    
 
   ]
+},
+{
+
+  path: '/:CatchAll(.*)',
+  name: 'NotFound',
+  component: NotFound,
+  
 },
 ]
 

@@ -141,7 +141,7 @@ console.log(data)
     },
     redirectToDashboard() {
       this.$router.push({
-        path: "/",
+        name: "DashboardMain",
       });
     },
   },
