@@ -38,7 +38,7 @@
                     outline
                     hide-details
                     label="Contraseña"
-                    type="Contraseña"
+                    type="password"
                     v-model="password"
                   ></v-text-field>
                 </v-form>
