@@ -52,7 +52,10 @@
                     style="display:flex; justify-content:space-between; width:100%; 
                     align-items:center;"
                   >
-                    <v-checkbox  v-model="remember" label="Recordar contraseña"></v-checkbox>
+                    <v-checkbox
+                      v-model="remember"
+                      label="Recordar contraseña"
+                    ></v-checkbox>
 
                     <v-btn
                       @click="login"
@@ -120,10 +123,11 @@ console.log(data)
           localStorage.setItem("token", res.data.token);
           localStorage.setItem("usuario", JSON.stringify(res.data.usuario));
           this.redirectToDashboard();
-         
+
         })
         .catch((errors) => {
           console.log(errors);
+          alert('Error vuelva introducir tus datos')
         });
     },
     show() {
@@ -143,7 +147,7 @@ console.log(data)
       this.$router.push({
         name: "DashboardMain",
       });
-    },
+     },
   },
 };
 </script>
