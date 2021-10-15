@@ -10,6 +10,13 @@ import {
 } from "vee-validate/dist/rules";
 
 
+extend("passwordMatch", (password, confirm_password) => {
+       if (password == confirm_password) {
+               return true;               
+       }else{
+               return false;
+       }
+});
 
 extend("ibanCheck", (iban) => {
         let IBAN = require('iban');
@@ -90,29 +97,19 @@ function validateCIF(cif) {
         }
 }
 
-extend('DocValido', (Documento, values) => {
+extend('DocValido', (documento, values) => {
 
         if (values[0] == 'DNI') {
-                return validateDNI(Documento)
+                return validateDNI(documento)
         }
 
         if (values[0] == 'NIE') {
-                return validateNIE(Documento)
+                return validateNIE(documento)
         }
 
         if (values[0] == 'CIF') {
-                return validateCIF(Documento)
+                return validateCIF(documento)
         }
-});
-
-
-extend("radioInput", (a,b) => {
-        console.log(a,b)
-        // if (btn10 !== null && btn20 !== null && btn30 !== null && btnOtra !== null) {
-        //         return true;
-        // } else {
-        //         return false, "Debe seleccionar alguno";
-        // }
 });
 
 extend("digits", {

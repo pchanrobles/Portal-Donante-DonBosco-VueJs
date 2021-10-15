@@ -323,6 +323,40 @@
               <validation-provider
                 v-if="page === 3"
                 v-slot="{ errors }"
+                name="Contraseña"
+                rules="required"
+              >
+                <v-text-field
+                  :append-icon="show3 ? 'mdi-eye' : 'mdi-eye-off'"
+                  :type="show3 ? 'text' : 'password'"
+                  @click:append="show3 = !show3"
+                  v-model="form.password"
+                  label="Contraseña"
+                  class="input-group--focused"
+                  :error-messages="errors"
+                ></v-text-field>
+              </validation-provider>
+
+              <validation-provider
+                v-if="page === 3"
+                v-slot="{ errors }"
+                name="Confirmar Contraseña"
+                :rules="'required|passwordMatch:' + form.password"
+              >
+                <v-text-field
+                  :append-icon="show3 ? 'mdi-eye' : 'mdi-eye-off'"
+                  :type="show3 ? 'text' : 'password'"
+                  @click:append="show3 = !show3"
+                  class="input-group--focused"
+                  v-model="form.confirm_password"
+                  label="Confirmar Contraseña"
+                  :error-messages="errors"
+                ></v-text-field>
+              </validation-provider>
+
+              <validation-provider
+                v-if="page === 3"
+                v-slot="{ errors }"
                 name="iban"
                 rules="required|ibanCheck"
               >
@@ -350,20 +384,35 @@
             <div class="text-center">
               <v-dialog v-model="dialogSuccess" width="50em">
                 <v-card>
-                  <v-card-title class="text-break text-h4 primary text-center text-white">
+                  <v-card-title
+                    class="text-break text-h4 primary text-center text-white"
+                  >
                     Formulario de registro enviado
                   </v-card-title>
 
                   <v-card-text class="mt-5">
-                    <span class="text-h6 text-center text-break">Su formulario de registro se ha enviado <span class="text-success font-weight-bold">correctamente.</span> <br><br>
-                    <span class="font-weight-bold text-black">Recibirá un correo</span> cuando su usuario sea validado.</span>
+                    <span class="text-h6 text-center text-break"
+                      >Su formulario de registro se ha enviado
+                      <span class="text-success font-weight-bold"
+                        >correctamente.</span
+                      >
+                      <br /><br />
+                      <span class="font-weight-bold text-black"
+                        >Recibirá un correo</span
+                      >
+                      cuando su usuario sea validado.</span
+                    >
                   </v-card-text>
 
                   <v-divider></v-divider>
 
                   <v-card-actions>
                     <v-spacer></v-spacer>
-                    <v-btn class="red accent-2 w-100 text-h6 text-white font-weight-bold" text @click="dialogSuccess = false, goToLogin()">
+                    <v-btn
+                      class="red accent-2 w-100 text-h6 text-white font-weight-bold"
+                      text
+                      @click="(dialogSuccess = false), goToLogin()"
+                    >
                       ACEPTAR
                     </v-btn>
                   </v-card-actions>
@@ -437,6 +486,7 @@ export default {
 
   data: () => ({
     page: 1,
+    show3: false,
     dialogSuccess: false,
     dialogWrong: false,
     otraCuota: false,
@@ -457,6 +507,8 @@ export default {
       email: "",
       nameBank: "",
       iban: null,
+      confirm_password: "",
+      password: "",
     },
     selectPais: null,
     countries: [
@@ -538,9 +590,9 @@ export default {
     checkbox: null,
   }),
   methods: {
-       goToLogin(){
-   this.$router.push('/'); 
-      },
+    goToLogin() {
+      this.$router.push("/");
+    },
     onSubmit() {
       if (this.page === 3) {
         //Llamada a API

@@ -26,9 +26,9 @@
                 <v-form>
                   <v-text-field
                     outline
-                    label="DNI"
+                    label="Documento de Identificación"
                     type="text"
-                    v-model="dni"
+                    v-model="documento"
                   ></v-text-field>
 
                   <v-text-field
@@ -36,7 +36,7 @@
                     :rules="[rules.required, rules.min]"
                     :type="show3 ? 'text' : 'password'"
                     label="Contraseña"
-                    hint="Debe contener al menos 8 carácteres"
+                    hint="Debe contener al menos 4 carácteres"
                     class="input-group--focused"
                     @click:append="show3 = !show3"
                     v-model="password"
@@ -56,7 +56,7 @@
                     ></v-checkbox>
 
                     <v-btn
-                      @click="show"
+                      @click="login()"
                       color="info"
                       :large="$vuetify.breakpoint.smAndUp"
                     >
@@ -673,11 +673,11 @@ export default {
     return {
       dialog: false,
       password: "",
-      dni: "",
+      documento: "",
       show3: false,
       rules: {
         required: (value) => !!value || "Requerido.",
-        min: (v) => v.length >= 8 || "Minimo 8 carácters",
+        min: (v) => v.length >= 4 || "Minimo 4 carácters",
         emailMatch: () => `El email o la contraseña no coinciden`,
       },
     };
@@ -685,7 +685,7 @@ export default {
   methods: {
     login() {
       let data = {
-        email: this.dni,
+        documento: this.documento,
         password: this.password,
       };
 
@@ -693,14 +693,11 @@ export default {
         .then((res) => {
           console.log(res);
           localStorage.setItem("TokenFIRE", res.data.token);
-          localStorage.setItem("Usuario", res.data.Usuario.name);
+          localStorage.setItem("Usuario", res.data.usuario.name);
         })
         .catch((errors) => {
           console.log(errors);
         });
-    },
-    show() {
-      console.log(this.dni, this.password);
     },
     redirectToForgot() {
       this.$router.push({
