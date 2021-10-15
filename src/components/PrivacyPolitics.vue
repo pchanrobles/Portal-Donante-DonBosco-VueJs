@@ -1,9 +1,5 @@
-<template v-if="showPrivacy">
-  <div
-    width="100%"
-    class=" reconocer red lighten-4 rounded d-flex justify-content-center"
-  >
-    <v-dialog width="600px">
+<template>
+
       <v-card>
         <v-card-title>
           <span class="text-h7 text-black">Política de Privacidad</span>
@@ -459,8 +455,7 @@
           </v-btn>
         </v-card-actions>
       </v-card>
-    </v-dialog>
-  </div>
+
 </template>
 
 <script>

@@ -63,11 +63,18 @@
                       Entrar
                     </v-btn>
                   </div>
-                  <PrivacyPolitics />
+  <div
+    width="100%"
+    class=" reconocer red lighten-4 rounded d-flex justify-content-center"
+  >
+      <v-dialog v-model="dialog" width="600px">
+<Privacy-politics />
+    </v-dialog>
+  </div>
                   <v-btn @click="redirectToForgot" color="info" text>
                     ¿Se te olvidó tu contraseña?
                   </v-btn>
-                  <v-btn @click="mostrarComponente" color="info" text>
+                  <v-btn @click="dialog = true" color="info" text>
                     Registrarse
                   </v-btn>
                 </div>
@@ -111,7 +118,7 @@ export default {
   },
   data() {
     return {
-      showPrivacy: false,
+      dialog: false,
       password: "",
       documento: "",
       show3: false,
@@ -123,10 +130,10 @@ export default {
     };
   },
   methods: {
-    mostrarComponente(){
-      console.log("SE ESTA EJECUTANDO");
-      this.showPrivacy = true;
-      console.log(this.showPrivacy);
+        redirectToRegister() {
+      this.$router.push({
+        path: "/register",
+      });
     },
     login() {
       let data = {
