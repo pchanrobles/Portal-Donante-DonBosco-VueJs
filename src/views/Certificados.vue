@@ -1,5 +1,5 @@
 <template>
-  <h1>preguntas Frecuentes</h1>
+  
 </template>
 
 <script>

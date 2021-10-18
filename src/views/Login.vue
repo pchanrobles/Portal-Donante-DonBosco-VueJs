@@ -1,28 +1,6 @@
 <template>
-  <div id="app">
-    <div style="background-color: #dc001b; height: 90px; margin-top: 0px; display: flex;
-                justify-content: center">
-      
-      <v-btn style="background-color: #dc001b; margin-top:15px;">
-        <a href="/" style="color: white">
-        <i class="fas fa-laptop-house"></i></i> INICIO</a>
-      </v-btn>
 
-      <v-btn style="background-color: #dc001b; margin-top:15px;">
-        <a href="./news" style="color: white">
-        <i class="far fa-file-alt"></i> News</a>
-      </v-btn>
-
-      <v-btn style="background-color: #dc001b; margin-top:15px;">
-        <a href="./Preguntas" style="color: white">
-        <i class="far fa-question-circle"></i> Preguntas Frecuentes</a>
-      </v-btn>
-
-      <v-btn style="background-color: #dc001b; margin-top:15px;">
-        <a href="./Releases" style="color: white">
-        <i class="fas fa-bell"></i>Comunicados</a>
-      </v-btn>
-    </div>
+   
     <v-app
       :class="{ 'pa-3': $vuetify.breakpoint.smAndUp }"
       :dark="darkTheme"
@@ -43,7 +21,7 @@
                                     width: 20% !important;"
                         src="@/assets/bosco.png"
                         alt="imagen Don bosco"></v-img>
-                      <h4 style="color: #dc001b; text-align: center;">PORTAL DONANTE</h4>
+                      <h4 style="color: #dc001b; text-align: center; font-family: MONTSERRAT">PORTAL DONANTE</h4>
                     </div>
                   </h3>
                 </v-layout>
@@ -116,16 +94,16 @@
         </v-layout>
       </v-container>
     </v-app>
-    <Footer></Footer>
-  </div>
+    
+ 
 </template>
 
 <script>
-import Footer from "../components/Footer.vue";
+
 import AuthService from "@/services/AuthService.js";
 export default {
   components: {
-    Footer,
+   
   },
   data() {
     return {

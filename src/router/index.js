@@ -7,82 +7,58 @@ Vue.use(VueRouter)
 const routes = [
 
   {
-    path: '/footer',
-    name: 'Footer',
-    component: () => import(/* webpackChunkName: "Footer" */ '../components/Footer.vue'),
-
-  },
-  
-  {
-    path: '/releases',
-    name: 'Releases',
-    component: () => import(/* webpackChunkName: "releases" */ '../components/Releases.vue'),
-
-  },
-  {
-    path: '/preguntas',
-    name: 'Preguntas',
-    component: () => import(/* webpackChunkName: "Preguntas" */ '../components/Preguntas.vue'),
-
-  },
-
-  {
-    path: '/news',
-    name: 'News',
-    component: () => import(/* webpackChunkName: "News" */ '../components/News.vue'),
-
-  },
-
-  {
-    path: '/profile',
-    name: 'Profile',
-    component: () => import(/* webpackChunkName: "Profile" */ '../components/Profile.vue'),
-
-
-  },
-  {
-
     path: '/login',
     name: 'Login',
-    component: () => import(/* webpackChunkName: "Login" */ '../layout/Login.vue'),
-
+    component: () => import(/* webpackChunkName: "Login" */ '../views/Login.vue'),
   },
 
   {
-
     path: '/forgot',
     name: 'ForgotPassword',
-    component: () => import(/* webpackChunkName: "ForgotPassword" */ '../layout/ForgotPassword.vue'),
+    component: () => import(/* webpackChunkName: "ForgotPassword" */ '../views/ForgotPassword.vue'),
   },
 
-  {
-
-    path: '/formulario',
-    name: 'Formulario',
-    component: () => import(/* webpackChunkName: "Formulario" */ '../layout/Formulario.vue'),
-
-  },
 
   {
     path: '/',
     name: 'DashboardLayout',
     component: () => import(/* webpackChunkName: "DashboardLayout" */ '../layout/DashboardLayout.vue'),
-
     children: [
       {
         path: '/',
-        name: 'Inicio',
-        component: () => import(/* webpackChunkName: "DashboardMain" */ '../views/DashboardMain.vue'),
+        name: 'News',
+        component: () => import(/* webpackChunkName: "News" */ '../views/News.vue'),
+      },
+      {
+        path: '/comunicados',
+        name: 'Comunicados',
+        component: () => import(/* webpackChunkName: "Comunicados" */ '../views/Comunicados.vue'),
+      },
+      {
+        path: '/notificaciones',
+        name: 'Notificaciones',
+        component: () => import(/* webpackChunkName: "Notificaciones" */ '../views/Notificaciones.vue'),
+      },
+
+      {
+        path: '/donaciones',
+        name: 'Donaciones',
+        component: () => import(/* webpackChunkName: "Donaciones" */ '../views/Donaciones.vue'),
+      },
+
+
+      {
+        path: '/preguntas',
+        name: 'Preguntas',
+        component: () => import(/* webpackChunkName: "Preguntas" */ '../views/Preguntas.vue'),
 
       },
 
       {
-        path: '/releases',
-        name: 'Releases',
-        component: () => import(/* webpackChunkName: "DashboardMain" */ '../layout/DashboardLayout.vue'),
-
+        path: '/profile',
+        name: 'Profile',
+        component: () => import(/* webpackChunkName: "Profile" */ '../views/Profile.vue'),
       },
-
 
     ]
   },
