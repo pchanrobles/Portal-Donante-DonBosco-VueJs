@@ -1,16 +1,23 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Login from '../layout/Login.vue'
+import NotFound from '../views/NotFound.vue'
 
 
 Vue.use(VueRouter)
 
-const routes = [
-{
-  path: '/',
-  name: 'Login',
-  component: Login,
-},
+const routes = [{
+    path: '/',
+    name: 'Login',
+    component: Login,
+  },
+  {
+
+    path: '/:CatchAll(.*)',
+    name: 'NotFound',
+    component: NotFound,
+    
+  },
   {
     path: '/register',
     name: 'Register',
@@ -28,8 +35,7 @@ const routes = [
     name: 'DashboardLayout',
     component: () => import('../layout/DashboardLayout.vue'),
 
-    children: [
-      {
+    children: [{
         path: '/dashboard',
         name: 'DashboardMain',
         component: () => import('../views/DashboardMain.vue'),

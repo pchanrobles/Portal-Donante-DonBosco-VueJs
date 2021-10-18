@@ -2,7 +2,6 @@
   <div id="app">
     <v-app
       :class="{ 'pa-3': $vuetify.breakpoint.smAndUp }"
-      :dark="darkTheme"
       id="inspire"
     >
       <v-container>
