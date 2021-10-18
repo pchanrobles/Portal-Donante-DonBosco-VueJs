@@ -7,9 +7,16 @@ import store from './store'
 import vuetify from './plugins/vuetify'
 
 
+// Prefered: as a plugin (directive + filter) + custom placeholders support
+import VueMask from 'v-mask'
+Vue.use(VueMask);
+
+/* Fontawesome */
+import '@fortawesome/fontawesome-free/css/all.css'
+import '@fortawesome/fontawesome-free/js/all.js'
 import VueSimpleAlert from "vue-simple-alert";
 
-
+Vue.use(VueSimpleAlert);
 
 /* Bootstrap CSS */
 import 'bootstrap';

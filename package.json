@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "dev": "node build/dev-server.js --host 0.0.0.0",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build"
   },
@@ -11,9 +12,11 @@
     "@popperjs/core": "^2.10.1",
     "axios": "^0.21.4",
     "bootstrap": "^5.1.1",
+    "iban": "0.0.14",
     "jquery": "^3.6.0",
     "popper.js": "^1.16.1",
     "popperjs-update": "0.0.1",
+    "v-mask": "^2.3.0",
     "vee-validate": "^3.4.13",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0",

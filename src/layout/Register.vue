@@ -1,41 +1,39 @@
 <template>
   <v-app>
     <v-stepper class="h-100" v-model="page">
-      <v-img
-        class="mb-5 mt-5 "
-        max-height="10%"
-        max-width="100%"
-        src="../assets/bosco.png"
-      ></v-img>
+      <v-img class=" picture mb-5 mt-5 " src="../assets/bosco.png"></v-img>
       <v-stepper-header class="headerstep">
         <v-stepper-step :complete="page > 1" step="1">
-          Datos Personales
+          Datos sobre donación
         </v-stepper-step>
 
         <v-divider></v-divider>
 
         <v-stepper-step :complete="page > 2" step="2">
-          Dirección
+          Datos personales
         </v-stepper-step>
 
         <v-divider></v-divider>
 
-        <v-stepper-step step="3"> Datos sobre donación </v-stepper-step>
+        <v-stepper-step step="3"> Dirección </v-stepper-step>
       </v-stepper-header>
 
       <!--STEPPER STEPS STARTS-------------------------------------------------------------------------->
       <v-stepper-items class="mainStepper">
-        <v-form @submit.prevent="show">
-          <validation-observer v-slot="{ invalid }">
+        <validation-observer v-slot="{ handleSubmit }">
+          <v-form @submit.prevent="handleSubmit(onSubmit)">
+            <!-- STEP 1 ------------------------------------------------->
             <v-stepper-content step="1">
               <!--  SELECTOR DE PAIS (NºTEL) --------------------------------->
+
               <validation-provider
+                v-if="page === 1"
                 v-slot="{ errors }"
                 name="Cuota"
                 rules="required"
               >
                 <v-select
-                  v-model="form.cuota"
+                  v-model="form.tipoCuota"
                   name="Cuota"
                   :items="aportacion"
                   label="Selecciona tipo de cuota"
@@ -44,187 +42,170 @@
                   required
                 >
                 </v-select>
+              </validation-provider>
 
+              <validation-provider
+                v-slot="{ errors }"
+                name="La selección"
+                rules="required"
+                v-if="
+                  form.tipoCuota !== null &&
+                    form.tipoCuota !== 'Aportación puntual y única'
+                "
+              >
                 <v-radio-group
                   required
-                  v-model="form.radio"
-                  v-if="form.cuota === 'Mensual'"
+                  :error-messages="errors"
+                  v-model="form.cuota"
                   row
                 >
                   <v-radio
                     label="10€"
                     color="red darken-3"
-                    value="10€"
+                    value="10"
                   ></v-radio>
                   <v-radio
                     label="20€"
                     color="red darken-3"
-                    value="20€"
+                    value="20"
                   ></v-radio>
                   <v-radio
                     label="30€"
                     color="red darken-3"
-                    value="30€"
+                    value="30"
                   ></v-radio>
                   <v-radio
                     label="Otra"
                     color="red darken-3"
-                    value="Otra"
+                    value="Otra Cuota"
                   ></v-radio>
                 </v-radio-group>
+              </validation-provider>
 
-                <v-radio-group
-                  required
-                  v-model="form.radio"
-                  v-if="form.cuota === 'Trimestral'"
-                  row
-                >
-                  <v-radio
-                    label="20€"
-                    color="red darken-3"
-                    value="20€"
-                  ></v-radio>
-                  <v-radio
-                    label="30€"
-                    color="red darken-3"
-                    value="30€"
-                  ></v-radio>
-                  <v-radio
-                    label="40€"
-                    color="red darken-3"
-                    value="40€"
-                  ></v-radio>
-                  <v-radio
-                    label="Otra"
-                    color="red darken-3"
-                    value="Otra"
-                  ></v-radio>
-                </v-radio-group>
-
-                <v-radio-group
-                  required
-                  v-model="form.radio"
-                  v-if="form.cuota === 'Semestral'"
-                  row
-                >
-                  <v-radio
-                    label="30€"
-                    color="red darken-3"
-                    value="30€"
-                  ></v-radio>
-                  <v-radio
-                    label="40€"
-                    color="red darken-3"
-                    value="40€"
-                  ></v-radio>
-                  <v-radio
-                    label="50€"
-                    color="red darken-3"
-                    value="50€"
-                  ></v-radio>
-                  <v-radio
-                    label="Otra"
-                    color="red darken-3"
-                    value="Otra"
-                  ></v-radio>
-                </v-radio-group>
-
-                <v-radio-group
-                  required
-                  v-model="form.radio"
-                  v-if="form.cuota === 'Anual'"
-                  row
-                >
-                  <v-radio
-                    label="30€"
-                    color="red darken-3"
-                    value="30€"
-                  ></v-radio>
-                  <v-radio
-                    label="40€"
-                    color="red darken-3"
-                    value="40€"
-                  ></v-radio>
-                  <v-radio
-                    label="50€"
-                    color="red darken-3"
-                    value="50€"
-                  ></v-radio>
-                  <v-radio
-                    label="Otra"
-                    color="red darken-3"
-                    value="Otra"
-                  ></v-radio>
-                </v-radio-group>
-
+              <validation-provider
+                v-slot="{ errors }"
+                name="El campo"
+                rules="required"
+                v-if="
+                  form.cuota === 'Otra Cuota' ||
+                    form.tipoCuota === 'Aportación puntual y única'
+                "
+              >
                 <v-text-field
-                  v-if="
-                    form.radio === 'Otra' &&
-                      form.cuota !== 'Aportación puntual y única'
-                  "
-                  v-model="form.otraCantidad"
-                  label="Indique la cantidad en euros"
-                  required
-                ></v-text-field>
-
-                <v-text-field
-                  v-if="form.cuota === 'Aportación puntual y única'"
-                  v-model="form.otraMensual"
-                  :counter="10"
+                  :error-messages="errors"
+                  v-model="form.cuotaManual"
                   label="Indique la cantidad en euros"
                   required
                 ></v-text-field>
               </validation-provider>
-
-              <v-btn
-                :disabled="invalid"
-                class="mr-4"
-                color="primary"
-                @click="page = 2"
-              >
-                Continuar
-              </v-btn>
-
-              <v-btn class="mt-3 ml-3" text> Cancelar </v-btn>
             </v-stepper-content>
-          </validation-observer>
-
-          <!-- STEP 1 ------------------------------------------------->
-          <v-stepper-content step="2">
-            <!-- VFORM VALIDATE START 1------------------------------------------------->
-            <validation-observer v-slot="{ invalid }">
+            <!-- STEP 2 ------------------------------------------------->
+            <v-stepper-content step="2">
               <!--  NOMBRE --------------------------------->
+
               <validation-provider
+                v-if="page === 2"
                 v-slot="{ errors }"
                 name="nombre"
-                rules="required|max:10"
+                rules="required"
               >
                 <v-text-field
                   v-model="form.name"
-                  :counter="10"
                   :error-messages="errors"
                   label="Nombre"
                   required
                 ></v-text-field>
-
-                <!--  APELLIDO --------------------------------->
               </validation-provider>
+
+              <!--  APELLIDO --------------------------------->
+
               <validation-provider
+                v-if="page === 2"
                 v-slot="{ errors }"
                 name="apellido"
-                rules="required|max:30"
+                rules="required"
               >
                 <v-text-field
                   v-model="form.lastName"
-                  :counter="30"
                   :error-messages="errors"
                   label="Apellido"
                   required
                 ></v-text-field>
               </validation-provider>
 
-              <!--  SELECTOR DE PAIS (NºTEL) --------------------------------->
+              <!--  DIRECCIÓN --------------------------------->
+
               <validation-provider
+                v-if="page === 2"
+                v-slot="{ errors }"
+                name="La Dirección"
+                rules="required"
+              >
+                <v-text-field
+                  v-model="form.adress"
+                  :error-messages="errors"
+                  label="Dirección"
+                  required
+                ></v-text-field>
+              </validation-provider>
+
+              <!--  CÓDIGO POSTAL --------------------------------->
+
+              <validation-provider
+                v-if="page === 2"
+                v-slot="{ errors }"
+                name="El código postal"
+                :rules="{
+                  required: true,
+                  digits: 5,
+                  regex: '[0-9]$',
+                }"
+              >
+                <v-text-field
+                  v-model="form.cp"
+                  :counter="5"
+                  :error-messages="errors"
+                  label="Código Postal"
+                  required
+                ></v-text-field>
+              </validation-provider>
+
+              <!--  PROVINCIA --------------------------------->
+
+              <validation-provider
+                v-if="page === 2"
+                v-slot="{ errors }"
+                name="La Provincia"
+                rules="required"
+              >
+                <v-text-field
+                  v-model="form.provincia"
+                  :error-messages="errors"
+                  label="Provincia"
+                  required
+                ></v-text-field>
+              </validation-provider>
+
+              <!--  POBLACIÓN --------------------------------->
+
+              <validation-provider
+                v-if="page === 2"
+                v-slot="{ errors }"
+                name="La Población"
+                rules="required"
+              >
+                <v-text-field
+                  v-model="form.poblacion"
+                  :error-messages="errors"
+                  label="Población"
+                  required
+                ></v-text-field>
+              </validation-provider>
+
+              <!--  SELECTOR DE PAIS (NºTEL) --------------------------------->
+
+              <validation-provider
+                v-if="page === 2"
                 v-slot="{ errors }"
                 name="País"
                 rules="required"
@@ -247,7 +228,9 @@
               </validation-provider>
 
               <!--  Nº DE TELÉFONO --------------------------------->
+
               <validation-provider
+                v-if="page === 2"
                 v-slot="{ errors }"
                 name="El número de teléfono"
                 :rules="{
@@ -264,8 +247,51 @@
                   required
                 ></v-text-field>
               </validation-provider>
-              <!--  EMAIL --------------------------------->
+
+              <!--  SELECTOR TIPO DOCUMENTO --------------------------------->
+
               <validation-provider
+                v-if="page === 2"
+                v-slot="{ errors }"
+                name="Empresa o Persona"
+                rules="required"
+              >
+                <v-select
+                  v-model="form.tipoDocumento"
+                  name="selectorFiscal"
+                  :items="selectorPE"
+                  v-on:change="form.documento = ''"
+                  label="Selecione DNI - NIE - CIF"
+                  item-text="name"
+                  :error-messages="errors"
+                  required
+                >
+                  <template v-slot:item="slotProps">
+                    {{ slotProps.item.name }}
+                  </template>
+                </v-select>
+              </validation-provider>
+
+              <!--  Documento --------------------------------->
+
+              <validation-provider
+                v-if="form.tipoDocumento !== null"
+                v-slot="{ errors }"
+                :name="form.tipoDocumento"
+                :rules="'required|DocValido:' + form.tipoDocumento"
+              >
+                <v-text-field
+                  v-model="form.documento"
+                  :error-messages="errors"
+                  :label="'Documento ' + form.tipoDocumento"
+                  required
+                ></v-text-field>
+              </validation-provider>
+
+              <!--  EMAIL --------------------------------->
+
+              <validation-provider
+                v-if="page === 2"
                 v-slot="{ errors }"
                 name="email"
                 rules="required|email"
@@ -277,56 +303,146 @@
                   required
                 ></v-text-field>
               </validation-provider>
+            </v-stepper-content>
+            <!-- STEP 3 ------------------------------------------------->
 
-              <v-btn
-                class="mr-4"
-                color="primary"
-                @click="page = 2"
-                :disabled="invalid"
+            <v-stepper-content step="3">
+              <validation-provider
+                v-if="page === 3"
+                v-slot="{ errors }"
+                name="Nombre Banco"
+                rules="required"
               >
-                Continuar
-              </v-btn>
+                <v-text-field
+                  v-model="form.nameBank"
+                  label="Nombre del Banco"
+                  :error-messages="errors"
+                ></v-text-field>
+              </validation-provider>
 
-              <v-btn color="primary" class="ml-3 mr-3" @click="page = 1">
-                Volver
-              </v-btn>
+              <validation-provider
+                v-if="page === 3"
+                v-slot="{ errors }"
+                name="Contraseña"
+                rules="required"
+              >
+                <v-text-field
+                  :append-icon="show3 ? 'mdi-eye' : 'mdi-eye-off'"
+                  :type="show3 ? 'text' : 'password'"
+                  @click:append="show3 = !show3"
+                  v-model="form.password"
+                  label="Contraseña"
+                  class="input-group--focused"
+                  :error-messages="errors"
+                ></v-text-field>
+              </validation-provider>
 
-              <v-btn color="primary" @click="clear">
-                Limpiar formulario
-              </v-btn>
-            </validation-observer>
-            <!-- VFORM VALIDATE END 1------------------------------------------------->
-          </v-stepper-content>
+              <validation-provider
+                v-if="page === 3"
+                v-slot="{ errors }"
+                name="Confirmar Contraseña"
+                :rules="'required|passwordMatch:' + form.password"
+              >
+                <v-text-field
+                  :append-icon="show3 ? 'mdi-eye' : 'mdi-eye-off'"
+                  :type="show3 ? 'text' : 'password'"
+                  @click:append="show3 = !show3"
+                  class="input-group--focused"
+                  v-model="form.confirm_password"
+                  label="Confirmar Contraseña"
+                  :error-messages="errors"
+                ></v-text-field>
+              </validation-provider>
 
-          <!-- STEP 3 ------------------------------------------------->
-          <v-stepper-content step="3">
-            <!-- VFORM VALIDATE START 3------------------------------------------------->
+              <validation-provider
+                v-if="page === 3"
+                v-slot="{ errors }"
+                name="iban"
+                rules="required|ibanCheck"
+              >
+                <v-text-field
+                  v-model="form.iban"
+                  v-mask="'AA## #### #### #### #### #### #####'"
+                  label="Cuenta Bancaria"
+                  :error-messages="errors"
+                ></v-text-field>
+              </validation-provider>
+            </v-stepper-content>
 
-            <v-text-field
-              v-model="form.bankAccount"
-              :counter="10"
-              label="Name"
-              required
-            ></v-text-field>
-
-            <v-text-field
-              v-model="form.nameBank"
-              label="E-mail"
-              required
-            ></v-text-field>
-
-            <v-btn class="mt-3" color="success" type="submit">
-              Enviar
+            <v-btn
+              class="mt-3 ml-3"
+              type="submit"
+              :color="page === 3 ? 'success' : 'primary'"
+            >
+              {{ page === 3 ? "Enviar" : "Siguiente" }}
             </v-btn>
 
-            <v-btn class="mt-3 ml-3" color="primary" @click="page = 2">
+            <v-btn class="mt-3 ml-3" color="primary" @click="goBack(page - 1)">
               Volver
             </v-btn>
 
-            <v-btn color="accent" class="mt-3 ml-3" text> Cancelar </v-btn>
-            <!-- VFORM VALIDATE END 3------------------------------------------------->
-          </v-stepper-content>
-        </v-form>
+            <div class="text-center">
+              <v-dialog v-model="dialogSuccess" width="50em">
+                <v-card>
+                  <v-card-title
+                    class="text-break text-h4 primary text-center text-white"
+                  >
+                    Formulario de registro enviado
+                  </v-card-title>
+
+                  <v-card-text class="mt-5">
+                    <span class="text-h6 text-center text-break"
+                      >Su formulario de registro se ha enviado
+                      <span class="text-success font-weight-bold"
+                        >correctamente.</span
+                      >
+                      <br /><br />
+                      <span class="font-weight-bold text-black"
+                        >Recibirá un correo</span
+                      >
+                      cuando su usuario sea validado.</span
+                    >
+                  </v-card-text>
+
+                  <v-divider></v-divider>
+
+                  <v-card-actions>
+                    <v-spacer></v-spacer>
+                    <v-btn
+                      class="red accent-2 w-100 text-h6 text-white font-weight-bold"
+                      text
+                      @click="(dialogSuccess = false), goToLogin()"
+                    >
+                      ACEPTAR
+                    </v-btn>
+                  </v-card-actions>
+                </v-card>
+              </v-dialog>
+            </div>
+            <div class="text-center">
+              <v-dialog v-model="dialogWrong" width="500">
+                <v-card>
+                  <v-card-title class="text-h5 grey lighten-2">
+                    Privacy Policy
+                  </v-card-title>
+
+                  <v-card-text>
+                    No se ha podido enviar su formulario debido a un error.
+                  </v-card-text>
+
+                  <v-divider></v-divider>
+
+                  <v-card-actions>
+                    <v-spacer></v-spacer>
+                    <v-btn color="danger" text @click="dialog = false">
+                      ACEPTAR
+                    </v-btn>
+                  </v-card-actions>
+                </v-card>
+              </v-dialog>
+            </div>
+          </v-form>
+        </validation-observer>
       </v-stepper-items>
     </v-stepper>
     <link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet" />
@@ -334,10 +450,6 @@
 </template>
 
 <script>
-import Vue from "vue";
-import Vuetify from "vuetify/lib";
-
-Vue.use(Vuetify);
 const vuetify = new Vuetify({
   theme: {
     themes: {
@@ -353,41 +465,19 @@ const vuetify = new Vuetify({
     },
   },
 });
-import { required, digits, email, max, regex } from "vee-validate/dist/rules";
+Vue.use(Vuetify, VueMask);
+import Vue from "vue";
+import Vuetify from "vuetify/lib";
+import VueMask from "v-mask";
 import {
-  extend,
   ValidationObserver,
   ValidationProvider,
   setInteractionMode,
 } from "vee-validate";
-
+import AuthService from "../services/AuthService.js";
+import validation from "../helpers/validation.js";
 setInteractionMode("eager");
 
-extend("digits", {
-  ...digits,
-  message:
-    "{_field_} tiene que ser de {length} dígitos. Y sólo puede contener números ({_value_})",
-});
-
-extend("required", {
-  ...required,
-  message: "El {_field_} no puede estar vacío",
-});
-
-extend("max", {
-  ...max,
-  message: "El {_field_} no debe ser superior a {length} carácteres",
-});
-
-extend("regex", {
-  ...regex,
-  message: "{_value_} no es un número de teléfono válido",
-});
-
-extend("email", {
-  ...email,
-  message: "El Email debe ser válido",
-});
 export default {
   components: {
     ValidationProvider,
@@ -396,19 +486,29 @@ export default {
 
   data: () => ({
     page: 1,
+    show3: false,
+    dialogSuccess: false,
+    dialogWrong: false,
+    otraCuota: false,
+    errors: null,
     form: {
-      otraCantidad: "",
-      radio: "",
+      provincia: "",
+      poblacion: "",
+      cp: "",
+      cuotaManual: "",
+      tipoDocumento: null,
+      documento: "",
       cuota: null,
+      tipoCuota: null,
       name: "",
       lastName: "",
       selectorPais: "",
       phoneNumber: "",
       email: "",
-      address: "",
-      postalCode: "",
       nameBank: "",
-      bankAccount: "",
+      iban: null,
+      confirm_password: "",
+      password: "",
     },
     selectPais: null,
     countries: [
@@ -472,26 +572,54 @@ export default {
         name: "Aportación puntual y única",
       },
     ],
+    selectPE: null,
+    selectorPE: [
+      {
+        id: 0,
+        name: "CIF",
+      },
+      {
+        id: 1,
+        name: "DNI",
+      },
+      {
+        id: 2,
+        name: "NIE",
+      },
+    ],
     checkbox: null,
   }),
   methods: {
-    show() {
-      console.log(this.form.radio);
+    goToLogin() {
+      this.$router.push("/");
     },
-    clear() {
-      this.name = "";
-      this.lastName = "";
-      this.phoneNumber = "";
-      this.email = "";
-      this.selectorPais = null;
-      this.checkbox = null;
-      this.$refs.observer.reset();
+    onSubmit() {
+      if (this.page === 3) {
+        //Llamada a API
+        console.log(this.form);
+        AuthService.register(this.form);
+        this.dialogSuccess = true;
+      }
+      this.page++;
+    },
+    goBack(step) {
+      console.log(step);
+      if (step < 1) {
+        return;
+      }
+      this.page = step;
     },
   },
 };
 </script>
 
 <style>
+.picture {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 9%;
+}
 .primary {
   background-color: #f8576a !important;
 }

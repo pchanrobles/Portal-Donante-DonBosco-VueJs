@@ -12,24 +12,20 @@ const routes = [{
     component: Login,
   },
   {
-
-    path: '/:CatchAll(.*)',
-    name: 'NotFound',
-    component: NotFound,
-    
-  },
-  {
     path: '/register',
     name: 'Register',
     component: () => import('../layout/Register.vue'),
   },
-
   {
     path: '/forgot',
     name: 'ForgotPassword',
     component: () => import('../layout/ForgotPassword.vue'),
   },
-
+  {
+    path: '/:CatchAll(.*)',
+    name: 'NotFound',
+    component: NotFound, 
+  },
   {
     path: '/dashboard',
     name: 'DashboardLayout',
@@ -40,7 +36,6 @@ const routes = [{
         name: 'DashboardMain',
         component: () => import('../views/DashboardMain.vue'),
       },
-
     ]
   },
 ]

@@ -1,9 +1,6 @@
 <template>
   <div id="app">
-    <v-app
-      :class="{ 'pa-3': $vuetify.breakpoint.smAndUp }"
-      id="inspire"
-    >
+    <v-app :class="{ 'pa-3': $vuetify.breakpoint.smAndUp }" id="inspire">
       <v-container>
         <v-layout wrap>
           <v-flex sm12 md6 offset-md3>
@@ -12,7 +9,7 @@
                 <v-layout align-center justify-space-between>
                   <h3 class="headline">
                     <div>
-                      <h4 class="donante">PORTAL DONANTE</h4>
+                      <h4 class="donante">PORTAL DEL DONANTE</h4>
                       <v-img
                         class="bosco"
                         src="@/assets/bosco.png"
@@ -29,9 +26,9 @@
                 <v-form>
                   <v-text-field
                     outline
-                    label="DNI"
+                    label="Documento de Identificación"
                     type="text"
-                    v-model="dni"
+                    v-model="documento"
                   ></v-text-field>
 
                   <v-text-field
@@ -39,7 +36,7 @@
                     :rules="[rules.required, rules.min]"
                     :type="show3 ? 'text' : 'password'"
                     label="Contraseña"
-                    hint="Debe contener al menos 8 carácteres"
+                    hint="Debe contener al menos 4 carácteres"
                     class="input-group--focused"
                     @click:append="show3 = !show3"
                     v-model="password"
@@ -51,49 +48,30 @@
                 class="justify-content-center"
                 :class="{ 'pa-3': $vuetify.breakpoint.smAndUp }"
               >
-                <div
-                  style="
-                    display: flex;
-                    flex-direction: column;
-                    align-items: stretch;
-                    width: 100%;
-                    align-content: space-between;
-                    justify-content: center;
-                  "
-                >
-                  <div
-                    style="
-                      display: flex;
-                      justify-content: space-between;
-                      width: 100%;
-                      align-items: center;
-                    "
-                  >
-                    <v-checkbox label="Recordar contraseña"></v-checkbox>
-
+                <div class="box">
+                  <div class="chekboxBtn align-items-stretch flex-column">
                     <v-btn
-                      @click="show"
+                      @click="login()"
                       color="info"
                       :large="$vuetify.breakpoint.smAndUp"
                     >
                       Entrar
                     </v-btn>
                   </div>
-
+                  <div
+                    width="100%"
+                    class=" reconocer red lighten-4 rounded d-flex justify-content-center"
+                  >
+                    <v-dialog v-model="dialog" width="600px">
+                      <Privacy-politics />
+                    </v-dialog>
+                  </div>
                   <v-btn @click="redirectToForgot" color="info" text>
                     ¿Se te olvidó tu contraseña?
                   </v-btn>
-                  <v-btn @click="redirectToRegister" color="info" text>
+                  <v-btn @click="dialog = true" color="info" text>
                     Registrarse
                   </v-btn>
-                  <div class="d-flex align-item-center justify-content-center">
-                    <v-checkbox></v-checkbox>
-                    <a
-                      href="https://fundaciondonbosco.es/politica-privacidad/"
-                      target="_blank"
-                      >Política de Privacidad de Datos</a
-                    >
-                  </div>
                 </div>
               </v-card-actions>
             </v-card>
@@ -111,6 +89,7 @@
 import AuthService from "@/services/AuthService.js";
 import Vue from "vue";
 import Vuetify from "vuetify/lib";
+import PrivacyPolitics from "@/components/PrivacyPolitics.vue";
 
 Vue.use(Vuetify);
 const vuetify = new Vuetify({
@@ -129,22 +108,31 @@ const vuetify = new Vuetify({
   },
 });
 export default {
+  components: {
+    PrivacyPolitics,
+  },
   data() {
     return {
+      dialog: false,
       password: "",
-      dni: "",
+      documento: "",
       show3: false,
       rules: {
         required: (value) => !!value || "Requerido.",
-        min: (v) => v.length >= 8 || "Minimo 8 carácters",
+        min: (v) => v.length >= 4 || "Minimo 4 carácters",
         emailMatch: () => `El email o la contraseña no coinciden`,
       },
     };
   },
   methods: {
+    redirectToRegister() {
+      this.$router.push({
+        path: "/register",
+      });
+    },
     login() {
       let data = {
-        email: this.dni,
+        documento: this.documento,
         password: this.password,
       };
 
@@ -152,23 +140,15 @@ export default {
         .then((res) => {
           console.log(res);
           localStorage.setItem("TokenFIRE", res.data.token);
-          localStorage.setItem("Usuario", res.data.Usuario.name);
+          localStorage.setItem("Usuario", res.data.usuario.name);
         })
         .catch((errors) => {
           console.log(errors);
         });
     },
-    show() {
-      console.log(this.dni, this.password);
-    },
     redirectToForgot() {
       this.$router.push({
         path: "/forgot",
-      });
-    },
-    redirectToRegister() {
-      this.$router.push({
-        path: "/register",
       });
     },
   },
@@ -176,6 +156,24 @@ export default {
 </script>
 
 <style>
+.box {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+  align-content: space-between;
+  justify-content: center;
+}
+.chekboxBtn {
+  margin-bottom: 1em;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+.v-messages {
+  display: contents;
+}
 .check {
   width: 30px;
   height: 30px;
