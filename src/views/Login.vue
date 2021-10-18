@@ -1,11 +1,7 @@
 <template>
-
-   
-    <v-app
-      :class="{ 'pa-3': $vuetify.breakpoint.smAndUp }"
-      id="inspire"
-    >
-      <v-container style="margin-top:60px;">
+  <div id="app">
+    <v-app :class="{ 'pa-3': $vuetify.breakpoint.smAndUp }" id="inspire">
+      <v-container>
         <v-layout wrap>
           <v-flex sm12 md6 offset-md3>
             <v-card elevation="4" light tag="section">
@@ -13,23 +9,12 @@
                 <v-layout align-center justify-space-between>
                   <h3 class="headline">
                     <div>
-<<<<<<< HEAD:src/views/Login.vue
-                      <v-img style="display: flex !important;
-                                    margin-left: 40%;
-                                    justify-content: center !important; 
-                                    height: 20% !important; 
-                                    width: 20% !important;"
-                        src="@/assets/bosco.png"
-                        alt="imagen Don bosco"></v-img>
-                      <h4 style="color: #dc001b; text-align: center; font-family: MONTSERRAT">PORTAL DONANTE</h4>
-=======
-                      <h4 class="donante">PORTAL DONANTE</h4>
+                      <h4 class="donante">PORTAL DEL DONANTE</h4>
                       <v-img
                         class="bosco"
-                        src="../assets/bosco.png"
+                        src="@/assets/bosco.png"
                         alt="imagen Don bosco"
                       ></v-img>
->>>>>>> 69ffd250361aea424016bd7f22ecfff0c1536090:src/layout/ForgotPassword.vue
                     </div>
                   </h3>
                 </v-layout>
@@ -41,72 +26,59 @@
                 <v-form>
                   <v-text-field
                     outline
-                    label="DNI"
+                    label="Documento de Identificación"
                     type="text"
-                    v-model="dni"
+                    v-model="documento"
                   ></v-text-field>
+
                   <v-text-field
-                    outline
-<<<<<<< HEAD:src/views/Login.vue
-                    hide-details
+                    :append-icon="show3 ? 'mdi-eye' : 'mdi-eye-off'"
+                    :rules="[rules.required, rules.min]"
+                    :type="show3 ? 'text' : 'password'"
                     label="Contraseña"
-                    type="Contraseña"
+                    hint="Debe contener al menos 4 carácteres"
+                    class="input-group--focused"
+                    @click:append="show3 = !show3"
                     v-model="password"
-=======
-                    label="Email"
-                    type="text"
-                    v-model="email"
->>>>>>> 69ffd250361aea424016bd7f22ecfff0c1536090:src/layout/ForgotPassword.vue
                   ></v-text-field>
                 </v-form>
               </v-card-text>
               <v-divider></v-divider>
-              <v-card-actions :class="{ 'pa-3': $vuetify.breakpoint.smAndUp }">
-                <div
-                  style="
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    width: 100%">
-                  <div
-                    style="
-                      display: flex;
-                      justify-content: space-between;
-<<<<<<< HEAD:src/views/Login.vue
-                      width: 100%;                      
-                      align-items: center;">
-                    <v-checkbox label="Recordar contraseña"></v-checkbox>
-
+              <v-card-actions
+                class="justify-content-center"
+                :class="{ 'pa-3': $vuetify.breakpoint.smAndUp }"
+              >
+                <div class="box">
+                  <div class="chekboxBtn align-items-stretch flex-column">
                     <v-btn
-                      @click="show"
+                      @click="login()"
                       color="info"
-                      :large="$vuetify.breakpoint.smAndUp">
-                      Login
-=======
-                      width: 100%;
-                      align-items: center;
-                    "
-                  >
-                    <v-btn   @click="fire()" color="info" :large="$vuetify.breakpoint.smAndUp">
-                      Enviar
->>>>>>> 69ffd250361aea424016bd7f22ecfff0c1536090:src/layout/ForgotPassword.vue
+                      :large="$vuetify.breakpoint.smAndUp"
+                    >
+                      Entrar
                     </v-btn>
                   </div>
-
-                  <v-spacer></v-spacer>
-
+                  <div
+                    width="100%"
+                    class="
+                      reconocer
+                      red
+                      lighten-4
+                      rounded
+                      d-flex
+                      justify-content-center
+                    "
+                  >
+                    <v-dialog v-model="dialog" width="600px">
+                      <Privacy-politics />
+                    </v-dialog>
+                  </div>
                   <v-btn @click="redirectToForgot" color="info" text>
                     ¿Se te olvidó tu contraseña?
                   </v-btn>
-                  <v-btn @click="redirectToRegister" color="info" text>
+                  <v-btn @click="dialog = true" color="info" text>
                     Registrarse
                   </v-btn>
-
-                  <div class="d-flex align-items-center">
-                    <v-checkbox></v-checkbox>
-                     <a href="https://fundaciondonbosco.es/politica-privacidad/"
-                      target="_blank"> Política de Privacidad de Datos</a>
-                  </div>
                 </div>
               </v-card-actions>
             </v-card>
@@ -117,92 +89,129 @@
         </v-layout>
       </v-container>
     </v-app>
-    
- 
+  </div>
 </template>
 
 <script>
-<<<<<<< HEAD:src/views/Login.vue
-
 import AuthService from "@/services/AuthService.js";
-=======
->>>>>>> 69ffd250361aea424016bd7f22ecfff0c1536090:src/layout/ForgotPassword.vue
+import Vue from "vue";
+import Vuetify from "vuetify/lib";
+import PrivacyPolitics from "@/components/PrivacyPolitics.vue";
+
+Vue.use(Vuetify);
+const vuetify = new Vuetify({
+  theme: {
+    themes: {
+      light: {
+        primary: "#DC001B",
+        secondary: "#FFFFFF",
+        accent: "#000",
+        error: "#b71c1c",
+        info: "#DC001B",
+        success: "#27A73B",
+        warning: "#FFC107",
+      },
+    },
+  },
+});
 export default {
   components: {
-   
+    PrivacyPolitics,
   },
   data() {
     return {
-      darkTheme: true,
-      platformName: "Platform name",
-<<<<<<< HEAD:src/views/Login.vue
-      password: null,
-      dni: null,
+      dialog: false,
+      password: "",
+      documento: "",
+      show3: false,
+      rules: {
+        required: (value) => !!value || "Requerido.",
+        min: (v) => v.length >= 4 || "Minimo 4 carácters",
+        emailMatch: () => `El email o la contraseña no coinciden`,
+      },
     };
   },
   methods: {
+    redirectToRegister() {
+      this.$router.push({
+        path: "/register",
+      });
+    },
     login() {
       let data = {
-        email: this.dni,
+        documento: this.documento,
         password: this.password,
       };
+
       AuthService.login(data)
         .then((res) => {
           console.log(res);
           localStorage.setItem("TokenFIRE", res.data.token);
-          localStorage.setItem("Usuario", res.data.Usuario.name);
+          localStorage.setItem("Usuario", res.data.usuario.name);
         })
         .catch((errors) => {
           console.log(errors);
         });
-    },
-    show() {
-      console.log(this.dni, this.password);
     },
     redirectToForgot() {
       this.$router.push({
         path: "/forgot",
       });
     },
-    redirectToRegister() {
-      this.$router.push({
-        path: "/register",
-      });
-    },
   },
-=======
-      dni: null,
-      email: null,
-    };
-  },
-  methods: {
-    mostrar() {
-      console.log(this.dni,this.email)
-      },
-   
-      fire(){
-        
-      this.$fire({
-      text: "Se ha enviado un enlace a su correo electronico.",
-      type: "success",
-      
-  }).then(r => {
-  console.log(r.value);
-  });
- 
-      },
-        
-    } 
->>>>>>> 69ffd250361aea424016bd7f22ecfff0c1536090:src/layout/ForgotPassword.vue
 };
 </script>
 
 <style>
+.box {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+  align-content: space-between;
+  justify-content: center;
+}
+.chekboxBtn {
+  margin-bottom: 1em;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+.v-messages {
+  display: contents;
+}
 .check {
   width: 30px;
   height: 30px;
 }
-
+.v-application--wrap {
+  justify-content: center !important;
+  background-color: #dadcde;
+}
+.bosco {
+  height: 20%;
+  width: 20%;
+  position: relative;
+  left: 38%;
+}
+.donante {
+  color: #dc001b;
+  align-items: center;
+  display: flex;
+  flex: 1 0 auto;
+  justify-content: center;
+  line-height: normal;
+  position: relative;
+  transition: inherit;
+}
+.v-input--selection-controls {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.v-card__actions {
+  display: block;
+}
 .layout {
   display: unset !important;
 }

@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-<<<<<<< HEAD
 
 Vue.use(VueRouter)
 
@@ -18,7 +17,11 @@ const routes = [
     name: 'ForgotPassword',
     component: () => import(/* webpackChunkName: "ForgotPassword" */ '../views/ForgotPassword.vue'),
   },
-
+  {
+    path: '/register',
+    name: 'Register',
+    component: () => import('../layout/Register.vue'),
+  },
 
   {
     path: '/',
@@ -61,46 +64,16 @@ const routes = [
         component: () => import(/* webpackChunkName: "Profile" */ '../views/Profile.vue'),
       },
 
-=======
-import Login from '../layout/Login.vue'
-import NotFound from '../views/NotFound.vue'
 
+    ]
 
-Vue.use(VueRouter)
-
-const routes = [{
-    path: '/',
-    name: 'Login',
-    component: Login,
-  },
-  {
-    path: '/register',
-    name: 'Register',
-    component: () => import('../layout/Register.vue'),
-  },
-  {
-    path: '/forgot',
-    name: 'ForgotPassword',
-    component: () => import('../layout/ForgotPassword.vue'),
   },
   {
     path: '/:CatchAll(.*)',
     name: 'NotFound',
-    component: NotFound, 
+    component: () => import(/* webpackChunkName: "NotFound" */ '../views/NotFound.vue'),
   },
-  {
-    path: '/dashboard',
-    name: 'DashboardLayout',
-    component: () => import('../layout/DashboardLayout.vue'),
 
-    children: [{
-        path: '/dashboard',
-        name: 'DashboardMain',
-        component: () => import('../views/DashboardMain.vue'),
-      },
->>>>>>> 69ffd250361aea424016bd7f22ecfff0c1536090
-    ]
-  },
 ]
 
 const router = new VueRouter({

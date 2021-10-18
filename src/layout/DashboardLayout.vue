@@ -15,9 +15,9 @@
           <v-list-item>
             <v-list-item-icon> </v-list-item-icon>
             <v-list-item-title>
-              <h1 style="color: white; font-family: MONTSERRAT">
+              <h3 style="color: white; font-family: MONTSERRAT">
                 DON BOSCO
-              </h1></v-list-item-title
+              </h3></v-list-item-title
             >
           </v-list-item>
 

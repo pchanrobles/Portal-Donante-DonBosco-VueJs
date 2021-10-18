@@ -14,7 +14,6 @@ Vue.use(VueMask);
 /* Fontawesome */
 import '@fortawesome/fontawesome-free/css/all.css'
 import '@fortawesome/fontawesome-free/js/all.js'
-<<<<<<< HEAD
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 
@@ -23,9 +22,7 @@ Vue.use(VueAxios, axios)
 //DB api wordpress
 
 axios.defaults.baseURL = 'http://localhost/wordpress-api/api_donantes_bosco/'
-=======
 import VueSimpleAlert from "vue-simple-alert";
->>>>>>> 69ffd250361aea424016bd7f22ecfff0c1536090
 
 Vue.use(VueSimpleAlert);
 
