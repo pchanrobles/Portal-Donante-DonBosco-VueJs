@@ -3,7 +3,6 @@
    
     <v-app
       :class="{ 'pa-3': $vuetify.breakpoint.smAndUp }"
-      :dark="darkTheme"
       id="inspire"
     >
       <v-container style="margin-top:60px;">
@@ -14,6 +13,7 @@
                 <v-layout align-center justify-space-between>
                   <h3 class="headline">
                     <div>
+<<<<<<< HEAD:src/views/Login.vue
                       <v-img style="display: flex !important;
                                     margin-left: 40%;
                                     justify-content: center !important; 
@@ -22,6 +22,14 @@
                         src="@/assets/bosco.png"
                         alt="imagen Don bosco"></v-img>
                       <h4 style="color: #dc001b; text-align: center; font-family: MONTSERRAT">PORTAL DONANTE</h4>
+=======
+                      <h4 class="donante">PORTAL DONANTE</h4>
+                      <v-img
+                        class="bosco"
+                        src="../assets/bosco.png"
+                        alt="imagen Don bosco"
+                      ></v-img>
+>>>>>>> 69ffd250361aea424016bd7f22ecfff0c1536090:src/layout/ForgotPassword.vue
                     </div>
                   </h3>
                 </v-layout>
@@ -39,10 +47,16 @@
                   ></v-text-field>
                   <v-text-field
                     outline
+<<<<<<< HEAD:src/views/Login.vue
                     hide-details
                     label="Contraseña"
                     type="Contraseña"
                     v-model="password"
+=======
+                    label="Email"
+                    type="text"
+                    v-model="email"
+>>>>>>> 69ffd250361aea424016bd7f22ecfff0c1536090:src/layout/ForgotPassword.vue
                   ></v-text-field>
                 </v-form>
               </v-card-text>
@@ -58,6 +72,7 @@
                     style="
                       display: flex;
                       justify-content: space-between;
+<<<<<<< HEAD:src/views/Login.vue
                       width: 100%;                      
                       align-items: center;">
                     <v-checkbox label="Recordar contraseña"></v-checkbox>
@@ -67,6 +82,14 @@
                       color="info"
                       :large="$vuetify.breakpoint.smAndUp">
                       Login
+=======
+                      width: 100%;
+                      align-items: center;
+                    "
+                  >
+                    <v-btn   @click="fire()" color="info" :large="$vuetify.breakpoint.smAndUp">
+                      Enviar
+>>>>>>> 69ffd250361aea424016bd7f22ecfff0c1536090:src/layout/ForgotPassword.vue
                     </v-btn>
                   </div>
 
@@ -99,8 +122,11 @@
 </template>
 
 <script>
+<<<<<<< HEAD:src/views/Login.vue
 
 import AuthService from "@/services/AuthService.js";
+=======
+>>>>>>> 69ffd250361aea424016bd7f22ecfff0c1536090:src/layout/ForgotPassword.vue
 export default {
   components: {
    
@@ -109,6 +135,7 @@ export default {
     return {
       darkTheme: true,
       platformName: "Platform name",
+<<<<<<< HEAD:src/views/Login.vue
       password: null,
       dni: null,
     };
@@ -143,6 +170,30 @@ export default {
       });
     },
   },
+=======
+      dni: null,
+      email: null,
+    };
+  },
+  methods: {
+    mostrar() {
+      console.log(this.dni,this.email)
+      },
+   
+      fire(){
+        
+      this.$fire({
+      text: "Se ha enviado un enlace a su correo electronico.",
+      type: "success",
+      
+  }).then(r => {
+  console.log(r.value);
+  });
+ 
+      },
+        
+    } 
+>>>>>>> 69ffd250361aea424016bd7f22ecfff0c1536090:src/layout/ForgotPassword.vue
 };
 </script>
 

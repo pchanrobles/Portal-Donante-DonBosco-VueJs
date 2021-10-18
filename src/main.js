@@ -2,9 +2,19 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+
+/* Vuetify */
 import vuetify from './plugins/vuetify'
+
+
+// Prefered: as a plugin (directive + filter) + custom placeholders support
+import VueMask from 'v-mask'
+Vue.use(VueMask);
+
+/* Fontawesome */
 import '@fortawesome/fontawesome-free/css/all.css'
 import '@fortawesome/fontawesome-free/js/all.js'
+<<<<<<< HEAD
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 
@@ -13,12 +23,30 @@ Vue.use(VueAxios, axios)
 //DB api wordpress
 
 axios.defaults.baseURL = 'http://localhost/wordpress-api/api_donantes_bosco/'
+=======
+import VueSimpleAlert from "vue-simple-alert";
+>>>>>>> 69ffd250361aea424016bd7f22ecfff0c1536090
 
+Vue.use(VueSimpleAlert);
+
+/* Bootstrap CSS */
+import 'bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+/* jQuery */
+import JQuery from 'jquery'
+window.$ = JQuery
 Vue.config.productionTip = false
 
+import axiosConfig from './config/axiosConfig'
+import { createNamespacedHelpers } from 'vuex'
+window.apiClient = axiosConfig
 new Vue({
   router,
   store,
   vuetify,
   render: function (h) { return h(App) }
 }).$mount('#app')
+Vue.use(VueSimpleAlert);
+
+Vue.config.productionTip = false
