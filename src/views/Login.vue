@@ -60,7 +60,14 @@
                   </div>
                   <div
                     width="100%"
-                    class=" reconocer red lighten-4 rounded d-flex justify-content-center"
+                    class="
+                      reconocer
+                      red
+                      lighten-4
+                      rounded
+                      d-flex
+                      justify-content-center
+                    "
                   >
                     <v-dialog v-model="dialog" width="600px">
                       <Privacy-politics />

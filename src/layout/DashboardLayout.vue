@@ -1,83 +1,175 @@
 <template>
-  <v-card
-    class="mx-auto overflow-hidden"
-    height="100vh"
-  >
-    <v-app-bar
-      color="deep-purple"
-      dark
-    >
-      <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
-
-      <v-toolbar-title>NOMBRE USUARIO</v-toolbar-title>
-    </v-app-bar>
-
+  <v-app>
     <v-navigation-drawer
+      style="background-color: #8b0000"
       v-model="drawer"
       absolute
       temporary
+      app
     >
-      <v-list
-        nav
-        dense
-      >
+      <v-list nav dense>
         <v-list-item-group
           v-model="group"
-          active-class="deep-purple--text text--accent-4"
+          active-class="#DC001B --text text--accent-4"
         >
           <v-list-item>
-
-            <v-list-item-icon>
-              <v-icon small>fas fa-home</v-icon>
-              </v-list-item-icon>
-            <v-list-item-title>Inicio</v-list-item-title>
-
+            <v-list-item-icon> </v-list-item-icon>
+            <v-list-item-title>
+              <h3 style="color: white; font-family: MONTSERRAT">
+                DON BOSCO
+              </h3></v-list-item-title
+            >
           </v-list-item>
-          
 
-            <v-main></v-main>
+          <v-main></v-main>
+          <v-list-item>
+            <v-list-item-icon>
+              <i
+                class="fas fa-house-user"
+                style="font-size: 25px; color:white"
+              ></i>
+            </v-list-item-icon>
+            <a href="/" style="color: white; font-family: MONTSERRAT">INICIO</a>
+          </v-list-item>
 
           <v-list-item>
-
             <v-list-item-icon>
-              <v-icon>mdi-account</v-icon>
+              <i class="far fa-user" style="font-size: 22px; color: cyan"></i>
             </v-list-item-icon>
-            <v-list-item-title>Perfil</v-list-item-title>
-            
-             
-           </v-list-item>
-           <v-list-item>
-
-            <v-list-item-icon>
-              <v-icon small></v-icon>
-              </v-list-item-icon>
-            <v-list-item-title>📣 Noticias</v-list-item-title>
-
+            <a href="Profile" style="color: white; font-family: MONTSERRAT"
+              >&nbsp;Perfil</a
+            >
           </v-list-item>
-           <v-list-item-icon>
-              <v-icon small></v-icon>
-              </v-list-item-icon>
-            <v-list-item-title>🔔Notificaciones</v-list-item-title>
 
-          </v-list-item-group>
+          <v-list-item>
+            <v-list-item-icon>
+              <i
+                class="fas fa-bullhorn"
+                style="font-size: 22px; color: #ffe900"
+              ></i>
+            </v-list-item-icon>
+            <a href="Comunicados" style="color: white; font-family: MONTSERRAT"
+              >Comunicados</a
+            >
+          </v-list-item>
+
+           <v-list-item>
+            <v-list-item-icon>
+              <i class="fas fa-hands" style="font-size: 22px; color: #fdddca"></i>
+              
+            </v-list-item-icon>
+            <a href="Donaciones" style="color: white; font-family: MONTSERRAT"
+              >Donaciones</a
+            >
+          </v-list-item>
+
+           <v-list-item>
+            <v-list-item-icon>
+
+              <i class="fas fa-hand-holding-usd" style="font-size: 22px; color: green"></i>
+              
+            </v-list-item-icon>
+            <a href="DonacionesPuntuales" style="color: white; font-family: MONTSERRAT"
+              >Dona Ahora </a
+            >
+          </v-list-item>
+
+            <v-list-item>
+            <v-list-item-icon>
+              <i class="fas fa-award" style="font-size: 22px; color: #bf930d"></i>
+              </v-list-item-icon>
+            <a href="Certificados" style="color: white; font-family: MONTSERRAT"
+              > Certificados</a
+            >
+          </v-list-item>
+
+          
+
+          <v-list-item>
+            <v-list-item-icon>
+              <i class="far fa-bell" style="font-size: 22px; color: orange"></i>
+            </v-list-item-icon>
+            <a
+              href="Notificaciones"
+              style="color: white; font-family: MONTSERRAT"
+              >&nbsp;Notificaciones</a
+            >
+          </v-list-item>
+
+          <v-list-item>
+            <v-list-item-icon>
+              <i
+                class="fas fa-question"
+                style="font-size: 22px; color: blue"
+              ></i>
+            </v-list-item-icon>
+            <a href="Preguntas" style="color: white; font-family: MONTSERRAT"
+              >&nbsp;Preguntas</a
+            >
+          </v-list-item>
+
+          <v-list-item>
+            <v-list-item-icon>
+              <i
+                class="far fa-times-circle"
+                style="font-size: 22px; color: grey"
+              ></i>
+            </v-list-item-icon>
+            <a href="Login" style="color: white; font-family: MONTSERRAT"
+              >&nbsp;Cerrar Sesion</a
+            >
+          </v-list-item>
+        </v-list-item-group>
       </v-list>
     </v-navigation-drawer>
-  </v-card>
+
+    <v-app-bar color="#DC001B" app>
+      <v-app-bar-nav-icon @click="drawer = true">
+        <i
+          class="fas fa-align-justify"
+          style="font-size: 30px; color: white"
+        ></i>
+      </v-app-bar-nav-icon>
+
+      <v-toolbar-title style="font-family: MONTSERRAT; color: white"
+        >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NOMBRE USUARIO</v-toolbar-title
+      >
+    </v-app-bar>
+
+    <!-- Sizes your content based upon application components -->
+    <v-main>
+      <!-- Provides the application the proper gutter -->
+      <v-container fluid>
+        <!-- If using vue-router -->
+        <router-view></router-view>
+      </v-container>
+    </v-main>
+  </v-app>
 </template>
 
 <script>
-Vue.use(Vuetify)
+Vue.use(Vuetify);
 
-import Vue from 'vue'
-import Vuetify from 'vuetify/lib'
+import Vue from "vue";
+import Vuetify from "vuetify/lib";
+import News from "../components/News.vue";
 
 export default {
-      data: () => ({
-      drawer: false,
-      group: null,
-    }),
-}
+  components: {
+    News,
+  },
 
+  data: () => ({
+    drawer: false,
+    group: null,
+  }),
+};
 </script>
 
-<style></style>
+<style>
+a:link,
+a:visited,
+a:active {
+  text-decoration: none;
+}
+</style>

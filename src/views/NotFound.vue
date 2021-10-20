@@ -2,7 +2,7 @@
     <div class="container">
         <h1>¡UPS!</h1>
         <h3>La página que estás buscando no está aquí.Volver al panel</h3>
-        <router-link :to="{ name: 'DashboardLayout' }">Back to the Dashboard</router-link>
+        <router-link :to="{ name: 'News' }">Back to the Dashboard</router-link>
     </div>
 </template>
 

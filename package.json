@@ -19,6 +19,8 @@
     "v-mask": "^2.3.0",
     "vee-validate": "^3.4.13",
     "vue": "^2.6.11",
+    "vue-axios": "^3.3.7",
+    "vue-card-slide": "^1.1.1",
     "vue-router": "^3.2.0",
     "vue-simple-alert": "^1.1.1",
     "vuetify": "^2.4.0",
@@ -30,7 +32,7 @@
     "@vue/cli-service": "~4.5.0",
     "sass": "~1.32.0",
     "sass-loader": "^10.0.0",
-    "vue-cli-plugin-vuetify": "~2.4.2",
+    "vue-cli-plugin-vuetify": "~2.4.3",
     "vue-template-compiler": "^2.6.11",
     "vuetify-loader": "^1.7.0"
   }
