@@ -142,15 +142,13 @@ export default {
         documento: this.documento,
         password: this.password,
       };
-
-      AuthService.login(data)
-        .then((res) => {
-          console.log(res);
-          localStorage.setItem("TokenFIRE", res.data.token);
-          localStorage.setItem("Usuario", res.data.usuario.name);
+      this.$store
+        .dispatch("login", data)
+        .then(() => {
+          this.$router.push({ name: "DashboardLayout" });
         })
-        .catch((errors) => {
-          console.log(errors);
+        .catch((err) => {
+          console.log(err.response.data.errors);
         });
     },
     redirectToForgot() {

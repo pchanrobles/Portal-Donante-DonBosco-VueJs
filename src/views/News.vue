@@ -17,6 +17,8 @@
 </template>
 
  <script>
+ import axios from 'axios'
+  axios.defaults.baseURL = 'http://localhost:81/wordpress'
 export default {
   data: () => ({
     entradas: [],
@@ -32,7 +34,7 @@ export default {
 
   methods: {
     async initialize() {
-      const entradasDB = await this.axios.get("wp-json/wp/v2/posts");
+      const entradasDB = await axios.get("/wp-json/wp/v2/posts");
       // console.log(entradasDB.data);
       await entradasDB.data.forEach((element) => {
         // console.log(element);

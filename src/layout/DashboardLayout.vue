@@ -116,7 +116,7 @@
               ></i>
             </v-list-item-icon>
             <a href="Login" style="color: white; font-family: MONTSERRAT"
-              >&nbsp;Cerrar Sesion</a
+              >Cerrar Sesion</a
             >
           </v-list-item>
         </v-list-item-group>
@@ -130,9 +130,8 @@
           style="font-size: 30px; color: white"
         ></i>
       </v-app-bar-nav-icon>
-
-      <v-toolbar-title style="font-family: MONTSERRAT; color: white"
-        >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NOMBRE USUARIO</v-toolbar-title
+      <v-toolbar-title style="font-family: MONTSERRAT; text-h3 color: white"
+        > {{ this.$store.state.user.donante.name }} </v-toolbar-title
       >
     </v-app-bar>
 
@@ -152,11 +151,11 @@ Vue.use(Vuetify);
 
 import Vue from "vue";
 import Vuetify from "vuetify/lib";
-import News from "../components/News.vue";
+
 
 export default {
   components: {
-    News,
+
   },
 
   data: () => ({
