@@ -11,4 +11,6 @@ const base = axios.create({
 
 
 
-export default base
+export default {
+  
+}
