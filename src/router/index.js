@@ -5,6 +5,28 @@ Vue.use(VueRouter)
 
 
 const routes = [
+  {
+    path: '/admin',
+    name: 'admin',
+    component: () => import('../layout/DashboardAdmin.vue'),
+    children: [ {
+      path: '/comunicadosAdmin',
+      name: 'ComunicadosAdmin',
+      component: () => import('../views/ComunicadosAdmin.vue'),
+    },
+    {
+      path: '/buscardonantes',
+      name: 'BuscarDonantes',
+      component: () => import('../views/BuscarDonantes.vue'),
+    },
+    {
+      path: '/Peticion',
+      name: 'Peticion',
+      component: () => import('../views/Peticion.vue'),
+    },
+  ]
+  },
+ 
 
   {
     path: '/login',
