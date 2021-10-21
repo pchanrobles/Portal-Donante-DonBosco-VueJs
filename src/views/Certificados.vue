@@ -1,5 +1,5 @@
 <template>
-  
+  <img src="../assets/certificado.png" alt="">
 </template>
 
 <script>

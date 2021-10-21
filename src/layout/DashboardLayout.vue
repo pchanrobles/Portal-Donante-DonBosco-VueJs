@@ -1,7 +1,8 @@
 <template>
   <v-app>
     <v-navigation-drawer
-      style="background-color: #8b0000"
+      style=" display: flex; position:fixed; background-color: #8b0000"
+      height="100%"
       v-model="drawer"
       absolute
       temporary
@@ -152,11 +153,11 @@ Vue.use(Vuetify);
 
 import Vue from "vue";
 import Vuetify from "vuetify/lib";
-import News from "../components/News.vue";
+
 
 export default {
   components: {
-    News,
+   
   },
 
   data: () => ({
