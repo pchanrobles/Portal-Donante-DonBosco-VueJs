@@ -485,6 +485,7 @@ export default {
   },
 
   data: () => ({
+    errors: null,
     page: 1,
     show3: false,
     dialogSuccess: false,
@@ -590,14 +591,22 @@ export default {
     checkbox: null,
   }),
   methods: {
+
     goToLogin() {
       this.$router.push("/");
     },
     onSubmit() {
       if (this.page === 3) {
         //Llamada a API
-        console.log(this.form);
-        AuthService.register(this.form);
+        console.log(this.form)
+                this.$store
+                .dispatch('register', this.form)
+                .then(() => {
+                    this.$router.push({ name: 'Dashboard' })
+                })
+                .catch((err) => {
+                    this.errors = err.response.data.errors;
+                })
         this.dialogSuccess = true;
       }
       this.page++;
