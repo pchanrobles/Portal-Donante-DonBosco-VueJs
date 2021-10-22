@@ -263,7 +263,7 @@
             datos que aportes, podrás solicitar el certificado de donaciones a
             partir del mes de enero y tras la finalización del año fiscal.
           </div>
-          <img class="images"  src="../assets/donacion.png" onmouseover="this.width=700;this.height=500;" onmouseout="this.width=500;this.height=450;"width="400px" />
+          <img class="images"  src="../assets/donacion.png" onmouseover="this.width=700;this.height=500;" onmouseout="this.width=500;this.height=450;" width="400px" />
 
           <br />
           <div class="h2"><img id="icon" src="../assets/icon.png" alt="icon" width="25px;"><h2  class="h2">
@@ -420,7 +420,7 @@ Incluir los enlaces a las redes sociales de la Fundación Don Bosco Salesianos S
 <li class="li" style="list-style:none;">FB: <a href="https://www.facebook.com/donboscosalesianossocial">https://www.facebook.com/donboscosalesianossocial</a></li> 
 <li class="li" style="list-style:none;">IG: <a href="https://www.instagram.com/donboscosalesianossocial">https://www.instagram.com/donboscosalesianossocial</a></li> 
 <li class="li" style="list-style:none;">TW:<a href="TW: https://twitter.com/donboscosocial"> https://twitter.com/donboscosocial</a></li> 
-<li class="li" style="list-style:none;">YT:<a href=" YT: https://www.youtube.com/user/fundproyectodonbosco">  https://www.youtube.com/user/fundproyectodonbosco</a></li></li>
+<li class="li" style="list-style:none;">YT:<a href=" YT: https://www.youtube.com/user/fundproyectodonbosco">  https://www.youtube.com/user/fundproyectodonbosco</a>
 
 
 <li class="li">Sigue nuestras noticias, newsletter y transmite nuestro mensaje a través de: Qué decimos 
@@ -505,6 +505,7 @@ manera íntegra la aportación.</li>
 }
 .tables {
   width: 60px;
+  
 }
 .table {
   text-align: center;
