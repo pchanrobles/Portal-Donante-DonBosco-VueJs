@@ -42,7 +42,7 @@ const routes = [
   {
     path: '/register',
     name: 'Register',
-    component: () => import('../layout/Register.vue'),
+    component: () => import('../views/Register.vue'),
   },
 
   {
@@ -75,6 +75,16 @@ const routes = [
         name: 'Donaciones',
         component: () => import(/* webpackChunkName: "Donaciones" */ '../views/Donaciones.vue'),
         meta: { requiresAuth: true },
+      },
+      {
+        path: '/certificados',
+        name: 'Certificados',
+        component: () => import(/* webpackChunkName: "Certificados" */ '../views/Certificados.vue'),
+      },
+      {
+        path: '/donacionesPuntuales',
+        name: 'DonacionesPuntuales',
+        component: () => import(/* webpackChunkName: "DonacionesPuntuales" */ '../views/DonacionesPuntuales.vue'),
       },
 
       {

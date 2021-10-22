@@ -1,7 +1,8 @@
 <template>
   <v-app>
     <v-navigation-drawer
-      style="background-color: #8b0000"
+      style=" display: flex; position:fixed; background-color: #8b0000"
+      height="100%"
       v-model="drawer"
       absolute
       temporary
