@@ -39,7 +39,7 @@
 
           <v-list-item>
             <v-list-item-icon>
-              <i class="far fa-user" style="font-size: 22px; color: cyan"></i>
+              <i class="fas fa-newspaper" style="font-size: 22px; color: cyan"></i>
             </v-list-item-icon>
             <router-link
               style="color: white; font-family: MONTSERRAT"
@@ -155,7 +155,7 @@
         ></i>
       </v-app-bar-nav-icon>
       <v-toolbar-title style="font-family: MONTSERRAT; text-h3 color: white">
-        {{(this.$store.state.user==null) ? "DonBosco": this.$store.state.user.donante.name }}
+        {{(this.$store.state.user==null) ? "Don Bosco": this.$store.state.user.donante.name }}
       </v-toolbar-title>
     </v-app-bar>
 
