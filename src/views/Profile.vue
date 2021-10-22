@@ -189,19 +189,14 @@
               </v-col>
             </v-row>
           </v-container>
-       
-    </div>
-   
-  </div>
-</template>
+       </template>
 <script>
 export default {
-  components: {},
+name: 'Profile',
 };
 </script>
 
 <style>
-
 #icon {
   margin-left: 5%;
 }

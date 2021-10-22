@@ -24,7 +24,7 @@
           <v-form @submit.prevent="handleSubmit(onSubmit)">
             <!-- STEP 1 ------------------------------------------------->
             <v-stepper-content step="1">
-              <!--  SELECTOR DE PAIS (NºTEL) --------------------------------->
+              <!--  CUOTA --------------------------------->
 
               <validation-provider
                 v-if="page === 1"
@@ -202,7 +202,7 @@
                 ></v-text-field>
               </validation-provider>
 
-              <!--  SELECTOR DE PAIS (NºTEL) --------------------------------->
+              <!--  SELECTOR DE PAIS --------------------------------->
 
               <validation-provider
                 v-if="page === 2"
@@ -494,7 +494,6 @@ import {
   ValidationProvider,
   setInteractionMode,
 } from "vee-validate";
-import AuthService from "../services/AuthService.js";
 import validation from "../helpers/validation.js";
 setInteractionMode("eager");
 
@@ -614,19 +613,19 @@ export default {
   methods: {
 
     goToLogin() {
-      this.$router.push("/");
+      this.$router.push( "/");
     },
     onSubmit() {
       if (this.page === 3) {
+
         //Llamada a API
         console.log(this.form)
                 this.$store
                 .dispatch('register', this.form)
                 .then(() => {
-                    this.$router.push({ name: 'Dashboard' })
                 })
                 .catch((err) => {
-                    this.errors = err.response.data.errors;
+                    this.errors = err.data.response.errors;
                 })
         this.dialogSuccess = true;
       }

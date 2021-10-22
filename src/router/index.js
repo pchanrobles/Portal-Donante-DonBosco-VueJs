@@ -122,7 +122,6 @@ router.beforeEach((to, from, next) => {
     console.log('deberia redirigirte a login despues de esta linea')
     next('/login')
   }
-  console.log('no funciona el IF')
   next()
 })
 export default router
