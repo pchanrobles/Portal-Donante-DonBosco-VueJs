@@ -227,12 +227,12 @@
                 </v-select>
               </validation-provider>
 
-              <!--  Nº DE TELÉFONO --------------------------------->
+              <!--  Nº DE TELÉFONO MOVIL--------------------------------->
 
               <validation-provider
                 v-if="page === 2"
                 v-slot="{ errors }"
-                name="El número de teléfono"
+                name="El número de teléfono móvil"
                 :rules="{
                   required: true,
                   digits: 9,
@@ -243,7 +243,27 @@
                   v-model="form.phoneNumber"
                   :counter="9"
                   :error-messages="errors"
-                  label="Número de teléfono"
+                  label="Número de teléfono móvil"
+                  required
+                ></v-text-field>
+              </validation-provider>
+              <!--  Nº DE TELÉFONO FIJO--------------------------------->
+
+              <validation-provider
+                v-if="page === 2"
+                v-slot="{ errors }"
+                name="El número de teléfono fijo"
+                :rules="{
+                  required: true,
+                  digits: 9,
+                  regex: '[0-9]$',
+                }"
+              >
+                <v-text-field
+                  v-model="form.phoneNumber2"
+                  :counter="9"
+                  :error-messages="errors"
+                  label="Número de teléfono fijo"
                   required
                 ></v-text-field>
               </validation-provider>
@@ -505,6 +525,7 @@ export default {
       lastName: "",
       selectorPais: "",
       phoneNumber: "",
+      phoneNumber2:"",
       email: "",
       nameBank: "",
       iban: null,

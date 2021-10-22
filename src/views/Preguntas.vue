@@ -1,15 +1,34 @@
 <template>
   
-    
-    <!-- apartado preguntas frecuentes -->
-    <div style="margin-top: 20px">
-      <v-card-text>
-        <div class="modal-container active">
-   <div class="head">
+    <v-expansion-panels>
+              <div class="head">
       <img id="img" src="../assets/bosco.png" alt="" width="200px;"> <h2 id="h2-head" class="text-h4 ">
         Preguntas y respuestas frecuentes <br> para las personas que son socias o
         donantes <br> de la  Fundación Don Bosco Salesianos Social
-      </h2></div>   
+      </h2></div>
+    <v-expansion-panel
+      v-for="(item,i) in 5"
+      :key="i"
+    >
+      <v-expansion-panel-header
+        class="h2"><img id="icon" src="../assets/icon.png" alt="icon" width="25px;"><h2 class="h2" >¿Por qué ser socio/a de la Fundación Don Bosco Salesianos Social?</h2>
+      </v-expansion-panel-header>
+      <v-expansion-panel-content
+        class="text--primary">
+        Ser socio/a significa formar parte de un proyecto que soñó san Juan
+        Bosco y que permite alcanzar los sueños de la juventud y de las personas
+        en exclusión. Formar parte de la Fundación como socio/a expresa el
+        compromiso activo por ayudar a las personas a ser plenas y a crecer en
+        una sociedad que hace vida los Derechos Humanos y el modelo de persona
+        que Jesús muestra en los evangelios. Con tu aportación regular, haces
+        sostenibles muchos proyectos, ayudas a alcanzar los sueños de las
+        personas, muestras tu compromiso activo e inspiras con tu ejemplo a los
+        demás, motivándoles a seguir tus pasos. ¡GRACIAS DE CORAZÓN!
+      </v-expansion-panel-content>
+    </v-expansion-panel>
+
+
+    <!-- apartado preguntas frecuentes -->
      
       <div class="h2"><img id="icon" src="../assets/icon.png" alt="icon" width="25px;"><h2 class="h2" >¿Por qué ser socio/a de la Fundación Don Bosco Salesianos Social?</h2></div> 
       <div class="text--primary">
@@ -263,7 +282,7 @@
             datos que aportes, podrás solicitar el certificado de donaciones a
             partir del mes de enero y tras la finalización del año fiscal.
           </div>
-          <img class="images"  src="../assets/donacion.png" onmouseover="this.width=700;this.height=500;" onmouseout="this.width=500;this.height=450;"width="400px" />
+          <img class="images"  src="../assets/donacion.png" onmouseover="this.width=700;this.height=500;" onmouseout="this.width=500;this.height=450;" width="400px" />
 
           <br />
           <div class="h2"><img id="icon" src="../assets/icon.png" alt="icon" width="25px;"><h2  class="h2">
@@ -420,7 +439,7 @@ Incluir los enlaces a las redes sociales de la Fundación Don Bosco Salesianos S
 <li class="li" style="list-style:none;">FB: <a href="https://www.facebook.com/donboscosalesianossocial">https://www.facebook.com/donboscosalesianossocial</a></li> 
 <li class="li" style="list-style:none;">IG: <a href="https://www.instagram.com/donboscosalesianossocial">https://www.instagram.com/donboscosalesianossocial</a></li> 
 <li class="li" style="list-style:none;">TW:<a href="TW: https://twitter.com/donboscosocial"> https://twitter.com/donboscosocial</a></li> 
-<li class="li" style="list-style:none;">YT:<a href=" YT: https://www.youtube.com/user/fundproyectodonbosco">  https://www.youtube.com/user/fundproyectodonbosco</a></li></li>
+<li class="li" style="list-style:none;">YT:<a href=" YT: https://www.youtube.com/user/fundproyectodonbosco">  https://www.youtube.com/user/fundproyectodonbosco</a>
 
 
 <li class="li">Sigue nuestras noticias, newsletter y transmite nuestro mensaje a través de: Qué decimos 
@@ -447,10 +466,10 @@ manera íntegra la aportación.</li>
       </div>
 
       </div>
-      </div>
-    </v-card-text>
-    </div>
- 
+
+
+
+   </v-expansion-panels>
 </template>
 
 <script>

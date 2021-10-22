@@ -54,7 +54,6 @@
                 style="font-size: 22px; color: #ffe900"
               ></i>
             </v-list-item-icon>
-            Perfil
             <router-link
               style="color: white; font-family: MONTSERRAT"
               :to="{ path: '/comunicados' }"
