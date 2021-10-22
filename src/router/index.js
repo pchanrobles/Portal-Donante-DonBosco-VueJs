@@ -5,6 +5,28 @@ Vue.use(VueRouter)
 
 
 const routes = [
+  {
+    path: '/admin',
+    name: 'admin',
+    component: () => import('../layout/DashboardAdmin.vue'),
+    children: [ {
+      path: '/comunicadosAdmin',
+      name: 'ComunicadosAdmin',
+      component: () => import('../views/ComunicadosAdmin.vue'),
+    },
+    {
+      path: '/buscardonantes',
+      name: 'BuscarDonantes',
+      component: () => import('../views/BuscarDonantes.vue'),
+    },
+    {
+      path: '/Peticion',
+      name: 'Peticion',
+      component: () => import('../views/Peticion.vue'),
+    },
+  ]
+  },
+ 
 
   {
     path: '/login',
@@ -20,7 +42,7 @@ const routes = [
   {
     path: '/register',
     name: 'Register',
-    component: () => import('../layout/Register.vue'),
+    component: () => import('../views/Register.vue'),
   },
 
   {
@@ -31,8 +53,8 @@ const routes = [
     children: [
       {
         path: '/',
-        name: 'News',
-        component: () => import(/* webpackChunkName: "News" */ '../views/News.vue'),
+        name: 'profile',
+        component: () => import(/* webpackChunkName: "News" */ '../views/Profile.vue'),
         meta: { requiresAuth: true },
       },
       {
@@ -54,6 +76,16 @@ const routes = [
         component: () => import(/* webpackChunkName: "Donaciones" */ '../views/Donaciones.vue'),
         meta: { requiresAuth: true },
       },
+      {
+        path: '/certificados',
+        name: 'Certificados',
+        component: () => import(/* webpackChunkName: "Certificados" */ '../views/Certificados.vue'),
+      },
+      {
+        path: '/donacionesPuntuales',
+        name: 'DonacionesPuntuales',
+        component: () => import(/* webpackChunkName: "DonacionesPuntuales" */ '../views/DonacionesPuntuales.vue'),
+      },
 
       {
         path: '/preguntas',
@@ -63,9 +95,9 @@ const routes = [
       },
 
       {
-        path: '/profile',
-        name: 'Profile',
-        component: () => import(/* webpackChunkName: "Profile" */ '../views/Profile.vue'),
+        path: '/news',
+        name: 'News',
+        component: () => import(/* webpackChunkName: "Profile" */ '../views/News.vue'),
         meta: { requiresAuth: true },
       },
     ]

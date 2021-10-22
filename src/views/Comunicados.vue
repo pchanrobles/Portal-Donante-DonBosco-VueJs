@@ -261,10 +261,7 @@
 </table>
 </div>
 </body></div>
-
-    </v-card></div>
- 
-  </div>
+</div>
 </template>
 
 <script>

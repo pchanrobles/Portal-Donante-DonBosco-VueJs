@@ -524,6 +524,7 @@ manera íntegra la aportación.</li>
 }
 .tables {
   width: 60px;
+  
 }
 .table {
   text-align: center;
