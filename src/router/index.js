@@ -53,8 +53,8 @@ const routes = [
     children: [
       {
         path: '/',
-        name: 'News',
-        component: () => import(/* webpackChunkName: "News" */ '../views/News.vue'),
+        name: 'profile',
+        component: () => import(/* webpackChunkName: "News" */ '../views/Profile.vue'),
         meta: { requiresAuth: true },
       },
       {
@@ -85,9 +85,9 @@ const routes = [
       },
 
       {
-        path: '/profile',
-        name: 'Profile',
-        component: () => import(/* webpackChunkName: "Profile" */ '../views/Profile.vue'),
+        path: '/news',
+        name: 'News',
+        component: () => import(/* webpackChunkName: "Profile" */ '../views/News.vue'),
         meta: { requiresAuth: true },
       },
     ]

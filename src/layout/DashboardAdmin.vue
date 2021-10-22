@@ -123,13 +123,10 @@ Vue.use(Vuetify);
 
 import Vue from "vue";
 import Vuetify from "vuetify/lib";
-import News from "../components/News.vue";
+
 
 export default {
-  components: {
-    News,
-  },
-
+ 
   data: () => ({
     drawer: false,
     group: null,

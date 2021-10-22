@@ -29,15 +29,21 @@
                 style="font-size: 25px; color:white"
               ></i>
             </v-list-item-icon>
-            <a href="/" style="color: white; font-family: MONTSERRAT">INICIO</a>
+            <router-link
+              style="color: white; font-family: MONTSERRAT"
+              :to="{ path: '/' }"
+              >Perfil</router-link
+            >
           </v-list-item>
 
           <v-list-item>
             <v-list-item-icon>
               <i class="far fa-user" style="font-size: 22px; color: cyan"></i>
             </v-list-item-icon>
-            <a href="Profile" style="color: white; font-family: MONTSERRAT"
-              >&nbsp;Perfil</a
+            <router-link
+              style="color: white; font-family: MONTSERRAT"
+              :to="{ path: '/news' }"
+              >News</router-link
             >
           </v-list-item>
 
@@ -48,51 +54,64 @@
                 style="font-size: 22px; color: #ffe900"
               ></i>
             </v-list-item-icon>
-            <a href="Comunicados" style="color: white; font-family: MONTSERRAT"
-              >Comunicados</a
+            
+            <router-link
+              style="color: white; font-family: MONTSERRAT"
+              :to="{ path: '/comunicados' }"
+              >Comunicados</router-link
             >
           </v-list-item>
 
-           <v-list-item>
+          <v-list-item>
             <v-list-item-icon>
-              <i class="fas fa-hands" style="font-size: 22px; color: #fdddca"></i>
-              
+              <i
+                class="fas fa-hands"
+                style="font-size: 22px; color: #fdddca"
+              ></i>
             </v-list-item-icon>
-            <a href="Donaciones" style="color: white; font-family: MONTSERRAT"
-              >Donaciones</a
+            <router-link
+              style="color: white; font-family: MONTSERRAT"
+              :to="{ path: '/donaciones' }"
+              >Donaciones</router-link
             >
           </v-list-item>
 
-           <v-list-item>
+          <v-list-item>
             <v-list-item-icon>
-
-              <i class="fas fa-hand-holding-usd" style="font-size: 22px; color: green"></i>
-              
+              <i
+                class="fas fa-hand-holding-usd"
+                style="font-size: 22px; color: green"
+              ></i>
             </v-list-item-icon>
-            <a href="DonacionesPuntuales" style="color: white; font-family: MONTSERRAT"
-              >Dona Ahora </a
+            <router-link
+              style="color: white; font-family: MONTSERRAT"
+              :to="{ path: 'DonacionesPuntuales' }"
+              >Dona Ahora</router-link
             >
           </v-list-item>
 
-            <v-list-item>
+          <v-list-item>
             <v-list-item-icon>
-              <i class="fas fa-award" style="font-size: 22px; color: #bf930d"></i>
-              </v-list-item-icon>
-            <a href="Certificados" style="color: white; font-family: MONTSERRAT"
-              > Certificados</a
+              <i
+                class="fas fa-award"
+                style="font-size: 22px; color: #bf930d"
+              ></i>
+            </v-list-item-icon>
+            <router-link
+              style="color: white; font-family: MONTSERRAT"
+              :to="{ path: 'Certificados' }"
+              >Certificados</router-link
             >
           </v-list-item>
-
-          
 
           <v-list-item>
             <v-list-item-icon>
               <i class="far fa-bell" style="font-size: 22px; color: orange"></i>
             </v-list-item-icon>
-            <a
-              href="Notificaciones"
+            <router-link
               style="color: white; font-family: MONTSERRAT"
-              >&nbsp;Notificaciones</a
+              :to="{ path: 'Notificaciones' }"
+              >Notificaciones</router-link
             >
           </v-list-item>
 
@@ -103,8 +122,10 @@
                 style="font-size: 22px; color: blue"
               ></i>
             </v-list-item-icon>
-            <a href="Preguntas" style="color: white; font-family: MONTSERRAT"
-              >&nbsp;Preguntas</a
+            <router-link
+              style="color: white; font-family: MONTSERRAT"
+              :to="{ path: 'Preguntas' }"
+              >Preguntas</router-link
             >
           </v-list-item>
 
@@ -115,8 +136,10 @@
                 style="font-size: 22px; color: grey"
               ></i>
             </v-list-item-icon>
-            <a href="Login" style="color: white; font-family: MONTSERRAT"
-              >Cerrar Sesion</a
+            <router-link
+              style="color: white; font-family: MONTSERRAT"
+              :to="{ path: 'Login' }"
+              >Cerrar Sesion</router-link
             >
           </v-list-item>
         </v-list-item-group>
@@ -130,9 +153,9 @@
           style="font-size: 30px; color: white"
         ></i>
       </v-app-bar-nav-icon>
-      <v-toolbar-title style="font-family: MONTSERRAT; text-h3 color: white"
-        > {{ this.$store.state.user.donante.name }} </v-toolbar-title
-      >
+      <v-toolbar-title style="font-family: MONTSERRAT; text-h3 color: white">
+        {{(this.$store.state.user==null) ? "DonBosco": this.$store.state.user.donante.name }}
+      </v-toolbar-title>
     </v-app-bar>
 
     <!-- Sizes your content based upon application components -->
@@ -152,11 +175,8 @@ Vue.use(Vuetify);
 import Vue from "vue";
 import Vuetify from "vuetify/lib";
 
-
 export default {
-  components: {
-
-  },
+  components: {},
 
   data: () => ({
     drawer: false,

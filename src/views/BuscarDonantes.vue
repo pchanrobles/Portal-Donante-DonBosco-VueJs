@@ -17,10 +17,28 @@
 <script>
 
 import Comunicados  from '../components/Comunicados.vue'
-
+import DonantesService from '@/services/DonantesService.js'
 export default{
     components:{
         Comunicados
+    },
+    data(){
+        return {
+            donantes:null
+        }
+    },
+    created(){
+        DonantesService
+
+        .getdonantes()
+
+        .then(respuesta =>{
+            console.log(respuesta.data)
+        })
+
+        .catch(error =>{
+            console.log(error)
+        })
     }
   
 }
