@@ -1,8 +1,7 @@
 <template>
   <v-app>
     <v-navigation-drawer
-      style=" display: flex; position:fixed; background-color: #8b0000"
-      height="100%"
+      style="background-color: #8b0000"
       v-model="drawer"
       absolute
       temporary
@@ -17,7 +16,7 @@
             <v-list-item-icon> </v-list-item-icon>
             <v-list-item-title>
               <h3 style="color: white; font-family: MONTSERRAT">
-                DON BOSCO
+                Admin
               </h3></v-list-item-title
             >
           </v-list-item>
@@ -33,14 +32,7 @@
             <a href="/" style="color: white; font-family: MONTSERRAT">INICIO</a>
           </v-list-item>
 
-          <v-list-item>
-            <v-list-item-icon>
-              <i class="far fa-user" style="font-size: 22px; color: cyan"></i>
-            </v-list-item-icon>
-            <a href="Profile" style="color: white; font-family: MONTSERRAT"
-              >&nbsp;Perfil</a
-            >
-          </v-list-item>
+       
 
           <v-list-item>
             <v-list-item-icon>
@@ -49,49 +41,27 @@
                 style="font-size: 22px; color: #ffe900"
               ></i>
             </v-list-item-icon>
-            <a href="Comunicados" style="color: white; font-family: MONTSERRAT"
+            <a href="ComunicadosAdmin" style="color: white; font-family: MONTSERRAT"
               >Comunicados</a
             >
           </v-list-item>
 
            <v-list-item>
             <v-list-item-icon>
-              <i class="fas fa-hands" style="font-size: 22px; color: #fdddca"></i>
-              
+              <i class="far fa-user" style="font-size: 22px; color: cyan"></i>
             </v-list-item-icon>
-            <a href="Donaciones" style="color: white; font-family: MONTSERRAT"
-              >Donaciones</a
+            <a href="BuscarDonantes" style="color: white; font-family: MONTSERRAT"
+              >&nbsp;Perfil de Donantes</a
             >
+
           </v-list-item>
 
            <v-list-item>
             <v-list-item-icon>
-
-              <i class="fas fa-hand-holding-usd" style="font-size: 22px; color: green"></i>
-              
-            </v-list-item-icon>
-            <a href="DonacionesPuntuales" style="color: white; font-family: MONTSERRAT"
-              >Dona Ahora </a
-            >
-          </v-list-item>
-
-            <v-list-item>
-            <v-list-item-icon>
-              <i class="fas fa-award" style="font-size: 22px; color: #bf930d"></i>
-              </v-list-item-icon>
-            <a href="Certificados" style="color: white; font-family: MONTSERRAT"
-              > Certificados</a
-            >
-          </v-list-item>
-
-          
-
-          <v-list-item>
-            <v-list-item-icon>
               <i class="far fa-bell" style="font-size: 22px; color: orange"></i>
             </v-list-item-icon>
             <a
-              href="Notificaciones"
+              href="ComunicadosAdmin"
               style="color: white; font-family: MONTSERRAT"
               >&nbsp;Notificaciones</a
             >
@@ -104,8 +74,8 @@
                 style="font-size: 22px; color: blue"
               ></i>
             </v-list-item-icon>
-            <a href="Preguntas" style="color: white; font-family: MONTSERRAT"
-              >&nbsp;Preguntas</a
+            <a href="Peticion" style="color: white; font-family: MONTSERRAT"
+              >&nbsp;Peticiones</a
             >
           </v-list-item>
 
@@ -117,7 +87,7 @@
               ></i>
             </v-list-item-icon>
             <a href="Login" style="color: white; font-family: MONTSERRAT"
-              >Cerrar Sesion</a
+              >&nbsp;Cerrar Sesion</a
             >
           </v-list-item>
         </v-list-item-group>
@@ -131,8 +101,9 @@
           style="font-size: 30px; color: white"
         ></i>
       </v-app-bar-nav-icon>
-      <v-toolbar-title style="font-family: MONTSERRAT; text-h3 color: white"
-        > {{ this.$store.state.user.donante.name }} </v-toolbar-title
+
+      <v-toolbar-title style="font-family: MONTSERRAT; color: white"
+        >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;👨‍⚖️Administrador</v-toolbar-title
       >
     </v-app-bar>
 
@@ -152,11 +123,11 @@ Vue.use(Vuetify);
 
 import Vue from "vue";
 import Vuetify from "vuetify/lib";
-
+import News from "../components/News.vue";
 
 export default {
   components: {
-   
+    News,
   },
 
   data: () => ({

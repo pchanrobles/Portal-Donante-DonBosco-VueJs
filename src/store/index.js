@@ -16,13 +16,38 @@ export default new Vuex.Store({
         "Authorization"
       ] = `Bearer ${data.token}`;
     },
+    LOGOUT (state) {
+      // state.user = null
+      // localStorage.removeItem('user')
+      // localStorage.removeItem('token')
+      // apiClient.defaults.headers.common['Authorization'] = null
+      localStorage.removeItem('user')
+      localStorage.removeItem('token')
+      location.reload()
+    }
   },
   actions: {
-    login({ commit }, credentials) {
-      return apiClient.post("/api/login", credentials).then(({ data }) => {
-        commit("SET_USER_DATA", data.data);
-      });
+    register({ commit }, credentials) {
+      return apiClient
+        .post('/api/register', credentials)
+        .then(({ data }) => {
+          commit('SET_USER_DATA', data)
+        })
     },
+    login({ commit }, credentials) {
+      return apiClient
+        .post('/api/login', credentials)
+        .then(({ data }) => {
+          commit('SET_USER_DATA', data)
+        })
+    },
+    logout ({ commit }) {
+      return apiClient
+        .get('/api/logout')
+        .then(() => {
+          commit('LOGOUT')
+        })
+    }
   },
   modules: {},
 });
