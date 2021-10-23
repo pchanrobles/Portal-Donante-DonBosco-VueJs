@@ -11,13 +11,13 @@ const base = axios.create({
   }
 })
 
-base.interceptors.response.use( response => response, error => {
-  if (error.response.status === 401) {
-      router.push('/login')
-      store.dispatch('logout')
-  }
-  return Promise.reject(error)
-})
+// base.interceptors.response.use( response => response, error => {
+//   if (error.response.status === 401) {
+//       router.push('/login')
+//       store.dispatch('logout')
+//   }
+//   return Promise.reject(error)
+// })
 
 
 export default base

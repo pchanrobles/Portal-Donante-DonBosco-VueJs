@@ -114,14 +114,13 @@ const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes
-})
+});
 router.beforeEach((to, from, next) => {
   const loggedIn = !localStorage.getItem('user') || !localStorage.getItem('token')
 
   if (to.matched.some(record => record.meta.requiresAuth) && loggedIn) {
-    console.log('deberia redirigirte a login despues de esta linea')
     next('/login')
   }
   next()
-})
+});
 export default router

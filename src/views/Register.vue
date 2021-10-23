@@ -202,6 +202,22 @@
                 ></v-text-field>
               </validation-provider>
 
+              <!--  DIRECCIÓN --------------------------------->
+
+              <validation-provider
+                v-if="page === 2"
+                v-slot="{ errors }"
+                name="La Dirección"
+                rules="required"
+              >
+                <v-text-field
+                  v-model="form.poblacion"
+                  :error-messages="errors"
+                  label="Dirección"
+                  required
+                ></v-text-field>
+              </validation-provider>
+
               <!--  SELECTOR DE PAIS --------------------------------->
 
               <validation-provider
@@ -439,14 +455,15 @@
                 </v-card>
               </v-dialog>
             </div>
+
             <div class="text-center">
               <v-dialog v-model="dialogWrong" width="500">
                 <v-card>
                   <v-card-title class="text-h5 grey lighten-2">
-                    Privacy Policy
+                    ATENCIÓN
                   </v-card-title>
 
-                  <v-card-text>
+                  <v-card-text class="font-weight-bold">
                     No se ha podido enviar su formulario debido a un error.
                   </v-card-text>
 
@@ -454,7 +471,7 @@
 
                   <v-card-actions>
                     <v-spacer></v-spacer>
-                    <v-btn color="danger" text @click="dialog = false">
+                    <v-btn color="danger" text @click="dialogWrong = false">
                       ACEPTAR
                     </v-btn>
                   </v-card-actions>
@@ -463,6 +480,16 @@
             </div>
           </v-form>
         </validation-observer>
+        <div v-if="loading" class="spinner">
+          <v-progress-circular
+            :size="90"
+            class="postition-fixed"
+            :width="9"
+            color="red"
+            indeterminate
+          ></v-progress-circular>
+          <p>Enviando información, espere...</p>
+        </div>
       </v-stepper-items>
     </v-stepper>
     <link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet" />
@@ -470,7 +497,20 @@
 </template>
 
 <script>
-const vuetify = new Vuetify({
+Vue.use(Vuetify, VueMask);
+import Vue from "vue";
+import Vuetify from "vuetify/lib";
+import colors from "vuetify/lib/util/colors";
+import VueMask from "v-mask";
+import {
+  ValidationObserver,
+  ValidationProvider,
+  setInteractionMode,
+} from "vee-validate";
+import validation from "../helpers/validation.js";
+setInteractionMode("eager");
+
+export default {
   theme: {
     themes: {
       light: {
@@ -484,26 +524,13 @@ const vuetify = new Vuetify({
       },
     },
   },
-});
-Vue.use(Vuetify, VueMask);
-import Vue from "vue";
-import Vuetify from "vuetify/lib";
-import VueMask from "v-mask";
-import {
-  ValidationObserver,
-  ValidationProvider,
-  setInteractionMode,
-} from "vee-validate";
-import validation from "../helpers/validation.js";
-setInteractionMode("eager");
-
-export default {
   components: {
     ValidationProvider,
     ValidationObserver,
   },
 
   data: () => ({
+    loading: false,
     errors: null,
     page: 1,
     show3: false,
@@ -512,6 +539,7 @@ export default {
     otraCuota: false,
     errors: null,
     form: {
+      direccion:"",
       provincia: "",
       poblacion: "",
       cp: "",
@@ -524,7 +552,7 @@ export default {
       lastName: "",
       selectorPais: "",
       phoneNumber: "",
-      phoneNumber2:"",
+      phoneNumber2: "",
       email: "",
       nameBank: "",
       iban: null,
@@ -611,23 +639,23 @@ export default {
     checkbox: null,
   }),
   methods: {
-
     goToLogin() {
-      this.$router.push( "/");
+      this.$router.push("/");
     },
     onSubmit() {
       if (this.page === 3) {
-
         //Llamada a API
-        console.log(this.form)
-                this.$store
-                .dispatch('register', this.form)
-                .then(() => {
-                })
-                .catch((err) => {
-                    this.errors = err.data.response.errors;
-                })
-        this.dialogSuccess = true;
+        console.log(this.form);
+        (this.loading = true),
+          this.$store
+            .dispatch("register", this.form)
+            .then(() => {
+              (this.loading = false), (this.dialogSuccess = true);
+            })
+            .catch((err) => {
+              (this.loading = false), (this.dialogWrong = true);
+              this.errors = err.data.response.errors;
+            });
       }
       this.page++;
     },
@@ -643,6 +671,13 @@ export default {
 </script>
 
 <style>
+.spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-weight: 600;
+}
 .picture {
   display: block;
   margin-left: auto;
