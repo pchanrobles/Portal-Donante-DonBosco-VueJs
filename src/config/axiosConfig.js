@@ -6,6 +6,7 @@ const base = axios.create({
   baseURL: 'http://localhost:8000',
   withCredentials: true,
   headers: {
+    "Access-Control-Allow-Origin": "*",
     Accept: 'application/json',
     'Content-Type': 'application/json',
   }

@@ -21,6 +21,7 @@
     "vue": "^2.6.11",
     "vue-axios": "^3.3.7",
     "vue-card-slide": "^1.1.1",
+    "vue-pdf": "^4.3.0",
     "vue-router": "^3.2.0",
     "vue-simple-alert": "^1.1.1",
     "vuetify": "^2.4.0",

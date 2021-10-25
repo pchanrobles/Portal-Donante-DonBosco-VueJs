@@ -47,7 +47,7 @@
             <router-link
               style="color: white; font-family: MONTSERRAT"
               :to="{ path: '/news' }"
-              >News</router-link
+              >Noticias</router-link
             >
           </v-list-item>
 

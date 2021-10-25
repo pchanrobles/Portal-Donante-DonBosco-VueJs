@@ -5,6 +5,7 @@ import {
         required,
         digits,
         email,
+        min,
         max,
         regex
 } from "vee-validate/dist/rules";
@@ -127,7 +128,12 @@ extend("required", {
 
 extend("max", {
         ...max,
-        message: "El {_field_} no debe ser superior a {length} carácteres",
+        message: "{_field_} no debe ser superior a {length} carácteres",
+});
+
+extend("min", {
+        ...min,
+        message: "{_field_} no debe ser inferior a {length} carácteres",
 });
 
 extend("regex", {
