@@ -135,9 +135,9 @@
                 style="font-size: 22px; color: white"
               ></i>
             </v-list-item-icon>
-            <v-btn
+            <v-btn 
               @click="logout"
-              style="color: red; font-family: MONTSERRAT"
+              style="color: white; margin-left: -16px; border-bottom: 3px solid white; background-color: #DC001B; font-family: MONTSERRAT"
               >Cerrar Sesion</v-btn
             >
           </v-list-item>

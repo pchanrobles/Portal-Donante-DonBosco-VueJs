@@ -9,6 +9,7 @@
       </h2>
     </div>
 
+    
     <!-- preguntas frecuentes -->
     <v-expansion-panels class="container">
       <v-expansion-panel class="mx-auto" max-width="1200">
@@ -19,7 +20,7 @@
               src="../assets/icon.png"
               alt="icon"
               width="25px;"
-            /><v-expansion-panel-header >
+            /><v-expansion-panel-header>
               ¿Por qué ser socio/a de la Fundación Don Bosco Salesianos Social?
             </v-expansion-panel-header>
           </div>
@@ -47,7 +48,7 @@
               src="../assets/icon.png"
               alt="icon"
               width="25px;"
-            /><v-expansion-panel-header >
+            /><v-expansion-panel-header>
               ¿Cómo ayudo con mi aportación regular como socio/a de la Fundación
               Don Bosco Salesianos Social?
             </v-expansion-panel-header>
@@ -96,7 +97,7 @@
               src="../assets/icon.png"
               alt="icon"
               width="25px;"
-            /><v-expansion-panel-header >
+            /><v-expansion-panel-header>
               ¿Qué formas tienen las personas jurídicas de colaborar con la
               Fundación Don Bosco Salesianos Social?
             </v-expansion-panel-header>
@@ -150,7 +151,7 @@
               src="../assets/icon.png"
               alt="icon"
               width="25px;"
-            /><v-expansion-panel-header >
+            /><v-expansion-panel-header>
               ¿Si hago una aportación de forma particular, ¿puedo desgravar mi
               aportación a la Fundación Don Bosco Salesianos Social en el IRPF?
             </v-expansion-panel-header>
@@ -164,74 +165,79 @@
             español. Esas deducciones tienen un límite: el 10% sobre la base
             liquidable. Para conocer cómo se aplican esas deducciones, mira esta
             tabla
-            <table
-              style="background-color: #dadcde"
-              width="80%"
-              border="1"
-              cellspacing="0"
-              cellpadding="0"
-            >
-              <tr>
-                <td style="border: 1px solid gray"rowspan="3">
-                  <p>
-                    Personas físicas (IRPF) o contribuyentes del Impuesto sobre
-                    la Renta de no Residentes que operen en territorio español
-                    sin establecimiento permanente
-                  </p>
-                </td>
-                <td style="background-color: #dc001b; border: 1px solid gray">
-                  <p style="color: white" class="table">80%</p>
-                </td>
-                <td style="background-color: #dc001b;  border: 1px solid gray">
-                  <p style="color: white" class="table">35%</p>
-                </td>
-                <td style="background-color: #dc001b;  border: 1px solid gray">
-                  <p style="color: white" class="table">40%</p>
-                </td>
-              </tr>
-              <tr style=" border: 1px solid gray">
-                <td style=" border: 1px solid gray">
-                  <p>
-                    Primeros 150€ donados a una o varias entidades durante el
-                    ejercicio fiscal.
-                  </p>
-                </td>
-                <td style=" border: 1px solid gray">
-                  <p>
-                    A la cantidad que supere los 150€ donados durante el
-                    ejercicio fiscal.
-                  </p>
-                </td>
-                <td style=" border: 1px solid gray">
-                  <p>
-                    El resto donado cuando se haya donado a la misma entidad en
-                    los dos años inmediatos anteriores. La donación debe ser por
-                    importe igual o superior, en cada uno de ellos, al del año
-                    anterior.
-                  </p>
-                </td>
-              </tr>
-              <tr style=" border: 1px solid gray">
-                <td>
-                  <p>
-                    Ejemplo: Si donas 150€ te desgravarás 120€ en la declaración
-                  </p>
-                </td>
-                <td style=" border: 1px solid gray">
-                  <p>
-                    Ejemplo: Si donas 200€ te desgravarás 137,5€ en la
-                    declaración
-                  </p>
-                </td>
-                <td style=" border: 1px solid gray">
-                  <p>
-                    Ejemplo: Si donas 200€, en los dos años anteriores, y
-                    continuas donando esa cantidad te desgravarás 140€ en el
-                    tercer año
-                  </p>
-                </td>
-              </tr>
-            </table>
+            <v-simple-table height="300px">
+              <template>
+                <thead>
+                  <tr>
+                    <td style="border: 1px solid gray" rowspan="3">
+                      <p>
+                        Personas físicas (IRPF) o contribuyentes del Impuesto
+                        sobre la Renta de no Residentes que operen en territorio
+                        español sin establecimiento permanente
+                      </p>
+                    </td>
+                    <td
+                      style="background-color: #dc001b; border: 1px solid gray"
+                    >
+                      <p style="color: white" class="table">80%</p>
+                    </td>
+                    <td
+                      style="background-color: #dc001b; border: 1px solid gray"
+                    >
+                      <p style="color: white" class="table">35%</p>
+                    </td>
+                    <td
+                      style="background-color: #dc001b; border: 1px solid gray"
+                    >
+                      <p style="color: white" class="table">40%</p>
+                    </td>
+                  </tr>
+                  <tr style="border: 1px solid gray">
+                    <td style="border: 1px solid gray">
+                      <p>
+                        Primeros 150€ donados a una o varias entidades durante
+                        el ejercicio fiscal.
+                      </p>
+                    </td>
+                    <td style="border: 1px solid gray">
+                      <p>
+                        A la cantidad que supere los 150€ donados durante el
+                        ejercicio fiscal.
+                      </p>
+                    </td>
+                    <td style="border: 1px solid gray">
+                      <p>
+                        El resto donado cuando se haya donado a la misma entidad
+                        en los dos años inmediatos anteriores. La donación debe
+                        ser por importe igual o superior, en cada uno de ellos,
+                        al del año anterior.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr style="border: 1px solid gray">
+                    <td>
+                      <p>
+                        Ejemplo: Si donas 150€ te desgravarás 120€ en la
+                        declaración
+                      </p>
+                    </td>
+                    <td style="border: 1px solid gray">
+                      <p>
+                        Ejemplo: Si donas 200€ te desgravarás 137,5€ en la
+                        declaración
+                      </p>
+                    </td>
+                    <td style="border: 1px solid gray">
+                      <p>
+                        Ejemplo: Si donas 200€, en los dos años anteriores, y
+                        continuas donando esa cantidad te desgravarás 140€ en el
+                        tercer año
+                      </p>
+                    </td>
+                  </tr>
+                </thead>
+              </template>
+            </v-simple-table>
           </v-expansion-panel-content>
         </v-expansion-panel>
       </v-expansion-panel>
@@ -244,7 +250,7 @@
               src="../assets/icon.png"
               alt="icon"
               width="25px;"
-            /><v-expansion-panel-header >
+            /><v-expansion-panel-header>
               ¿Si hago una aportación como persona jurídica, ¿puedo desgravar mi
               aportación a la Fundación Don Bosco Salesianos Social en el
               impuesto de sociedades?
@@ -259,60 +265,62 @@
             el impuesto de sociedades. Para conocer cómo se aplican esas
             deducciones, mira esta tabla:
 
-            <table
-              style="background-color: #dadcde"
-              width="80%"
-              border="1"
-              cellspacing="0"
-              cellpadding="0"
-            >
-              <tr style=" border: 1px solid gray">
-                <td style=" border: 1px solid gray" rowspan="3">
-                  <p>
-                    Personas jurídicas contribuyentes del Impuesto de Sociedades
-                    en territorio español
-                  </p>
-                </td>
-                <td style="background-color: #dc001b; border: 1px solid gray">
-                  <p style="color: white" class="table">35%</p>
-                </td>
-                <td style="background-color: #dc001b;  border: 1px solid gray">
-                  <p style="color: white" class="table">40%</p>
-                </td>
-              </tr>
-              <tr style=" border: 1px solid gray">
-                <td style=" border: 1px solid gray">
-                  <p>
-                    A la cantidad que supere los 150€ donados durante el
-                    ejercicio fiscal.
-                  </p>
-                </td>
-                <td style=" border: 1px solid gray">
-                  <p>
-                    El resto donado cuando se haya donado a la misma entidad en
-                    los dos años inmediatos anteriores. La donación debe ser por
-                    importe igual o superior, en cada uno de ellos, al del año
-                    anterior.
-                  </p>
-                </td>
-              </tr>
-              <tr style=" border: 1px solid gray">
-                <td style=" border: 1px solid gray">
-                  <p>
-                    Ejemplo: Si donas 200€ te desgravarás 137,5€ en la
-                    declaración.
-                  </p>
-                </td>
-                <td style=" border: 1px solid gray">
-                  <p>
-                    Ejemplo: Si donas 200€, en los dos años anteriores, y
-                    continuas donando esa cantidad te desgravarás 140€ en el
-                    tercer año.
-                  </p>
-                </td>
-              </tr>
-              <tr></tr>
-            </table>
+            <v-simple-table height="300px">
+              <template>
+                <thead>
+                  <tr style="border: 1px solid gray">
+                    <td style="border: 1px solid gray" rowspan="3">
+                      <p>
+                        Personas jurídicas contribuyentes del Impuesto de
+                        Sociedades en territorio español
+                      </p>
+                    </td>
+                    <td
+                      style="background-color: #dc001b; border: 1px solid gray"
+                    >
+                      <p style="color: white" class="table">35%</p>
+                    </td>
+                    <td
+                      style="background-color: #dc001b; border: 1px solid gray"
+                    >
+                      <p style="color: white" class="table">40%</p>
+                    </td>
+                  </tr>
+                  <tr style="border: 1px solid gray">
+                    <td style="border: 1px solid gray">
+                      <p>
+                        A la cantidad que supere los 150€ donados durante el
+                        ejercicio fiscal.
+                      </p>
+                    </td>
+                    <td style="border: 1px solid gray">
+                      <p>
+                        El resto donado cuando se haya donado a la misma entidad
+                        en los dos años inmediatos anteriores. La donación debe
+                        ser por importe igual o superior, en cada uno de ellos,
+                        al del año anterior.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr style="border: 1px solid gray">
+                    <td style="border: 1px solid gray">
+                      <p>
+                        Ejemplo: Si donas 200€ te desgravarás 137,5€ en la
+                        declaración.
+                      </p>
+                    </td>
+                    <td style="border: 1px solid gray">
+                      <p>
+                        Ejemplo: Si donas 200€, en los dos años anteriores, y
+                        continuas donando esa cantidad te desgravarás 140€ en el
+                        tercer año.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr></tr>
+                </thead>
+              </template>
+            </v-simple-table>
           </v-expansion-panel-content>
         </v-expansion-panel>
       </v-expansion-panel>
@@ -325,7 +333,7 @@
               src="../assets/icon.png"
               alt="icon"
               width="25px;"
-            /><v-expansion-panel-header >
+            /><v-expansion-panel-header>
               ¿Existe una cantidad mínima que se deba aportar?
             </v-expansion-panel-header>
           </div>
@@ -347,7 +355,7 @@
               src="../assets/icon.png"
               alt="icon"
               width="25px;"
-            /><v-expansion-panel-header >
+            /><v-expansion-panel-header>
               ¿Puedo donar a través de la página web de la Fundación?
             </v-expansion-panel-header>
           </div>
@@ -374,7 +382,7 @@
         </v-expansion-panel>
       </v-expansion-panel>
 
-       <v-expansion-panel class="mx-auto" max-width="1200">
+      <v-expansion-panel class="mx-auto" max-width="1200">
         <v-expansion-panel>
           <div class="h2">
             <img
@@ -382,44 +390,50 @@
               src="../assets/icon.png"
               alt="icon"
               width="25px;"
-            /><v-expansion-panel-header >
+            /><v-expansion-panel-header>
               ¿Cómo puedo convertirme en socio/a de la Fundación Don Bosco
-            Salesianos Social?
             </v-expansion-panel-header>
           </div>
-<<<<<<< HEAD
-=======
-          <img class="images"  src="../assets/donacion.png" onmouseover="this.width=700;this.height=500;" onmouseout="this.width=500;this.height=450;" width="400px" />
->>>>>>> feature/uploadPDFs
 
           <v-expansion-panel-content class="text--primary">
-             <div>
-             Para colaborar de forma periódica con la entidad y mostrar tu
-            compromiso por un mundo mejor, debes acceder al portal web de la
-            Fundación (enlace a la web) y pulsar sobre la opción Hazte socio/a
-            que aparece destacado en la parte superior. 
-          </div>
-          <br />
-           <img class="image_"  src="../assets/socio.png" alt="socio" width="1000px" /> 
-           <div>
-            <p>
-              Al pulsar sobre ese botón, accederás al formulario de socio/as que
-              te pedirá una serie de datos (<a href=""
-                >formulario de socios/as</a
-              >
-              ). Cuando los completes y envíes, recibirás un mail de bienvenida
-              y algunos consejos en el correo electrónico que facilites. De
-              igual modo, una vez recibidos y autentificado tus datos podrás
-              acceder al portal del donante.
-            </p>
-            <img class="images" src="../assets/socioF.png"  onmouseover="this.width=800; this.height=700;" onmouseout="this.width=400;this.height=350;" width="400" height="350" />
-          </div>
+            <div>
+              Para colaborar de forma periódica con la entidad y mostrar tu
+              compromiso por un mundo mejor, debes acceder al portal web de la
+              Fundación (enlace a la web) y pulsar sobre la opción Hazte socio/a
+              que aparece destacado en la parte superior.
+            </div>
+            <br />
+            <img
+              class="image_"
+              src="../assets/socio.png"
+              alt="socio"
+              width="1000px"
+            />
+            <div>
+              <p>
+                Al pulsar sobre ese botón, accederás al formulario de socio/as
+                que te pedirá una serie de datos (<a href=""
+                  >formulario de socios/as</a
+                >
+                ). Cuando los completes y envíes, recibirás un mail de
+                bienvenida y algunos consejos en el correo electrónico que
+                facilites. De igual modo, una vez recibidos y autentificado tus
+                datos podrás acceder al portal del donante.
+              </p>
+              <img
+                class="images"
+                src="../assets/socioF.png"
+                onmouseover="this.width=800; this.height=700;"
+                onmouseout="this.width=400;this.height=350;"
+                width="400"
+                height="350"
+              />
+            </div>
           </v-expansion-panel-content>
         </v-expansion-panel>
       </v-expansion-panel>
 
-      
-       <v-expansion-panel class="mx-auto" max-width="1200">
+      <v-expansion-panel class="mx-auto" max-width="1200">
         <v-expansion-panel>
           <div class="h2">
             <img
@@ -427,77 +441,80 @@
               src="../assets/icon.png"
               alt="icon"
               width="25px;"
-            /><v-expansion-panel-header >
-               ¿Puedo donar a través de Bizum?
+            /><v-expansion-panel-header>
+              ¿Puedo donar a través de Bizum?
             </v-expansion-panel-header>
           </div>
 
           <v-expansion-panel-content class="text--primary">
-              <div class="text--primary">
-            Evidentemente que sí. Solo tienes que hacerlo a través de tu app
-            bancaria y seguir estos pasos:
-          </div>
-          <table width="80%" border="1" cellspacing="0" cellpadding="0">
-            <tr>
-              <td class="tables">
-                <p class="table">1.</p>
-              </td>
-              <td>
-                <p>
-                  La primera vez que uses este servicio, debes activarlo en la
-                  app de tu entidad bancaria y ya puedes donar una cantidad a
-                  una causa solidaria.
-                </p>
-              </td>
-              <td><img src="../assets/bizum1.png" alt="bizum" /></td>
-            </tr>
-            <tr>
-              <td class="tables">
-                <p class="table">2.</p>
-              </td>
-              <td>
-                <p>
-                  Introduce la cantidad que quieras donar, sabiendo que puedes
-                  enviar desde 0,5€ a 500€.
-                </p>
-              </td>
-              <td><img src="../assets/bizum2.png" alt="bizum" /></td>
-            </tr>
-            <tr>
-              <td class="tables">
-                <p class="table">3.</p>
-              </td>
-              <td>
-                <p>
-                  Escribe el código 33531, que pertenece a la Fundación Don
-                  Bosco Salesianos Social y envíalo.
-                </p>
-              </td>
-              <td><img src="../assets/bizum3.png" alt="bizum" /></td>
-            </tr>
-            <tr>
-              <td class="tables">
-                <p class="table">4.</p>
-              </td>
-              <td>
-                <p>
-                  Toda tu donación llega íntegra a la entidad y puedes solicitar
-                  tu certificado de donación de esas cantidades a través de este
-                  formulario (<a href=""
-                    >Bizum - Fundación Don Bosco Salesianos Social</a
-                  >
-                  )
-                </p>
-              </td>
-              <td><img src="../assets/bizum4.png" alt="bizum" /></td>
-            </tr>
-          </table>
+            <div class="text--primary">
+              Evidentemente que sí. Solo tienes que hacerlo a través de tu app
+              bancaria y seguir estos pasos:
+            </div>
+            <v-simple-table height="300px">
+              <template>
+                <thead>
+                  <tr>
+                    <td class="tables">
+                      <p class="table">1.</p>
+                    </td>
+                    <td>
+                      <p>
+                        La primera vez que uses este servicio, debes activarlo
+                        en la app de tu entidad bancaria y ya puedes donar una
+                        cantidad a una causa solidaria.
+                      </p>
+                    </td>
+                    <td><img src="../assets/bizum1.png" alt="bizum" /></td>
+                  </tr>
+                  <tr>
+                    <td class="tables">
+                      <p class="table">2.</p>
+                    </td>
+                    <td>
+                      <p>
+                        Introduce la cantidad que quieras donar, sabiendo que
+                        puedes enviar desde 0,5€ a 500€.
+                      </p>
+                    </td>
+                    <td><img src="../assets/bizum2.png" alt="bizum" /></td>
+                  </tr>
+                  <tr>
+                    <td class="tables">
+                      <p class="table">3.</p>
+                    </td>
+                    <td>
+                      <p>
+                        Escribe el código 33531, que pertenece a la Fundación
+                        Don Bosco Salesianos Social y envíalo.
+                      </p>
+                    </td>
+                    <td><img src="../assets/bizum3.png" alt="bizum" /></td>
+                  </tr>
+                  <tr>
+                    <td class="tables">
+                      <p class="table">4.</p>
+                    </td>
+                    <td>
+                      <p>
+                        Toda tu donación llega íntegra a la entidad y puedes
+                        solicitar tu certificado de donación de esas cantidades
+                        a través de este formulario (<a href=""
+                          >Bizum - Fundación Don Bosco Salesianos Social</a
+                        >
+                        )
+                      </p>
+                    </td>
+                    <td><img src="../assets/bizum4.png" alt="bizum" /></td>
+                  </tr>
+                </thead>
+              </template>
+            </v-simple-table>
           </v-expansion-panel-content>
         </v-expansion-panel>
       </v-expansion-panel>
 
-      
-       <v-expansion-panel class="mx-auto" max-width="1200">
+      <v-expansion-panel class="mx-auto" max-width="1200">
         <v-expansion-panel>
           <div class="h2">
             <img
@@ -505,22 +522,23 @@
               src="../assets/icon.png"
               alt="icon"
               width="25px;"
-            /><v-expansion-panel-header >
-              ¿Cuál es la mejor periodicidad para que mi aportación sea lo más efectiva?
+            /><v-expansion-panel-header>
+              ¿Cuál es la mejor periodicidad para que mi aportación sea lo más
+              efectiva?
             </v-expansion-panel-header>
           </div>
 
           <v-expansion-panel-content class="text--primary">
-            Tu aportación puedes hacerla con la periodicidad que te resulte más fácil. Puede ser 
-mensual, o trimestral, o semestral o anual. Aunque si debemos decirte que para la Fundación 
-es importante si puedes tus donaciones con carácter mensual porque así nos podemos 
-planificar y saber con lo que contamos.
+            Tu aportación puedes hacerla con la periodicidad que te resulte más
+            fácil. Puede ser mensual, o trimestral, o semestral o anual. Aunque
+            si debemos decirte que para la Fundación es importante si puedes tus
+            donaciones con carácter mensual porque así nos podemos planificar y
+            saber con lo que contamos.
           </v-expansion-panel-content>
         </v-expansion-panel>
       </v-expansion-panel>
 
-      
-       <v-expansion-panel class="mx-auto" max-width="1200">
+      <v-expansion-panel class="mx-auto" max-width="1200">
         <v-expansion-panel>
           <div class="h2">
             <img
@@ -528,21 +546,22 @@ planificar y saber con lo que contamos.
               src="../assets/icon.png"
               alt="icon"
               width="25px;"
-            /><v-expansion-panel-header >
-               ¿Hay un tiempo mínimo para mantenerme como socio/a de la Fundación?
+            /><v-expansion-panel-header>
+              ¿Hay un tiempo mínimo para mantenerme como socio/a de la
+              Fundación?
             </v-expansion-panel-header>
           </div>
 
           <v-expansion-panel-content class="text--primary">
-            Rotundamente no. Tu compromiso es voluntario y eres tú quien decide cuánto tiempo 
-durará ese compromiso como socio/a en la entidad. Nuestro deseo es que sea por mucho 
-tiempo y estamos a tu disposición para ayudarte en lo que necesites.
+            Rotundamente no. Tu compromiso es voluntario y eres tú quien decide
+            cuánto tiempo durará ese compromiso como socio/a en la entidad.
+            Nuestro deseo es que sea por mucho tiempo y estamos a tu disposición
+            para ayudarte en lo que necesites.
           </v-expansion-panel-content>
         </v-expansion-panel>
       </v-expansion-panel>
 
-      
-       <v-expansion-panel class="mx-auto" max-width="1200">
+      <v-expansion-panel class="mx-auto" max-width="1200">
         <v-expansion-panel>
           <div class="h2">
             <img
@@ -550,23 +569,22 @@ tiempo y estamos a tu disposición para ayudarte en lo que necesites.
               src="../assets/icon.png"
               alt="icon"
               width="25px;"
-            /><v-expansion-panel-header >
+            /><v-expansion-panel-header>
               ¿Cuál es el destino de mi aportación?
             </v-expansion-panel-header>
           </div>
 
           <v-expansion-panel-content class="text--primary">
-             Las necesidades que cubre la Fundación son grandes e implican a muchos proyectos en 
-cada localidad en la que estamos presentes y a multitud de personas que son atendidos en 
-ellos.
-El 89,30% se destina a la realización de los proyectos y el 10,7% a la gestión y administración 
-de recursos.
+            Las necesidades que cubre la Fundación son grandes e implican a
+            muchos proyectos en cada localidad en la que estamos presentes y a
+            multitud de personas que son atendidos en ellos. El 89,30% se
+            destina a la realización de los proyectos y el 10,7% a la gestión y
+            administración de recursos.
           </v-expansion-panel-content>
         </v-expansion-panel>
       </v-expansion-panel>
 
-      
-       <v-expansion-panel class="mx-auto" max-width="1200">
+      <v-expansion-panel class="mx-auto" max-width="1200">
         <v-expansion-panel>
           <div class="h2">
             <img
@@ -574,22 +592,23 @@ de recursos.
               src="../assets/icon.png"
               alt="icon"
               width="25px;"
-            /><v-expansion-panel-header >
-              ¿Qué ventajas tienen quienes son socios/as de la Fundación Don Bosco 
-Salesianos Social?
+            /><v-expansion-panel-header>
+              ¿Qué ventajas tienen quienes son socios/as de la Fundación Don
+              Bosco Salesianos Social?
             </v-expansion-panel-header>
           </div>
 
           <v-expansion-panel-content class="text--primary">
-             Con tu aportación periódica como socio o socia de la entidad, establecemos un compromiso 
-mutuo que te da acceso al portal del donante, a los certificados de donaciones anuales, a 
-recibir nuestros comunicados especiales y a tener una vía de comunicación preferente.
+            Con tu aportación periódica como socio o socia de la entidad,
+            establecemos un compromiso mutuo que te da acceso al portal del
+            donante, a los certificados de donaciones anuales, a recibir
+            nuestros comunicados especiales y a tener una vía de comunicación
+            preferente.
           </v-expansion-panel-content>
         </v-expansion-panel>
       </v-expansion-panel>
 
-      
-       <v-expansion-panel class="mx-auto" max-width="1200">
+      <v-expansion-panel class="mx-auto" max-width="1200">
         <v-expansion-panel>
           <div class="h2">
             <img
@@ -597,60 +616,104 @@ recibir nuestros comunicados especiales y a tener una vía de comunicación pref
               src="../assets/icon.png"
               alt="icon"
               width="25px;"
-            /><v-expansion-panel-header >
-              ¿Puedo colaborar de alguna otra manera con la Fundación Don Bosco 
-Salesianos Social?
+            /><v-expansion-panel-header>
+              ¿Puedo colaborar de alguna otra manera con la Fundación Don Bosco
+              Salesianos Social?
             </v-expansion-panel-header>
           </div>
 
           <v-expansion-panel-content class="text--primary">
-            <div  class="text--primary">
-       Claro que sí, hay miles de maneras de ayudar a colaborar con la entidad. Te presentamos 
-algunas iniciativas sencillas que pueden inspirarte a seguir ayudando:
-<ul>
-  <li class="li">Síguenos en nuestras redes sociales y participa activamente. Cuantos más RTs, Me 
-gusta… tengamos, a más gente llegaremos.
-Incluir los enlaces a las redes sociales de la Fundación Don Bosco Salesianos Social.</li>
+            <div class="text--primary">
+              Claro que sí, hay miles de maneras de ayudar a colaborar con la
+              entidad. Te presentamos algunas iniciativas sencillas que pueden
+              inspirarte a seguir ayudando:
+              <ul>
+                <li class="li">
+                  Síguenos en nuestras redes sociales y participa activamente.
+                  Cuantos más RTs, Me gusta… tengamos, a más gente llegaremos.
+                  Incluir los enlaces a las redes sociales de la Fundación Don
+                  Bosco Salesianos Social.
+                </li>
 
+                <li class="li" style="list-style: none">
+                  FB:
+                  <a href="https://www.facebook.com/donboscosalesianossocial"
+                    >https://www.facebook.com/donboscosalesianossocial</a
+                  >
+                </li>
+                <li class="li" style="list-style: none">
+                  IG:
+                  <a href="https://www.instagram.com/donboscosalesianossocial"
+                    >https://www.instagram.com/donboscosalesianossocial</a
+                  >
+                </li>
+                <li class="li" style="list-style: none">
+                  TW:<a href="TW: https://twitter.com/donboscosocial">
+                    https://twitter.com/donboscosocial</a
+                  >
+                </li>
+                <li class="li" style="list-style: none">
+                  YT:<a
+                    href=" YT: https://www.youtube.com/user/fundproyectodonbosco"
+                  >
+                    https://www.youtube.com/user/fundproyectodonbosco</a
+                  >
+                </li>
 
-<li class="li" style="list-style:none;">FB: <a href="https://www.facebook.com/donboscosalesianossocial">https://www.facebook.com/donboscosalesianossocial</a></li> 
-<li class="li" style="list-style:none;">IG: <a href="https://www.instagram.com/donboscosalesianossocial">https://www.instagram.com/donboscosalesianossocial</a></li> 
-<li class="li" style="list-style:none;">TW:<a href="TW: https://twitter.com/donboscosocial"> https://twitter.com/donboscosocial</a></li> 
-<li class="li" style="list-style:none;">YT:<a href=" YT: https://www.youtube.com/user/fundproyectodonbosco">  https://www.youtube.com/user/fundproyectodonbosco</a>
-
-
-<li class="li">Sigue nuestras noticias, newsletter y transmite nuestro mensaje a través de: Qué decimos 
-- Fundación Don Bosco (<a href="fundaciondonbosco.es">fundaciondonbosco.es</a> )</li>
-<li class="li">Incluye un banner nuestro en tu web/blog. Contácta con nosotros y te contaremos cómo
-hacerlo en <a href="comunicacion@fundaciondonbosco.es">comunicacion@fundaciondonbosco.es</a></li>
-<li class="li">Cualquier fiesta puede ser buena para convertirla en una oportunidad solidaria. Crea tu
-primer cumpleaños solidario, cena solidaria... y cuenta a tus invitados cómo ellos también
-se están convirtiendo en oportunidad.</li>
-<li class="li">Si eres bueno con las redes sociales, no dudes en hacer crowdfunding para nuestros
-proyectos. Existen muchas plataformas como Teaming, Lánzanos, Hazloposible.</li>
-<li class="li">Promoviendo el uso de Donadoo (<a href="Fundación Don Bosco Salesianos Social - Donadoo">Fundación Don Bosco Salesianos Social - Donadoo</a> )como market de segunda mano y vehiculando tus compras o ventas desde el perfil de la
-Fundación Don Bosco Salesianos Social.</li>
-<li class="li">¿Participas en eventos deportivos? Si eres deportista también puedes darnos visibilidad,
-cuando participes en una carrera, un torneo de fútbol... hazlo de una manera solidaria y
-conviértete en oportunidad.</li>
-<li class="li">BIZUM. Desde tu app bancaria en la que tengas Bizum activo, selecciona la opción de
-enviar dinero, introduce el código 33531 y el importe que quieres donar. Recibiremos de
-manera íntegra la aportación.</li>
-
-</ul>
-      </div>
-<<<<<<< HEAD
+                <li class="li">
+                  Sigue nuestras noticias, newsletter y transmite nuestro
+                  mensaje a través de: Qué decimos - Fundación Don Bosco (<a
+                    href="fundaciondonbosco.es"
+                    >fundaciondonbosco.es</a
+                  >
+                  )
+                </li>
+                <li class="li">
+                  Incluye un banner nuestro en tu web/blog. Contácta con
+                  nosotros y te contaremos cómo hacerlo en
+                  <a href="comunicacion@fundaciondonbosco.es"
+                    >comunicacion@fundaciondonbosco.es</a
+                  >
+                </li>
+                <li class="li">
+                  Cualquier fiesta puede ser buena para convertirla en una
+                  oportunidad solidaria. Crea tu primer cumpleaños solidario,
+                  cena solidaria... y cuenta a tus invitados cómo ellos también
+                  se están convirtiendo en oportunidad.
+                </li>
+                <li class="li">
+                  Si eres bueno con las redes sociales, no dudes en hacer
+                  crowdfunding para nuestros proyectos. Existen muchas
+                  plataformas como Teaming, Lánzanos, Hazloposible.
+                </li>
+                <li class="li">
+                  Promoviendo el uso de Donadoo (<a
+                    href="Fundación Don Bosco Salesianos Social - Donadoo"
+                    >Fundación Don Bosco Salesianos Social - Donadoo</a
+                  >
+                  )como market de segunda mano y vehiculando tus compras o
+                  ventas desde el perfil de la Fundación Don Bosco Salesianos
+                  Social.
+                </li>
+                <li class="li">
+                  ¿Participas en eventos deportivos? Si eres deportista también
+                  puedes darnos visibilidad, cuando participes en una carrera,
+                  un torneo de fútbol... hazlo de una manera solidaria y
+                  conviértete en oportunidad.
+                </li>
+                <li class="li">
+                  BIZUM. Desde tu app bancaria en la que tengas Bizum activo,
+                  selecciona la opción de enviar dinero, introduce el código
+                  33531 y el importe que quieres donar. Recibiremos de manera
+                  íntegra la aportación.
+                </li>
+              </ul>
+            </div>
           </v-expansion-panel-content>
         </v-expansion-panel>
       </v-expansion-panel>
     </v-expansion-panels>
   </div>
-=======
-
-
-
-   </v-expansion-panels>
->>>>>>> feature/uploadPDFs
 </template>
 
 <style>
