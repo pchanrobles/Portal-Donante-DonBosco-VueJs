@@ -93,12 +93,12 @@
 </template>
 
 <script>
-import AuthService from "@/services/AuthService.js";
 import Vue from "vue";
 import Vuetify from "vuetify/lib";
 import PrivacyPolitics from "@/components/PrivacyPolitics.vue";
+import VueSimpleAlert from "vue-simple-alert";
 
-Vue.use(Vuetify);
+Vue.use(Vuetify, VueSimpleAlert);
 const vuetify = new Vuetify({
   theme: {
     themes: {
@@ -134,21 +134,31 @@ export default {
   methods: {
     redirectToRegister() {
       this.$router.push({
-        path: "/register",
+        path: "/",
       });
     },
     login() {
       let data = {
-        documento: this.documento,
+        documento: this.documento.toUpperCase(),
         password: this.password,
       };
       this.$store
         .dispatch("login", data)
         .then(() => {
-          this.$router.push({ name: "DashboardLayout" });
+          this.$fire({
+            title: "Inicio de sesión correcto",
+            type: "success",
+            timer: 4000,
+          });
+          this.$router.push("/");
         })
         .catch((err) => {
-          console.log(err.response.data.errors);
+      this.$fire({
+            title: "Inicio de sesión incorrecto",
+            type: "error",
+            timer: 4000,
+          });
+          console.log(err);
         });
     },
     redirectToForgot() {

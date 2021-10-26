@@ -5,6 +5,7 @@ import {
         required,
         digits,
         email,
+        min,
         max,
         regex
 } from "vee-validate/dist/rules";
@@ -24,6 +25,7 @@ extend("ibanCheck", (iban) => {
 });
 
 function validateDNI(dni) {
+       dni = dni.toUpperCase();
         const dni_letters = "TRWAGMYFPDXBNJZSQVHLCKE";
         if (dni.length == 9) {
                 let letter = dni_letters.charAt(parseInt(dni, 10) % 23)
@@ -34,6 +36,7 @@ function validateDNI(dni) {
 };
 
 function validateNIE(nie) {
+        nie = nie.toUpperCase();
         let nie_prefix = nie.charAt(0);
         switch (nie_prefix) {
                 case "X":
@@ -50,6 +53,7 @@ function validateNIE(nie) {
 }
 
 function validateCIF(cif) {
+        cif = cif.toUpperCase();
         const CIF_REGEX = /^([ABCDEFGHJKLMNPQRSUVW])(\d{7})([0-9A-J])$/;
         if (CIF_REGEX.test(cif)) {
                 const match = cif.match(CIF_REGEX);
@@ -124,7 +128,12 @@ extend("required", {
 
 extend("max", {
         ...max,
-        message: "El {_field_} no debe ser superior a {length} carácteres",
+        message: "{_field_} no debe ser superior a {length} carácteres",
+});
+
+extend("min", {
+        ...min,
+        message: "{_field_} no debe ser inferior a {length} carácteres",
 });
 
 extend("regex", {

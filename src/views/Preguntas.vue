@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <div>
     <div style="color: #dc001b; text-align: center">
       <img id="img" src="../assets/bosco.png" alt="" width="200px;" />
@@ -8,6 +9,56 @@
         de la Fundación Don Bosco Salesianos Social
       </h2>
     </div>
+=======
+  
+    <v-expansion-panels>
+              <div class="head">
+      <img id="img" src="../assets/bosco.png" alt="" width="200px;"> <h2 id="h2-head" class="text-h4 ">
+        Preguntas y respuestas frecuentes <br> para las personas que son socias o
+        donantes <br> de la  Fundación Don Bosco Salesianos Social
+      </h2></div>
+    <v-expansion-panel
+      v-for="(item,i) in 5"
+      :key="i"
+    >
+      <v-expansion-panel-header
+        class="h2"><img id="icon" src="../assets/icon.png" alt="icon" width="25px;"><h2 class="h2" >¿Por qué ser socio/a de la Fundación Don Bosco Salesianos Social?</h2>
+      </v-expansion-panel-header>
+      <v-expansion-panel-content
+        class="text--primary">
+        Ser socio/a significa formar parte de un proyecto que soñó san Juan
+        Bosco y que permite alcanzar los sueños de la juventud y de las personas
+        en exclusión. Formar parte de la Fundación como socio/a expresa el
+        compromiso activo por ayudar a las personas a ser plenas y a crecer en
+        una sociedad que hace vida los Derechos Humanos y el modelo de persona
+        que Jesús muestra en los evangelios. Con tu aportación regular, haces
+        sostenibles muchos proyectos, ayudas a alcanzar los sueños de las
+        personas, muestras tu compromiso activo e inspiras con tu ejemplo a los
+        demás, motivándoles a seguir tus pasos. ¡GRACIAS DE CORAZÓN!
+      </v-expansion-panel-content>
+    </v-expansion-panel>
+
+
+    <!-- apartado preguntas frecuentes -->
+     
+      <div class="h2"><img id="icon" src="../assets/icon.png" alt="icon" width="25px;"><h2 class="h2" >¿Por qué ser socio/a de la Fundación Don Bosco Salesianos Social?</h2></div> 
+      <div class="text--primary">
+        Ser socio/a significa formar parte de un proyecto que soñó san Juan
+        Bosco y que permite alcanzar los sueños de la juventud y de las personas
+        en exclusión. Formar parte de la Fundación como socio/a expresa el
+        compromiso activo por ayudar a las personas a ser plenas y a crecer en
+        una sociedad que hace vida los Derechos Humanos y el modelo de persona
+        que Jesús muestra en los evangelios. Con tu aportación regular, haces
+        sostenibles muchos proyectos, ayudas a alcanzar los sueños de las
+        personas, muestras tu compromiso activo e inspiras con tu ejemplo a los
+        demás, motivándoles a seguir tus pasos. ¡GRACIAS DE CORAZÓN!
+      </div>
+      <br />
+      <div class="h2"><img id="icon" src="../assets/icon.png" alt="icon" width="25px;"><h2  class="h2">
+        ¿Cómo ayudo con mi aportación regular como socio/a de la Fundación Don
+        Bosco Salesianos Social?
+      </h2></div> 
+>>>>>>> feature/uploadPDFs
 
     <!-- preguntas frecuentes -->
     <v-expansion-panels class="container">
@@ -387,6 +438,10 @@
             Salesianos Social?
             </v-expansion-panel-header>
           </div>
+<<<<<<< HEAD
+=======
+          <img class="images"  src="../assets/donacion.png" onmouseover="this.width=700;this.height=500;" onmouseout="this.width=500;this.height=450;" width="400px" />
+>>>>>>> feature/uploadPDFs
 
           <v-expansion-panel-content class="text--primary">
              <div>
@@ -612,7 +667,7 @@ Incluir los enlaces a las redes sociales de la Fundación Don Bosco Salesianos S
 <li class="li" style="list-style:none;">FB: <a href="https://www.facebook.com/donboscosalesianossocial">https://www.facebook.com/donboscosalesianossocial</a></li> 
 <li class="li" style="list-style:none;">IG: <a href="https://www.instagram.com/donboscosalesianossocial">https://www.instagram.com/donboscosalesianossocial</a></li> 
 <li class="li" style="list-style:none;">TW:<a href="TW: https://twitter.com/donboscosocial"> https://twitter.com/donboscosocial</a></li> 
-<li class="li" style="list-style:none;">YT:<a href=" YT: https://www.youtube.com/user/fundproyectodonbosco">  https://www.youtube.com/user/fundproyectodonbosco</a></li></li>
+<li class="li" style="list-style:none;">YT:<a href=" YT: https://www.youtube.com/user/fundproyectodonbosco">  https://www.youtube.com/user/fundproyectodonbosco</a>
 
 
 <li class="li">Sigue nuestras noticias, newsletter y transmite nuestro mensaje a través de: Qué decimos 
@@ -635,11 +690,18 @@ manera íntegra la aportación.</li>
 
 </ul>
       </div>
+<<<<<<< HEAD
           </v-expansion-panel-content>
         </v-expansion-panel>
       </v-expansion-panel>
     </v-expansion-panels>
   </div>
+=======
+
+
+
+   </v-expansion-panels>
+>>>>>>> feature/uploadPDFs
 </template>
 
 <style>

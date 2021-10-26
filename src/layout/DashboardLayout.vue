@@ -48,7 +48,7 @@
             <router-link
               style="color: white; font-family: MONTSERRAT"
               :to="{ path: '/news' }"
-              >News</router-link
+              >Noticias</router-link
             >
           </v-list-item>
 
@@ -135,10 +135,10 @@
                 style="font-size: 22px; color: white"
               ></i>
             </v-list-item-icon>
-            <router-link
-              style="color: white; font-family: MONTSERRAT"
-              :to="{ path: 'Login' }"
-              >Cerrar Sesion</router-link
+            <v-btn
+              @click="logout"
+              style="color: red; font-family: MONTSERRAT"
+              >Cerrar Sesion</v-btn
             >
           </v-list-item>
         </v-list-item-group>
@@ -179,8 +179,18 @@ import Vue from "vue";
 import Vuetify from "vuetify/lib";
 
 export default {
-  components: {},
-
+  methods: {
+    logout() {
+      this.$store
+        .dispatch("logout")
+        .then(() => {
+          this.$router.push("/");
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+  },
   data: () => ({
     drawer: false,
     group: null,

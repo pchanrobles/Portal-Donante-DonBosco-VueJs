@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-stepper class="h-100" v-model="page">
-      <v-img class=" picture mb-5 mt-5 " src="../assets/bosco.png"></v-img>
+      <v-img class="picture mb-5 mt-5" src="../assets/bosco.png"></v-img>
       <v-stepper-header class="headerstep">
         <v-stepper-step :complete="page > 1" step="1">
           Datos sobre donación
@@ -24,7 +24,7 @@
           <v-form @submit.prevent="handleSubmit(onSubmit)">
             <!-- STEP 1 ------------------------------------------------->
             <v-stepper-content step="1">
-              <!--  SELECTOR DE PAIS (NºTEL) --------------------------------->
+              <!--  CUOTA --------------------------------->
 
               <validation-provider
                 v-if="page === 1"
@@ -50,7 +50,7 @@
                 rules="required"
                 v-if="
                   form.tipoCuota !== null &&
-                    form.tipoCuota !== 'Aportación puntual y única'
+                  form.tipoCuota !== 'Aportación puntual y única'
                 "
               >
                 <v-radio-group
@@ -88,7 +88,7 @@
                 rules="required"
                 v-if="
                   form.cuota === 'Otra Cuota' ||
-                    form.tipoCuota === 'Aportación puntual y única'
+                  form.tipoCuota === 'Aportación puntual y única'
                 "
               >
                 <v-text-field
@@ -202,7 +202,23 @@
                 ></v-text-field>
               </validation-provider>
 
-              <!--  SELECTOR DE PAIS (NºTEL) --------------------------------->
+              <!--  DIRECCIÓN --------------------------------->
+
+              <validation-provider
+                v-if="page === 2"
+                v-slot="{ errors }"
+                name="La Dirección"
+                rules="required"
+              >
+                <v-text-field
+                  v-model="form.direccion"
+                  :error-messages="errors"
+                  label="Dirección"
+                  required
+                ></v-text-field>
+              </validation-provider>
+
+              <!--  SELECTOR DE PAIS --------------------------------->
 
               <validation-provider
                 v-if="page === 2"
@@ -227,12 +243,12 @@
                 </v-select>
               </validation-provider>
 
-              <!--  Nº DE TELÉFONO --------------------------------->
+              <!--  Nº DE TELÉFONO MOVIL--------------------------------->
 
               <validation-provider
                 v-if="page === 2"
                 v-slot="{ errors }"
-                name="El número de teléfono"
+                name="El número de teléfono móvil"
                 :rules="{
                   required: true,
                   digits: 9,
@@ -243,7 +259,27 @@
                   v-model="form.phoneNumber"
                   :counter="9"
                   :error-messages="errors"
-                  label="Número de teléfono"
+                  label="Número de teléfono móvil"
+                  required
+                ></v-text-field>
+              </validation-provider>
+              <!--  Nº DE TELÉFONO FIJO--------------------------------->
+
+              <validation-provider
+                v-if="page === 2"
+                v-slot="{ errors }"
+                name="El número de teléfono fijo"
+                :rules="{
+                  required: true,
+                  digits: 9,
+                  regex: '[0-9]$',
+                }"
+              >
+                <v-text-field
+                  v-model="form.phoneNumber2"
+                  :counter="9"
+                  :error-messages="errors"
+                  label="Número de teléfono fijo"
                   required
                 ></v-text-field>
               </validation-provider>
@@ -324,7 +360,7 @@
                 v-if="page === 3"
                 v-slot="{ errors }"
                 name="Contraseña"
-                rules="required"
+                rules="required|min: 5"
               >
                 <v-text-field
                   :append-icon="show3 ? 'mdi-eye' : 'mdi-eye-off'"
@@ -341,7 +377,7 @@
                 v-if="page === 3"
                 v-slot="{ errors }"
                 name="Confirmar Contraseña"
-                :rules="'required|passwordMatch:' + form.password"
+                :rules="'required|min:5|passwordMatch:' + form.password"
               >
                 <v-text-field
                   :append-icon="show3 ? 'mdi-eye' : 'mdi-eye-off'"
@@ -409,7 +445,13 @@
                   <v-card-actions>
                     <v-spacer></v-spacer>
                     <v-btn
-                      class="red accent-2 w-100 text-h6 text-white font-weight-bold"
+                      class="
+                        red
+                        accent-2
+                        w-100
+                        text-h6 text-white
+                        font-weight-bold
+                      "
                       text
                       @click="(dialogSuccess = false), goToLogin()"
                     >
@@ -419,14 +461,15 @@
                 </v-card>
               </v-dialog>
             </div>
+
             <div class="text-center">
               <v-dialog v-model="dialogWrong" width="500">
                 <v-card>
                   <v-card-title class="text-h5 grey lighten-2">
-                    Privacy Policy
+                    ATENCIÓN
                   </v-card-title>
 
-                  <v-card-text>
+                  <v-card-text class="font-weight-bold">
                     No se ha podido enviar su formulario debido a un error.
                   </v-card-text>
 
@@ -434,7 +477,7 @@
 
                   <v-card-actions>
                     <v-spacer></v-spacer>
-                    <v-btn color="danger" text @click="dialog = false">
+                    <v-btn color="danger" text @click="dialogWrong = false">
                       ACEPTAR
                     </v-btn>
                   </v-card-actions>
@@ -443,6 +486,16 @@
             </div>
           </v-form>
         </validation-observer>
+        <div v-if="loading" class="spinner">
+          <v-progress-circular
+            :size="90"
+            class="postition-fixed"
+            :width="9"
+            color="red"
+            indeterminate
+          ></v-progress-circular>
+          <p>Enviando información, espere...</p>
+        </div>
       </v-stepper-items>
     </v-stepper>
     <link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet" />
@@ -450,7 +503,20 @@
 </template>
 
 <script>
-const vuetify = new Vuetify({
+Vue.use(Vuetify, VueMask);
+import Vue from "vue";
+import Vuetify from "vuetify/lib";
+import colors from "vuetify/lib/util/colors";
+import VueMask from "v-mask";
+import {
+  ValidationObserver,
+  ValidationProvider,
+  setInteractionMode,
+} from "vee-validate";
+import validation from "../helpers/validation.js";
+setInteractionMode("eager");
+
+export default {
   theme: {
     themes: {
       light: {
@@ -464,27 +530,14 @@ const vuetify = new Vuetify({
       },
     },
   },
-});
-Vue.use(Vuetify, VueMask);
-import Vue from "vue";
-import Vuetify from "vuetify/lib";
-import VueMask from "v-mask";
-import {
-  ValidationObserver,
-  ValidationProvider,
-  setInteractionMode,
-} from "vee-validate";
-import AuthService from "../services/AuthService.js";
-import validation from "../helpers/validation.js";
-setInteractionMode("eager");
-
-export default {
   components: {
     ValidationProvider,
     ValidationObserver,
   },
 
   data: () => ({
+    loading: false,
+    errors: null,
     page: 1,
     show3: false,
     dialogSuccess: false,
@@ -492,6 +545,7 @@ export default {
     otraCuota: false,
     errors: null,
     form: {
+      direccion: "",
       provincia: "",
       poblacion: "",
       cp: "",
@@ -504,6 +558,7 @@ export default {
       lastName: "",
       selectorPais: "",
       phoneNumber: "",
+      phoneNumber2: "",
       email: "",
       nameBank: "",
       iban: null,
@@ -597,8 +652,16 @@ export default {
       if (this.page === 3) {
         //Llamada a API
         console.log(this.form);
-        AuthService.register(this.form);
-        this.dialogSuccess = true;
+        (this.loading = true),
+          this.$store
+            .dispatch("register", this.form)
+            .then(() => {
+              (this.loading = false), (this.dialogSuccess = true);
+            })
+            .catch((err) => {
+              (this.loading = false), (this.dialogWrong = true);
+              this.errors = err.data.response.errors;
+            });
       }
       this.page++;
     },
@@ -614,6 +677,13 @@ export default {
 </script>
 
 <style>
+.spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-weight: 600;
+}
 .picture {
   display: block;
   margin-left: auto;
