@@ -10,6 +10,8 @@ export default new Vuex.Store({
   mutations: {
     SET_USER_DATA(state, data) {
       state.user = data.usuario;
+      console.log(state)
+      console.log(data)
       localStorage.setItem("user", JSON.stringify(data.usuario));
       localStorage.setItem("token", JSON.stringify(data.token));
       console.log('set_user_Data')
@@ -17,32 +19,40 @@ export default new Vuex.Store({
         "Authorization"
       ] = `Bearer ${data.token}`;
     },
-    LOGOUT (state) {
-      // state.user = null
-      // localStorage.removeItem('user')
-      // localStorage.removeItem('token')
-      // apiClient.defaults.headers.common['Authorization'] = null
+    LOGOUT(state) {
+      state.user = null
       localStorage.removeItem('user')
       localStorage.removeItem('token')
+      apiClient.defaults.headers.common['Authorization'] = null
       location.reload()
     }
   },
   actions: {
-    register({ commit }, credentials) {
+    register({
+      commit
+    }, credentials) {
       return apiClient
         .post('/api/register', credentials)
-        .then(({ data }) => {
+        .then(({
+          data
+        }) => {
           commit('SET_USER_DATA', data)
         })
     },
-    login({ commit }, credentials) {
+    login({
+      commit
+    }, credentials) {
       return apiClient
         .post('/api/login', credentials)
-        .then(({ data }) => {
+        .then(({
+          data
+        }) => {
           commit('SET_USER_DATA', data)
         })
     },
-    logout ({ commit }) {
+    logout({
+      commit
+    }) {
       return apiClient
         .get('/api/logout')
         .then(() => {

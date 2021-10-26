@@ -39,12 +39,15 @@
 
           <v-list-item>
             <v-list-item-icon>
-              <i class="far fa-user" style="font-size: 22px; color: cyan"></i>
+              <i
+                class="fas fa-newspaper"
+                style="font-size: 22px; color: cyan"
+              ></i>
             </v-list-item-icon>
             <router-link
               style="color: white; font-family: MONTSERRAT"
               :to="{ path: '/news' }"
-              >News</router-link
+              >Noticias</router-link
             >
           </v-list-item>
 
@@ -55,7 +58,7 @@
                 style="font-size: 22px; color: #ffe900"
               ></i>
             </v-list-item-icon>
-            
+
             <router-link
               style="color: white; font-family: MONTSERRAT"
               :to="{ path: '/comunicados' }"
@@ -137,10 +140,10 @@
                 style="font-size: 22px; color: grey"
               ></i>
             </v-list-item-icon>
-            <router-link
-              style="color: white; font-family: MONTSERRAT"
-              :to="{ path: 'Login' }"
-              >Cerrar Sesion</router-link
+            <v-btn
+              @click="logout"
+              style="color: red; font-family: MONTSERRAT"
+              >Cerrar Sesion</v-btn
             >
           </v-list-item>
         </v-list-item-group>
@@ -155,7 +158,11 @@
         ></i>
       </v-app-bar-nav-icon>
       <v-toolbar-title style="font-family: MONTSERRAT; text-h3 color: white">
-        {{(this.$store.state.user==null) ? "DonBosco": this.$store.state.user.donante.name }}
+        {{
+          this.$store.state.user == null
+            ? "Don Bosco"
+            : this.$store.state.user.donante.name
+        }}
       </v-toolbar-title>
     </v-app-bar>
 
@@ -177,8 +184,18 @@ import Vue from "vue";
 import Vuetify from "vuetify/lib";
 
 export default {
-  components: {},
-
+  methods: {
+    logout() {
+      this.$store
+        .dispatch("logout")
+        .then(() => {
+          this.$router.push("/");
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+  },
   data: () => ({
     drawer: false,
     group: null,

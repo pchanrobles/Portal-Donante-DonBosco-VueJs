@@ -6,18 +6,19 @@ const base = axios.create({
   baseURL: 'http://localhost:8000',
   withCredentials: true,
   headers: {
+    "Access-Control-Allow-Origin": "*",
     Accept: 'application/json',
     'Content-Type': 'application/json',
   }
 })
 
-base.interceptors.response.use( response => response, error => {
-  if (error.response.status === 401) {
-      router.push('/login')
-      store.dispatch('logout')
-  }
-  return Promise.reject(error)
-})
+// base.interceptors.response.use( response => response, error => {
+//   if (error.response.status === 401) {
+//       router.push('/login')
+//       store.dispatch('logout')
+//   }
+//   return Promise.reject(error)
+// })
 
 
 export default base
