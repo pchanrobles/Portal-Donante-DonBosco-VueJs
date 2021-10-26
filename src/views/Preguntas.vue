@@ -1,5 +1,4 @@
 <template>
-<<<<<<< HEAD
   <div>
     <div style="color: #dc001b; text-align: center">
       <img id="img" src="../assets/bosco.png" alt="" width="200px;" />
@@ -9,56 +8,6 @@
         de la Fundación Don Bosco Salesianos Social
       </h2>
     </div>
-=======
-  
-    <v-expansion-panels>
-              <div class="head">
-      <img id="img" src="../assets/bosco.png" alt="" width="200px;"> <h2 id="h2-head" class="text-h4 ">
-        Preguntas y respuestas frecuentes <br> para las personas que son socias o
-        donantes <br> de la  Fundación Don Bosco Salesianos Social
-      </h2></div>
-    <v-expansion-panel
-      v-for="(item,i) in 5"
-      :key="i"
-    >
-      <v-expansion-panel-header
-        class="h2"><img id="icon" src="../assets/icon.png" alt="icon" width="25px;"><h2 class="h2" >¿Por qué ser socio/a de la Fundación Don Bosco Salesianos Social?</h2>
-      </v-expansion-panel-header>
-      <v-expansion-panel-content
-        class="text--primary">
-        Ser socio/a significa formar parte de un proyecto que soñó san Juan
-        Bosco y que permite alcanzar los sueños de la juventud y de las personas
-        en exclusión. Formar parte de la Fundación como socio/a expresa el
-        compromiso activo por ayudar a las personas a ser plenas y a crecer en
-        una sociedad que hace vida los Derechos Humanos y el modelo de persona
-        que Jesús muestra en los evangelios. Con tu aportación regular, haces
-        sostenibles muchos proyectos, ayudas a alcanzar los sueños de las
-        personas, muestras tu compromiso activo e inspiras con tu ejemplo a los
-        demás, motivándoles a seguir tus pasos. ¡GRACIAS DE CORAZÓN!
-      </v-expansion-panel-content>
-    </v-expansion-panel>
-
-
-    <!-- apartado preguntas frecuentes -->
-     
-      <div class="h2"><img id="icon" src="../assets/icon.png" alt="icon" width="25px;"><h2 class="h2" >¿Por qué ser socio/a de la Fundación Don Bosco Salesianos Social?</h2></div> 
-      <div class="text--primary">
-        Ser socio/a significa formar parte de un proyecto que soñó san Juan
-        Bosco y que permite alcanzar los sueños de la juventud y de las personas
-        en exclusión. Formar parte de la Fundación como socio/a expresa el
-        compromiso activo por ayudar a las personas a ser plenas y a crecer en
-        una sociedad que hace vida los Derechos Humanos y el modelo de persona
-        que Jesús muestra en los evangelios. Con tu aportación regular, haces
-        sostenibles muchos proyectos, ayudas a alcanzar los sueños de las
-        personas, muestras tu compromiso activo e inspiras con tu ejemplo a los
-        demás, motivándoles a seguir tus pasos. ¡GRACIAS DE CORAZÓN!
-      </div>
-      <br />
-      <div class="h2"><img id="icon" src="../assets/icon.png" alt="icon" width="25px;"><h2  class="h2">
-        ¿Cómo ayudo con mi aportación regular como socio/a de la Fundación Don
-        Bosco Salesianos Social?
-      </h2></div> 
->>>>>>> feature/uploadPDFs
 
     <!-- preguntas frecuentes -->
     <v-expansion-panels class="container">
@@ -705,13 +654,14 @@ manera íntegra la aportación.</li>
 </template>
 
 <style>
-.container{
+.container {
   width: 80%;
 }
 
-.header{
+.header {
   font-weight: bold;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 .images {
   display: block;
@@ -734,9 +684,8 @@ manera íntegra la aportación.</li>
   margin-top: 20px;
 }
 .tables {
-    width: 60px;
-    }
-
+  width: 60px;
+}
 
 .table {
   text-align: center;
