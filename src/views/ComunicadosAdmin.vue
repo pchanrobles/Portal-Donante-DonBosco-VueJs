@@ -10,13 +10,13 @@
 
 </template>
 <script>
-import Comunicados from "../components/Comunicados.vue";
+
 
 
 
 export default{
     components: {
-    Comunicados,
+    
   },
     methods:{
         selec_file(event){

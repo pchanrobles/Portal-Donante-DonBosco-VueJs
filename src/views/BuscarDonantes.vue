@@ -2,38 +2,34 @@
 <v-app>
 <div class="box">
   <div class="container-4">
-    <input type="search" id="search" placeholder="Buscar Donantes por DNI..." />
+    <input type="search" id="search" placeholder="Buscar documento..." />
     <button class="icon"><i class="fa fa-search"></i></button>
-    
-  </div>
+    </div>
   <br>
   <br>
-
-  <Comunicados></Comunicados> <br> <Comunicados></Comunicados>
-   
+<div class='tarjetas'>
+  <TarjetaDonante :donante="donante" v-for="donante in donantes" :key="donante.id" />
+</div>
 </div>
 </v-app>
 </template>
 <script>
 
-import Comunicados  from '../components/Comunicados.vue'
+import TarjetaDonante  from '../components/TarjetaDonante.vue'
 import DonantesService from '@/services/DonantesService.js'
 export default{
     components:{
-        Comunicados
+        TarjetaDonante
     },
     data(){
         return {
-            donantes:null
+            donantes: []
         }
     },
     created(){
-        DonantesService
-
-        .getdonantes()
-
+        DonantesService.getDonantes()
         .then(respuesta =>{
-            console.log(respuesta.data)
+            this.donantes = respuesta.data;
         })
 
         .catch(error =>{
@@ -45,7 +41,9 @@ export default{
 </script>
 
 <style scoped>
-
+.tarjetas{
+    display: flex;
+}
 .container-4{
     color:red;
     display:flex;

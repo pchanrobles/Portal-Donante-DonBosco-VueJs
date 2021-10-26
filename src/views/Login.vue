@@ -49,6 +49,7 @@
                 :class="{ 'pa-3': $vuetify.breakpoint.smAndUp }"
               >
                 <div class="box">
+                 
                   <div class="chekboxBtn align-items-stretch flex-column">
                     <v-btn
                       @click="login()"
@@ -123,6 +124,7 @@ export default {
       dialog: false,
       password: "",
       documento: "",
+      error:false,
       show3: false,
       rules: {
         required: (value) => !!value || "Requerido.",
@@ -147,9 +149,15 @@ export default {
         .then(() => {
           this.$router.push({ name: "DashboardLayout" });
         })
-        .catch((err) => {
-          console.log(err.response.data.errors);
+        .catch((error) => {
+       
+             localStorage.removeItem('access_token')
+              context.commit('destroyToken')
+               reject(error)
+               
+            this.$router.push({ name: "Login" });
         });
+        
     },
     redirectToForgot() {
       this.$router.push({

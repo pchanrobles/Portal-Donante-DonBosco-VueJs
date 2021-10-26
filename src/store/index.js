@@ -12,6 +12,7 @@ export default new Vuex.Store({
       state.user = data.usuario;
       localStorage.setItem("user", JSON.stringify(data.usuario));
       localStorage.setItem("token", JSON.stringify(data.token));
+      console.log('set_user_Data')
       apiClient.defaults.headers.common[
         "Authorization"
       ] = `Bearer ${data.token}`;
