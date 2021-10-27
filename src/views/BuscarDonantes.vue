@@ -9,18 +9,18 @@
   <br>
   <br>
 
-  <Comunicados></Comunicados> <br> <Comunicados></Comunicados>
+   <Tarjeta :donante="donante" v-for="donante in donantes" :key="donante.id" />
    
 </div>
 </v-app>
 </template>
 <script>
 
-import Comunicados  from '../components/Comunicados.vue'
+import Tarjeta  from '../components/Tarjeta.vue'
 import DonantesService from '@/services/DonantesService.js'
 export default{
     components:{
-        Comunicados
+        Tarjeta
     },
     data(){
         return {
@@ -30,10 +30,11 @@ export default{
     created(){
         DonantesService
 
-        .getdonantes()
+        .getDonantes()
 
         .then(respuesta =>{
-            console.log(respuesta.data)
+        this.donantes = respuesta.data;
+         
         })
 
         .catch(error =>{
