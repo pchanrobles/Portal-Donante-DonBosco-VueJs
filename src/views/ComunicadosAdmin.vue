@@ -42,18 +42,16 @@
         <pre>{{ uploadError }}</pre>
       </div>
   </div>
-
 </template>
 
 <script>
-import Comunicados from "../components/Comunicados.vue";
+
 import  AdminService  from '../services/AdminService.js';
 const STATUS_INITIAL = 0, STATUS_SAVING = 1, STATUS_SUCCESS = 2, STATUS_FAILED = 3;
 
 export default {
   components: {
-    Comunicados,
-  }, 
+  },
     data() {
       return {
         uploadedFiles: [],

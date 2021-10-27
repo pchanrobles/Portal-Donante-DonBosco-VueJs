@@ -5,11 +5,7 @@
     <v-list
       two-line
     >
-
-      <v-list-item
-        v-for="folder in folders"
-        :key="folder.title"
-      >
+      <v-list-item @click="linkPdfOpen">
         <v-list-item-avatar>
           <v-icon
             class="grey lighten-1"
@@ -20,15 +16,12 @@
         </v-list-item-avatar>
 
         <v-list-item-content>
-          <v-list-item-title v-text="folder.title"></v-list-item-title>
+          <v-list-item-title v-text="title"></v-list-item-title>
 
-          <v-list-item-subtitle v-text="folder.subtitle"></v-list-item-subtitle>
+          <v-list-item-subtitle v-text="subtitle"></v-list-item-subtitle>
         </v-list-item-content>
 
         <v-list-item-action>
-          <v-btn icon>
-            <v-icon color="grey lighten-1">mdi-information</v-icon>
-          </v-btn>
         </v-list-item-action>
       </v-list-item>
     </v-list>
@@ -45,26 +38,29 @@ export default {
     DonantesService.getPdf()
 
       .then((respuesta) => {
-       this.subtitle = respuesta.data.created_at = new Date()
+        this.title = respuesta.data[0].name;
+       this.subtitle = respuesta.data.created_at = new Date().toLocaleString();
         console.log(respuesta.data[0]);
-        console.log(respuesta.data.created_at = new Date());
+        let linkPdf =respuesta.data[0].file_path
+        return linkPdf 
       })
-
       .catch((error) => {
         console.log(error);
       });
+  },
+  methods:{
+    linkPdfOpen(){
+      window.open("http://localhost:8000" + this.linkPdf, '_blank')
+    }
   },
   components: {
     pdf,
   },
   data() {
     return {
-      folders: [
-        {
+      linkPdf: "",
           subtitle: "",
           title: '',
-        },
-      ],
     };
   },
 };
