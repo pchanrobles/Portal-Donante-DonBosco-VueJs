@@ -5,7 +5,6 @@
       height="100%"
       v-model="drawer"
       absolute
-      
       app
     >
       <v-list nav dense>
@@ -158,6 +157,12 @@
           style="font-size: 30px; color: white"
         ></i>
       </v-app-bar-nav-icon>
+     <v-btn text
+      @click="$vuetify.theme.dark = ! $vuetify.theme.dark">
+        <i class="far fa-eye"
+          style="font-size: 30px; color: white" 
+        ></i>
+      </v-btn>
       <v-toolbar-title style="color: white; font-family: MONTSERRAT">
         {{
           this.$store.state.user == null
@@ -165,6 +170,7 @@
             : this.$store.state.user.donante.name
         }}
       </v-toolbar-title>
+      
     </v-app-bar>
 
     <!-- Sizes your content based upon application components -->
@@ -214,6 +220,12 @@ a:active {
   background-color: rgb(236, 155, 155);
 
 }
+
+/* modo dark */
+.mr-2{
+  color: white;
+}
+
 /** Fijar el menú principal y secundario en la parte superior en los móviles**/
 @media (max-width: 768px) {
   v-navigation-drawer{
