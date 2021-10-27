@@ -1,32 +1,33 @@
 <template>
-<v-card
-    class="mx-auto"
-  >
-    <v-list
-      two-line
-    >
-      <v-list-item @click="linkPdfOpen">
+  <v-card class="mx-auto">
+    <v-list two-line>
+      <v-list-item
+        v-for="folder in folders" :key="folder.id"
+        style="; border-radius: 10px; border:  #DADADA 2px solid; margin-bottom:5px;"
+        @click="linkPdfOpen(folder.file_path)"
+      >
         <v-list-item-avatar>
-          <v-icon
-            class="grey lighten-1"
-            dark
-          >
+          <v-icon class="grey lighten-1" dark>
             mdi-folder
           </v-icon>
         </v-list-item-avatar>
 
         <v-list-item-content>
-          <v-list-item-title v-text="title"></v-list-item-title>
+          <v-list-item-title
+            :items="folder"
+            v-text="folder.name"
+          ></v-list-item-title>
 
-          <v-list-item-subtitle v-text="subtitle"></v-list-item-subtitle>
+          <v-list-item-subtitle
+            :items="folder"
+            v-text="new Date(folder.created_at).toLocaleString()"
+          ></v-list-item-subtitle>
         </v-list-item-content>
 
-        <v-list-item-action>
-        </v-list-item-action>
+        <v-list-item-action> </v-list-item-action>
       </v-list-item>
     </v-list>
   </v-card>
-
 </template>
 
 <script>
@@ -38,30 +39,25 @@ export default {
     DonantesService.getPdf()
 
       .then((respuesta) => {
-        this.title = respuesta.data[0].name;
-       this.subtitle = respuesta.data.created_at = new Date().toLocaleString();
-        console.log(respuesta.data[0]);
-        let linkPdf =respuesta.data[0].file_path
-        return linkPdf 
+        this.folders = respuesta.data;
       })
       .catch((error) => {
         console.log(error);
       });
-  },
-  methods:{
-    linkPdfOpen(){
-      window.open("http://localhost:8000" + this.linkPdf, '_blank')
-    }
   },
   components: {
     pdf,
   },
   data() {
     return {
-      linkPdf: "",
-          subtitle: "",
-          title: '',
+      folders: null
     };
+  },
+  methods: {
+    linkPdfOpen(link) {
+      let linkNewWindow = "http://localhost:8000" + link;
+      window.open(linkNewWindow, "_blank");
+    },
   },
 };
 </script>

@@ -14,13 +14,11 @@
           active-class="#DC001B --text text--accent-4"
         >
           <v-list-item>
-            <v-list-item-img>
               <img
                 style="display: block; margin: auto"
                 src="../assets/imagotipo_vertical_fondos policromáticos_RGB.png"
                 width="50%"
               />
-            </v-list-item-img>
           </v-list-item>
 
           <v-main></v-main>
