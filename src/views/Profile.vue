@@ -207,4 +207,13 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+#icon {
+  margin-left: 5%;
+}
+.h2 {
+  display: flex;
+  margin-bottom: 5px;
+  margin-top: 20px;
+}
+</style>

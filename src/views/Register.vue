@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-stepper class="h-100" v-model="page">
-      <v-img class=" picture mb-5 mt-5 " src="../assets/bosco.png"></v-img>
+      <v-img class="picture mb-5 mt-5" src="../assets/bosco.png"></v-img>
       <v-stepper-header class="headerstep">
         <v-stepper-step :complete="page > 1" step="1">
           Datos sobre donación
@@ -50,7 +50,7 @@
                 rules="required"
                 v-if="
                   form.tipoCuota !== null &&
-                    form.tipoCuota !== 'Aportación puntual y única'
+                  form.tipoCuota !== 'Aportación puntual y única'
                 "
               >
                 <v-radio-group
@@ -88,7 +88,7 @@
                 rules="required"
                 v-if="
                   form.cuota === 'Otra Cuota' ||
-                    form.tipoCuota === 'Aportación puntual y única'
+                  form.tipoCuota === 'Aportación puntual y única'
                 "
               >
                 <v-text-field
@@ -211,7 +211,7 @@
                 rules="required"
               >
                 <v-text-field
-                  v-model="form.poblacion"
+                  v-model="form.direccion"
                   :error-messages="errors"
                   label="Dirección"
                   required
@@ -360,7 +360,7 @@
                 v-if="page === 3"
                 v-slot="{ errors }"
                 name="Contraseña"
-                rules="required"
+                rules="required|min: 5"
               >
                 <v-text-field
                   :append-icon="show3 ? 'mdi-eye' : 'mdi-eye-off'"
@@ -377,7 +377,7 @@
                 v-if="page === 3"
                 v-slot="{ errors }"
                 name="Confirmar Contraseña"
-                :rules="'required|passwordMatch:' + form.password"
+                :rules="'required|min:5|passwordMatch:' + form.password"
               >
                 <v-text-field
                   :append-icon="show3 ? 'mdi-eye' : 'mdi-eye-off'"
@@ -445,7 +445,13 @@
                   <v-card-actions>
                     <v-spacer></v-spacer>
                     <v-btn
-                      class="red accent-2 w-100 text-h6 text-white font-weight-bold"
+                      class="
+                        red
+                        accent-2
+                        w-100
+                        text-h6 text-white
+                        font-weight-bold
+                      "
                       text
                       @click="(dialogSuccess = false), goToLogin()"
                     >
@@ -539,7 +545,7 @@ export default {
     otraCuota: false,
     errors: null,
     form: {
-      direccion:"",
+      direccion: "",
       provincia: "",
       poblacion: "",
       cp: "",
