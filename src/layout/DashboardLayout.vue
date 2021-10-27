@@ -5,7 +5,7 @@
       height="100%"
       v-model="drawer"
       absolute
-      temporary
+      
       app
     >
       <v-list nav dense>
@@ -215,6 +215,9 @@ a:active {
 
 }
 /** Fijar el menú principal y secundario en la parte superior en los móviles**/
-@media screen and (min-width: 321px) and (max-width: 768px) {
+@media (max-width: 768px) {
+  v-navigation-drawer{
+   display: temporary;
+  }
 }
 </style>
