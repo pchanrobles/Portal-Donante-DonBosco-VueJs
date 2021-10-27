@@ -7,10 +7,10 @@
      
       <p class="text-h4 text--primary">
         🔑{{donante.tipoDocumento + " " + donante.documento}}
-      <p>Nombre:{{" " +donante.donante.name}}</p>
-      <p>Apellidos:{{" " +donante.donante.lastName}}</p>
+      <p>Nombre:{{" " + donante.donante.name}}</p>
+      <p>Apellidos:{{" " + donante.donante.lastName}}</p>
       <p>🗺:{{" " +donante.donante.selectorPais}}</p>
-      <p>Provincia:{{" " +donante.donante.provincia}}</p>
+      <p>Provincia:{{" " + donante.donante.provincia}}</p>
       <p>CP:{{" " +donante.donante.cp}}</p>
       <p>Cuota:{{" " +donante.donante.tipoCuota + " "+ donante.donante.cuota + "€"}}</p>
       <p>📞:{{" " + donante.donante.phoneNumber}}</p>
