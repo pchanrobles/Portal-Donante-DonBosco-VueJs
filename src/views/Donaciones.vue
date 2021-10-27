@@ -11,7 +11,7 @@
         </v-btn>
       </v-card-actions></a
     >
-    <v-card class="mx-auto" max-width="900" tile>
+    <v-card class="mx-auto" max-width="1000" tile>
       <v-layout justify-center>
         <v-toolbar color="#DC001B ">
           <v-toolbar-title style="color: white"
@@ -26,14 +26,14 @@
         <v-subheader>REPORTE DE DONATIVOS</v-subheader>
         <v-list-item-group v-model="selectedItem" color="primary">
           <v-list-item v-for="(item, i) in items" :key="i">
-            <v-list-item-icon>
+            <v-list-item-icon style="margin-left: 25px">
               <v-icon v-text="item.icon"></v-icon>
             </v-list-item-icon>
-            <v-list-item-content>
+            <v-list-item-content style="margin-left: 25px;">
               <v-list-item-title v-text="item.text"></v-list-item-title>
             </v-list-item-content>
 
-            <v-list-item-content>
+            <v-list-item-content class="auto" >
               <v-list-item-title v-text="item.tipo"></v-list-item-title>
             </v-list-item-content>
 
@@ -86,3 +86,12 @@ export default {
   }),
 };
 </script>
+
+<style>
+.auto{
+  margin-left: 16%;
+  margin-right: 16%;
+ 
+  
+}
+</style>

@@ -5,7 +5,7 @@
       height="100%"
       v-model="drawer"
       absolute
-     temporary
+      temporary
       app
     >
       <v-list nav dense>
@@ -24,7 +24,7 @@
           </v-list-item>
 
           <v-main></v-main>
-          <v-list-item>
+          <v-list-item class="menu-link">
             <v-list-item-icon>
               <i
                 class="far fa-user"
@@ -38,7 +38,7 @@
             >
           </v-list-item>
 
-          <v-list-item>
+          <v-list-item class="menu-link">
             <v-list-item-icon>
               <i
                 class="far fa-newspaper"
@@ -52,7 +52,7 @@
             >
           </v-list-item>
 
-          <v-list-item>
+          <v-list-item class="menu-link">
             <v-list-item-icon>
               <i
                 class="fas fa-bullhorn"
@@ -67,7 +67,7 @@
             >
           </v-list-item>
 
-          <v-list-item>
+          <v-list-item class="menu-link">
             <v-list-item-icon>
               <i class="fas fa-hands" style="font-size: 22px; color: white"></i>
             </v-list-item-icon>
@@ -78,7 +78,7 @@
             >
           </v-list-item>
 
-          <v-list-item>
+          <v-list-item class="menu-link">
             <v-list-item-icon>
               <i
                 class="fas fa-hand-holding-usd"
@@ -92,7 +92,7 @@
             >
           </v-list-item>
 
-          <v-list-item>
+          <v-list-item class="menu-link">
             <v-list-item-icon>
               <i class="fas fa-award" style="font-size: 22px; color: white"></i>
             </v-list-item-icon>
@@ -103,7 +103,7 @@
             >
           </v-list-item>
 
-          <v-list-item>
+          <v-list-item class="menu-link">
             <v-list-item-icon>
               <i class="far fa-bell" style="font-size: 22px; color: white"></i>
             </v-list-item-icon>
@@ -114,7 +114,7 @@
             >
           </v-list-item>
 
-          <v-list-item>
+          <v-list-item class="menu-link">
             <v-list-item-icon>
               <i
                 class="fas fa-question"
@@ -128,7 +128,7 @@
             >
           </v-list-item>
 
-          <v-list-item>
+          <v-list-item class="menu-link">
             <v-list-item-icon>
               <i
                 class="far fa-times-circle"
@@ -137,7 +137,13 @@
             </v-list-item-icon>
             <v-btn 
               @click="logout"
-              style="color: white; margin-left: -16px; border-bottom: 3px solid white; background-color: #DC001B; font-family: MONTSERRAT"
+              style="
+                color: white;
+                margin-left: -16px;
+                border-bottom: 3px solid white;
+                background-color: #dc001b;
+                font-family: MONTSERRAT;
+              "
               >Cerrar Sesion</v-btn
             >
           </v-list-item>
@@ -204,5 +210,11 @@ a:visited,
 a:active {
   text-decoration: none;
 }
+.menu-link:hover{
+  background-color: rgb(236, 155, 155);
+
+}
 /** Fijar el menú principal y secundario en la parte superior en los móviles**/
+@media screen and (min-width: 321px) and (max-width: 768px) {
+}
 </style>
