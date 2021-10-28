@@ -50,7 +50,7 @@
             >
           </v-list-item>
 
-          <v-list-item class="menu-link">
+          <v-list-item class="menu-link" v-show="this.$store.state.user.estado">
             <v-list-item-icon>
               <i
                 class="fas fa-bullhorn"
@@ -65,7 +65,7 @@
             >
           </v-list-item>
 
-          <v-list-item class="menu-link">
+          <v-list-item class="menu-link" v-show="this.$store.state.user.estado">
             <v-list-item-icon>
               <i class="fas fa-hands" style="font-size: 22px; color: white"></i>
             </v-list-item-icon>
@@ -76,7 +76,7 @@
             >
           </v-list-item>
 
-          <v-list-item class="menu-link">
+          <v-list-item class="menu-link" v-show="this.$store.state.user.estado">
             <v-list-item-icon>
               <i
                 class="fas fa-hand-holding-usd"
@@ -90,7 +90,7 @@
             >
           </v-list-item>
 
-          <v-list-item class="menu-link">
+          <v-list-item class="menu-link" v-show="this.$store.state.user.estado">
             <v-list-item-icon>
               <i class="fas fa-award" style="font-size: 22px; color: white"></i>
             </v-list-item-icon>
@@ -101,7 +101,7 @@
             >
           </v-list-item>
 
-          <v-list-item class="menu-link">
+          <v-list-item class="menu-link" v-show="this.$store.state.user.estado">
             <v-list-item-icon>
               <i class="far fa-bell" style="font-size: 22px; color: white"></i>
             </v-list-item-icon>
@@ -158,9 +158,7 @@
       </v-app-bar-nav-icon>
       <v-toolbar-title style="color: white; font-family: MONTSERRAT">
         {{
-          this.$store.state.user == null
-            ? "DonBosco"
-            : this.$store.state.user.donante.name
+            this.$store.state.user.donante.name
         }}
       </v-toolbar-title>
     </v-app-bar>
@@ -182,7 +180,11 @@ Vue.use(Vuetify);
 import Vue from "vue";
 import Vuetify from "vuetify/lib";
 
+
 export default {
+  created(){
+      this.$store.dispatch('updateStateUser')
+  },
   methods: {
     logout() {
       this.$store

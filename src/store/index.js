@@ -10,14 +10,15 @@ export default new Vuex.Store({
   mutations: {
     SET_USER_DATA(state, data) {
       state.user = data.usuario;
-      console.log(state)
-      console.log(data)
       localStorage.setItem("user", JSON.stringify(data.usuario));
       localStorage.setItem("token", JSON.stringify(data.token));
-      console.log('set_user_Data')
       apiClient.defaults.headers.common[
         "Authorization"
       ] = `Bearer ${data.token}`;
+    },
+    REFRESH_USER(state, data) {
+      state.user = data.usuario;
+      localStorage.setItem("user", JSON.stringify(data.usuario));
     },
     LOGOUT(state) {
       state.user = null
@@ -48,6 +49,16 @@ export default new Vuex.Store({
           data
         }) => {
           commit('SET_USER_DATA', data)
+        })
+    },
+    updateStateUser({      commit
+    }, credentials) {
+      return apiClient
+        .get('/api/refresh', credentials)
+        .then(({
+          data
+        }) => {
+          commit('REFRESH_USER', data)
         })
     },
     logout({

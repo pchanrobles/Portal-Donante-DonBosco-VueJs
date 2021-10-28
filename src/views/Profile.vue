@@ -6,7 +6,7 @@
           <v-layout justify-center>
             <v-toolbar color="#DC001B ">
               <v-toolbar-title class="titulo"
-                ><v-card-text> <h5> Hola, <br />
+                ><v-card-text> <h5> Hola,
                   {{ this.$store.state.user.donante.name }}</h5>
                  </v-card-text
                 >

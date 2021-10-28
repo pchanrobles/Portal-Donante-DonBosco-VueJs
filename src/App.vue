@@ -3,24 +3,22 @@
 </template>
 
 <script>
-import Echo from 'laravel-echo';
-
+import Echo from "laravel-echo";
 
 export default {
   name: "App",
-      created() {
-      if(localStorage.getItem('user') && localStorage.getItem('token')) {
-          const data = {
-              usuario: JSON.parse(localStorage.getItem('user')),
-              token: JSON.parse(localStorage.getItem('token'))
-          }
-          if (data) {
-              this.$store.commit('SET_USER_DATA', data)
-          }
+  created() {
+    if (localStorage.getItem("user") && localStorage.getItem("token")) {
+      const data = {
+        usuario: JSON.parse(localStorage.getItem("user")),
+        token: JSON.parse(localStorage.getItem("token")),
+      };
+
+      if (data) {
+        this.$store.commit("SET_USER_DATA", data);
       }
-    },
-  data: () => ({
-    
-  }),
+    }
+  },
+  data: () => ({}),
 };
 </script>

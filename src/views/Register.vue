@@ -453,7 +453,7 @@
                         font-weight-bold
                       "
                       text
-                      @click="(dialogSuccess = false), goToLogin()"
+                      @click="(dialogSuccess = false), goToProfile()"
                     >
                       ACEPTAR
                     </v-btn>
@@ -470,14 +470,15 @@
                   </v-card-title>
 
                   <v-card-text class="font-weight-bold">
-                    No se ha podido enviar su formulario debido a un error.
+                    No se ha podido enviar su formulario debido a un error. <br><br>
+                    <span class="font-weight-bold"> {{ errors }} </span>
                   </v-card-text>
 
                   <v-divider></v-divider>
 
                   <v-card-actions>
                     <v-spacer></v-spacer>
-                    <v-btn color="danger" text @click="dialogWrong = false">
+                    <v-btn color="danger" text @click="dialogWrong = false, goToLogin() ">
                       ACEPTAR
                     </v-btn>
                   </v-card-actions>
@@ -646,6 +647,9 @@ export default {
   }),
   methods: {
     goToLogin() {
+      this.$router.push("/login");
+    },
+    goToProfile() {
       this.$router.push("/");
     },
     onSubmit() {
@@ -657,10 +661,14 @@ export default {
             .dispatch("register", this.form)
             .then(() => {
               (this.loading = false), (this.dialogSuccess = true);
-            })
+              })
             .catch((err) => {
               (this.loading = false), (this.dialogWrong = true);
-              this.errors = err.data.response.errors;
+              this.errors = err;
+              console.log(err.response.data.errors.documento[0])
+              if (err.response.data.errors.documento[0] === 'The documento has already been taken.') {
+                this.errors = 'Usuario ya registrado'
+              }
             });
       }
       this.page++;

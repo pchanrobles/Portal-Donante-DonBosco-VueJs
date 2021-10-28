@@ -61,7 +61,7 @@ const routes = [
         path: '/comunicados',
         name: 'Comunicados',
         component: () => import(/* webpackChunkName: "Comunicados" */ '../views/Comunicados.vue'),
-        meta: { requiresAuth: true },
+        meta: { requiresAuth: true, isadmin: true },
       },
       {
         path: '/notificaciones',
