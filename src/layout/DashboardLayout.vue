@@ -1,11 +1,10 @@
 <template>
   <v-app>
     <v-navigation-drawer
-      style=" display: flex; position:fixed; background-color: #8b0000"
+      style="display: flex; position: fixed; background-color: #dc001b"
       height="100%"
       v-model="drawer"
       absolute
-      temporary
       app
     >
       <v-list nav dense>
@@ -14,20 +13,20 @@
           active-class="#DC001B --text text--accent-4"
         >
           <v-list-item>
-            <v-list-item-icon> </v-list-item-icon>
-            <v-list-item-title>
-              <h3 style="color: white; font-family: MONTSERRAT">
-                DON BOSCO
-              </h3></v-list-item-title
-            >
+              <img
+                style="display: block; margin: auto"
+                src="../assets/imagotipo_vertical_fondos policromáticos_RGB.png"
+                width="50%"
+              />
           </v-list-item>
 
           <v-main></v-main>
-          <v-list-item>
+           
+          <v-list-item class="menu-link">
             <v-list-item-icon>
               <i
-                class="fas fa-house-user"
-                style="font-size: 25px; color:white"
+                class="far fa-user"
+                style="font-size: 22px; color: #1537d1"
               ></i>
             </v-list-item-icon>
             <router-link
@@ -37,11 +36,11 @@
             >
           </v-list-item>
 
-          <v-list-item>
+          <v-list-item class="menu-link">
             <v-list-item-icon>
               <i
-                class="fas fa-newspaper"
-                style="font-size: 22px; color: cyan"
+                class="far fa-newspaper"
+                style="font-size: 22px; color: white"
               ></i>
             </v-list-item-icon>
             <router-link
@@ -51,11 +50,11 @@
             >
           </v-list-item>
 
-          <v-list-item>
+          <v-list-item class="menu-link">
             <v-list-item-icon>
               <i
                 class="fas fa-bullhorn"
-                style="font-size: 22px; color: #ffe900"
+                style="font-size: 22px; color: white"
               ></i>
             </v-list-item-icon>
 
@@ -66,12 +65,9 @@
             >
           </v-list-item>
 
-          <v-list-item>
+          <v-list-item class="menu-link">
             <v-list-item-icon>
-              <i
-                class="fas fa-hands"
-                style="font-size: 22px; color: #fdddca"
-              ></i>
+              <i class="fas fa-hands" style="font-size: 22px; color: white"></i>
             </v-list-item-icon>
             <router-link
               style="color: white; font-family: MONTSERRAT"
@@ -80,11 +76,11 @@
             >
           </v-list-item>
 
-          <v-list-item>
+          <v-list-item class="menu-link">
             <v-list-item-icon>
               <i
                 class="fas fa-hand-holding-usd"
-                style="font-size: 22px; color: green"
+                style="font-size: 22px; color: white"
               ></i>
             </v-list-item-icon>
             <router-link
@@ -94,12 +90,9 @@
             >
           </v-list-item>
 
-          <v-list-item>
+          <v-list-item class="menu-link">
             <v-list-item-icon>
-              <i
-                class="fas fa-award"
-                style="font-size: 22px; color: #bf930d"
-              ></i>
+              <i class="fas fa-award" style="font-size: 22px; color: white"></i>
             </v-list-item-icon>
             <router-link
               style="color: white; font-family: MONTSERRAT"
@@ -108,9 +101,9 @@
             >
           </v-list-item>
 
-          <v-list-item>
+          <v-list-item class="menu-link">
             <v-list-item-icon>
-              <i class="far fa-bell" style="font-size: 22px; color: orange"></i>
+              <i class="far fa-bell" style="font-size: 22px; color: white"></i>
             </v-list-item-icon>
             <router-link
               style="color: white; font-family: MONTSERRAT"
@@ -119,11 +112,11 @@
             >
           </v-list-item>
 
-          <v-list-item>
+          <v-list-item class="menu-link">
             <v-list-item-icon>
               <i
                 class="fas fa-question"
-                style="font-size: 22px; color: blue"
+                style="font-size: 22px; color: white"
               ></i>
             </v-list-item-icon>
             <router-link
@@ -133,16 +126,22 @@
             >
           </v-list-item>
 
-          <v-list-item>
+          <v-list-item class="menu-link">
             <v-list-item-icon>
               <i
                 class="far fa-times-circle"
-                style="font-size: 22px; color: grey"
+                style="font-size: 22px; color: white"
               ></i>
             </v-list-item-icon>
-            <v-btn
+            <v-btn 
               @click="logout"
-              style="color: red; font-family: MONTSERRAT"
+              style="
+                color: white;
+                margin-left: -16px;
+                border-bottom: 3px solid white;
+                background-color: #dc001b;
+                font-family: MONTSERRAT;
+              "
               >Cerrar Sesion</v-btn
             >
           </v-list-item>
@@ -151,19 +150,26 @@
     </v-navigation-drawer>
 
     <v-app-bar color="#DC001B" app>
-      <v-app-bar-nav-icon @click="drawer = true">
+      <v-app-bar-nav-icon @click="drawer  = true">
         <i
           class="fas fa-align-justify"
           style="font-size: 30px; color: white"
         ></i>
       </v-app-bar-nav-icon>
-      <v-toolbar-title style="font-family: MONTSERRAT; text-h3 color: white">
+     <v-btn text
+      @click="$vuetify.theme.dark = ! $vuetify.theme.dark">
+        <i class="far fa-eye"
+          style="font-size: 30px; color: white" 
+        ></i>
+      </v-btn>
+      <v-toolbar-title style="color: white; font-family: MONTSERRAT">
         {{
           this.$store.state.user == null
-            ? "Don Bosco"
+            ? "DonBosco"
             : this.$store.state.user.donante.name
         }}
       </v-toolbar-title>
+      
     </v-app-bar>
 
     <!-- Sizes your content based upon application components -->
@@ -208,5 +214,21 @@ a:link,
 a:visited,
 a:active {
   text-decoration: none;
+}
+.menu-link:hover{
+  background-color: rgb(236, 155, 155);
+
+}
+
+/* modo dark */
+.mr-2{
+  color: white;
+}
+
+/** Fijar el menú principal y secundario en la parte superior en los móviles**/
+@media (max-width: 768px) {
+  v-navigation-drawer{
+   display: temporary;
+  }
 }
 </style>

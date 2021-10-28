@@ -49,6 +49,7 @@
                 :class="{ 'pa-3': $vuetify.breakpoint.smAndUp }"
               >
                 <div class="box">
+                 
                   <div class="chekboxBtn align-items-stretch flex-column">
                     <v-btn
                       @click="login()"
@@ -123,6 +124,7 @@ export default {
       dialog: false,
       password: "",
       documento: "",
+      error:false,
       show3: false,
       rules: {
         required: (value) => !!value || "Requerido.",
@@ -160,6 +162,7 @@ export default {
           });
           console.log(err);
         });
+        
     },
     redirectToForgot() {
       this.$router.push({

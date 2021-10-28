@@ -5,10 +5,10 @@
         <v-card width="1200;">
           <v-layout justify-center>
             <v-toolbar color="#DC001B ">
-              <v-toolbar-title style=" font-weight-bold text-h4 color: white; "
-                ><v-card-text>
-                  Hola, <br />
-                  {{ this.$store.state.user.donante.name }}</v-card-text
+              <v-toolbar-title class="titulo"
+                ><v-card-text> <h5> Hola, <br />
+                  {{ this.$store.state.user.donante.name }}</h5>
+                 </v-card-text
                 >
               </v-toolbar-title>
             </v-toolbar>
@@ -185,11 +185,10 @@
 
               <v-list-item>
                 <v-list-item-content style="justify-content: center;">
-                  <v-list-item-title style="font-weight: 500; text-align: center;"
-                    >¿Desea hacer una donacion puntual y
-                    única?</v-list-item-title
+                  <v-list-item-title style="font-weight: 500; text-align: center; color: #DC001B;"
+                    >¿Desea hacer una donacion puntual?</v-list-item-title
                   >
-                  <v-btn :to="{ path: 'DonacionesPuntuales' }" style=" max-width: 10em; color: white; background-color: red;">DONAR</v-btn>
+                  <v-btn :to="{ path: 'DonacionesPuntuales' }" style=" max-width: 10em; color: white; background-color: #DC001B ;">DONAR</v-btn>
                 </v-list-item-content>
               </v-list-item>
 
@@ -207,4 +206,17 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.titulo{
+  color: white;
+  
+}
+#icon {
+  margin-left: 5%;
+}
+.h2 {
+  display: flex;
+  margin-bottom: 5px;
+  margin-top: 20px;
+}
+</style>
