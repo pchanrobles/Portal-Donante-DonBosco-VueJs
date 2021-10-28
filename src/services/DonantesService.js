@@ -1,11 +1,4 @@
 export default {
-<<<<<<< HEAD
-   async byDocument() {
-      let respuesta = await apiClient.get("/api/donantes/byDocument");
-      return respuesta;
-    }
-     }
-=======
   async getDonantes() {
     apiClient.defaults.headers["Authorization"] = `Bearer ${JSON.parse(
       localStorage.getItem("token")
@@ -27,5 +20,4 @@ export default {
     return apiClient.get('api/comunicados')
  }
 };
->>>>>>> 9c19f8fc030c904750c33a7ee5b44eeee9314da9
 
