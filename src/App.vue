@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import Echo from "laravel-echo";
+
 
 export default {
   name: "App",

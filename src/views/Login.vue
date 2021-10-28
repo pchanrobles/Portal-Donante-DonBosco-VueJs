@@ -152,7 +152,7 @@ export default {
             type: "success",
             timer: 4000,
           });
-          this.$router.push("/");
+          console.log(data)
         })
         .catch((err) => {
       this.$fire({
