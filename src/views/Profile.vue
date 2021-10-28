@@ -185,7 +185,7 @@
 
               <v-list-item>
                 <v-list-item-content style="justify-content: center;">
-                  <v-list-item-title style="font-weight: 500; text-align: center;"
+                  <v-list-item-title style="font-weight: 500; text-align: center; color: #DC001B;"
                     >¿Desea hacer una donacion puntual?</v-list-item-title
                   >
                   <v-btn :to="{ path: 'DonacionesPuntuales' }" style=" max-width: 10em; color: white; background-color: #DC001B ;">DONAR</v-btn>

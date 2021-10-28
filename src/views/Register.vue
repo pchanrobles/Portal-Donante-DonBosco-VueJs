@@ -406,14 +406,14 @@
             </v-stepper-content>
 
             <v-btn
-              class="mt-3 ml-3"
+              class="mt-3 ml-3" style="color: white"
               type="submit"
-              :color="page === 3 ? 'success' : 'primary'"
+              :color="page === 3 ? 'success' : '#DC001B'"
             >
               {{ page === 3 ? "Enviar" : "Siguiente" }}
             </v-btn>
 
-            <v-btn class="mt-3 ml-3" color="primary" @click="goBack(page - 1)">
+            <v-btn class="mt-3 ml-3" style="color: white" color="#DC001B" @click="goBack(page - 1)">
               Volver
             </v-btn>
 
@@ -677,6 +677,7 @@ export default {
 </script>
 
 <style>
+
 .spinner {
   display: flex;
   justify-content: center;
@@ -690,9 +691,7 @@ export default {
   margin-right: auto;
   max-width: 9%;
 }
-.primary {
-  background-color: #f8576a !important;
-}
+
 .mainStepper {
   margin-top: 5%;
 }

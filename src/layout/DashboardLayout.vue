@@ -150,7 +150,7 @@
     </v-navigation-drawer>
 
     <v-app-bar color="#DC001B" app>
-      <v-app-bar-nav-icon @click="drawer.true = ! $vuetify.drawer.true">
+      <v-app-bar-nav-icon @click="drawer  = true">
         <i
           class="fas fa-align-justify"
           style="font-size: 30px; color: white"
