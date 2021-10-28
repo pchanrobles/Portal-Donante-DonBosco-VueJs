@@ -2,7 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-
+import index from './store/index.js'
 /* Vuetify */
 import vuetify from './plugins/vuetify'
 
@@ -35,6 +35,7 @@ window.apiClient = axiosConfig
 new Vue({
   router,
   store,
+  index,
   vuetify,
   render: function (h) { return h(App) }
 }).$mount('#app')

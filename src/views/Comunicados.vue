@@ -3,7 +3,6 @@
     <v-list two-line>
       <v-list-item
         v-for="folder in folders" :key="folder.id"
-        style="; border-radius: 10px; border:  #DADADA 2px solid; margin-bottom:5px;"
         @click="linkPdfOpen(folder.file_path)"
       >
         <v-list-item-avatar>
