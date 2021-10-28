@@ -43,11 +43,9 @@
             ></v-progress-linear>
           </template>
 
-          <a href="https://donboscosalesianos.social/haz-un-donativo/" target="_blank"
-            ><v-img height="250" src="../assets/telefono.png"></v-img
-          ></a>
+         
 
-          <v-card-title>Apoya nuestro trabajo</v-card-title>
+         
         </v-card>
       </div>
     </div>

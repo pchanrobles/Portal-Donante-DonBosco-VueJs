@@ -34,6 +34,9 @@ export default new Vuex.Store({
       console.log(data[0]);
       state.donantes = data;
     },
+    Estado_Donantes(state, data) {
+      state.donantes = data;
+    },
   },
   actions: {
     register({ commit }, credentials) {
@@ -62,6 +65,12 @@ export default new Vuex.Store({
         commit("BUSCAR_DONANTES", data);
       });
     },
+    requestDonanteInfo({ commit }, ) {
+      return apiClient.post("/api/donantes/request/+$id", {})
+      .then(({ data }) => {
+        commit("BUSCAR_DONANTES", data);
+      });
+       }
   },
   modules: {},
 });
