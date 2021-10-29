@@ -30,7 +30,7 @@ export default new Vuex.Store({
       location.reload();
     },
     GET_DONANTES(state, data) {
-      console.log(data[0]);
+      console.log(data);
       state.donantes = data;
     },
     BUSCAR_DONANTES(state, data) {

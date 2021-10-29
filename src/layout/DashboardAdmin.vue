@@ -29,7 +29,11 @@
                 style="font-size: 22px; color:white"
               ></i>
             </v-list-item-icon>
-            <a href="admin" style="color: white; font-family: MONTSERRAT">Buscar Donantes</a>
+            <router-link
+              style="color: white; font-family: MONTSERRAT"
+              :to="{ path: '/admin' }"
+              >Buscar Donantes</router-link
+            >
           </v-list-item>
 
           <v-list-item>
@@ -39,21 +43,10 @@
                 style="font-size: 22px; color: white"
               ></i>
             </v-list-item-icon>
-            <a
-              href="ComunicadosAdmin"
+            <router-link
               style="color: white; font-family: MONTSERRAT"
-              >Comunicados</a
-            >
-          </v-list-item>
-
-           <v-list-item>
-            <v-list-item-icon>
-              <i class="far fa-bell" style="font-size: 22px; color: white"></i>
-            </v-list-item-icon>
-            <a
-              href="ComunicadosAdmin"
-              style="color: white; font-family: MONTSERRAT"
-              >&nbsp;Notificaciones</a
+              :to="{ name: 'ComunicadosAdmin' }"
+              >Comunicados</router-link
             >
           </v-list-item>
 
@@ -64,8 +57,10 @@
                 style="font-size: 22px; color: white"
               ></i>
             </v-list-item-icon>
-            <a href="Peticion" style="color: white; font-family: MONTSERRAT"
-              >&nbsp;Peticiones</a
+            <router-link
+              style="color: white; font-family: MONTSERRAT"
+              :to="{ name: 'Peticion' }"
+              >Peticiones</router-link
             >
           </v-list-item>
 

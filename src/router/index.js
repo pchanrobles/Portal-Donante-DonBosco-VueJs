@@ -129,10 +129,13 @@ const router = new VueRouter({
 
 let user = JSON.parse(localStorage.getItem('user'))
 let loggedIn = localStorage.getItem('user') || localStorage.getItem('token')
-let userAdmin = user.is_admin;
+
+
 router.beforeEach((to, from, next) => {
- index.updateStateUser
   if (to.matched.some(record => record.meta.requiresAuth) && loggedIn) {
+    index.updateStateUser
+    let userAdmin = user.is_admin;
+    console.log(userAdmin)
     if (userAdmin === 1) {
       next({
         path: '/admin',
