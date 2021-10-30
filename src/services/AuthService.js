@@ -1,4 +1,6 @@
 
+import index from "../store/index.js";
+
 export default {
     async register(data) {
 
@@ -17,5 +19,5 @@ export default {
 
             return respuesta
         
-    }
+    },
 }
