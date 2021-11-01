@@ -11,87 +11,80 @@
         </v-btn>
       </v-card-actions></a
     >
-    <v-card class="mx-auto" max-width="1000" tile>
-      <v-layout justify-center>
-        <v-toolbar color="#DC001B ">
-          <v-toolbar-title style="color: white"
-            ><v-card-text
-              >Hola, <br />
-              Nombre de Usuario</v-card-text
-            >
-          </v-toolbar-title>
-        </v-toolbar>
-      </v-layout>
-      <v-list rounded>
-        <v-subheader>REPORTE DE DONATIVOS</v-subheader>
-        <v-list-item-group v-model="selectedItem" color="primary">
-          <v-list-item v-for="(item, i) in items" :key="i">
-            <v-list-item-icon style="margin-left: 25px">
-              <v-icon v-text="item.icon"></v-icon>
-            </v-list-item-icon>
-            <v-list-item-content style="margin-left: 25px;">
-              <v-list-item-title v-text="item.text"></v-list-item-title>
-            </v-list-item-content>
-
-            <v-list-item-content class="auto" >
-              <v-list-item-title v-text="item.tipo"></v-list-item-title>
-            </v-list-item-content>
-
-            <v-list-item-content>
-              <v-list-item-title v-text="item.cantidad"></v-list-item-title>
-            </v-list-item-content>
-
-            <v-list-item-content>
-              <v-list-item-title v-text="item.total"></v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-        </v-list-item-group>
-      </v-list>
-      
+<!-- table -->
+<v-container>
+  <v-layout>
+    <v-flex>
+ <v-card>
+      <v-card-title style="color: #dc001b">
+        Tus Aportaciones
+        <v-spacer></v-spacer>
+        <v-text-field
+          v-model="search"
+          append-icon="mdi-magnify"
+          label="Buscar"
+          single-line
+          hide-details
+        ></v-text-field>
+      </v-card-title>
+      <v-data-table
+        :headers="headers"
+        :items="aportaciones"
+        :search="search"
+      ></v-data-table>
     </v-card>
+    </v-flex>
+  </v-layout>
+</v-container>
+<!-- table -->
+   
   </div>
 </template>
-
 <script>
 export default {
-  data: () => ({
-    selectedItem: 1,
-    items: [
-      {
-        text: "Ultimas Cuotas",
-        icon: "fas fa-hand-holding-heart",
-        tipo: "mensual",
-        cantidad: "100",
-      },
-      {
-        text: "Ultimas Cuotas",
-        icon: "fas fa-hand-holding-heart",
-        tipo: "mensual",
-        cantidad: "100",
-      },
-      {
-        text: "Ultimas Cuotas",
-        icon: "fas fa-hand-holding-heart",
-        tipo: "mensual",
-        cantidad: "100",
-      },
-       {
-       
-        icon: "",
-        tipo: "",
-         text: "Total Aportaciones",
-        cantidad: "300",
-      },
-    ],
-  }),
+  data() {
+    return {
+      search: "",
+      headers: [
+        {
+          text: "Ultimas Donaciones (Aportaciones)",
+          align: "start",
+          sortable: false,
+          value: "name",
+        },
+        { text: "Periodicidad", value: "periodicidad" },
+        { text: "Cuota", value: "cuota" },
+        { text: "TOTAL", value: "total"},
+      ],
+      aportaciones: [
+        {
+          name: "Enero",
+          periodicidad: "mensual",
+          cuota: 300,
+          total: 300,
+        },
+        {
+          name: "Febrero",
+          periodicidad: "mensual",
+          cuota: 300,
+          total: 600,
+        },
+        {
+          name: "Marzo",
+          periodicidad: "mensual",
+          cuota: 300,
+          total: 900,
+        },
+
+        
+      ],
+    };
+  },
 };
 </script>
-
 <style>
-.auto{
+.auto {
   margin-left: 16%;
   margin-right: 16%;
- 
-  
 }
 </style>

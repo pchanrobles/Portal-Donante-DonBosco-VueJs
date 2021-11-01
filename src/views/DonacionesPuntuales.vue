@@ -6,55 +6,65 @@
       <h6>LLÁMANOS Y TE INFORMAREMOS 957 475 267</h6>
     </div>
 
-    <a href="https://donboscosalesianos.social/haz-un-donativo/"  target="_blank"
+    <a href="https://donboscosalesianos.social/haz-un-donativo/" target="_blank"
       ><v-card-actions style="display: flex; justify-content: center">
-        <v-btn style="background-color: #dc001b; color: white">
+        <v-btn
+          style="background-color: #dc001b; color: white; margin-bottom: 3em"
+        >
           CLICK PARA DONAR
         </v-btn>
       </v-card-actions></a
     >
+    <!-- cards -->
+    <v-container>
+      <v-layout row wrap>
+        <v-flex xs12 sm6>
+          <v-card>
+            <a href="https://donboscosalesianos.social/bizum/" target="_blank"
+              ><v-img
+                width="300"
+                height="200"
+                src="../assets/bizumC.png"
+              ></v-img>
+            </a>
 
-    <div class="container">
-      <div class="cards">
-        <v-card :loading="loading" class="mx-auto my-12" max-width="374">
-          <template slot="progress">
-            <v-progress-linear
-              color="deep-purple"
-              height="10"
-              indeterminate
-            ></v-progress-linear>
-          </template>
+            <v-title class="title">
+              <h4 style="text-align: center">Fundacion Don Bosco</h4>
+            </v-title>
 
-          <a href="https://donboscosalesianos.social/bizum/" target="_blank"
-            ><v-img height="250" src="../assets/bizumC.png"></v-img>
-          </a>
+            <v-card-text> </v-card-text>
+          </v-card>
+        </v-flex>
 
-          <v-card-title>Fundacion Don Bosco</v-card-title>
-        </v-card>
-      </div>
+        <v-flex xs12 sm6>
+          <v-card>
+            <a
+              href="https://donboscosalesianos.social/haz-un-donativo/"
+              target="_blank"
+              ><v-img
+                width="300"
+                height="200"
+                src="../assets/telefono.png"
+              ></v-img
+            ></a>
 
-      <div class="cards">
-        <v-card :loading="loading" class="mx-auto my-12" max-width="374">
-          <template slot="progress">
-            <v-progress-linear
-              color="deep-purple"
-              height="10"
-              indeterminate
-            ></v-progress-linear>
-          </template>
+            <v-title class="title">
+              <h4 style="text-align: center">Apoya nuestro trabajo</h4></v-title
+            >
 
-          <a href="https://donboscosalesianos.social/haz-un-donativo/" target="_blank"
-            ><v-img height="250" src="../assets/telefono.png"></v-img
-          ></a>
-
-          <v-card-title>Apoya nuestro trabajo</v-card-title>
-        </v-card>
-      </div>
-    </div>
+            <v-card-text> </v-card-text>
+          </v-card>
+        </v-flex>
+      </v-layout>
+    </v-container>
+    <!-- cards -->
   </div>
 </template>
 
 <style>
+.title {
+  color: #dc001b;
+}
 .container {
   display: flex;
   justify-content: center;

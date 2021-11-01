@@ -1,5 +1,5 @@
 <template>
-  <v-container align="center" justify="center" fill-height>
+  <v-container class="container" align="center" justify="center" fill-height>
     <v-row class="bg-img" justify="space-around">
       <v-col cols="12" class="mt-8">
         <v-card width="1200;">
@@ -118,23 +118,15 @@
                 <v-list-item-subtitle>{{
                   this.$store.state.user.donante.tipoCuota
                 }}</v-list-item-subtitle>
-                <v-list-item-title class="mt-3">Cuota</v-list-item-title>
-                <v-list-item-subtitle
-                  >{{
-                    this.$store.state.user.donante.cuota
-                  }}€</v-list-item-subtitle
-                >
+                
               </v-list-item-content>
 
               <v-list-item-content style="margin-left: 30px">
-                <v-list-item-title>Nombre del banco</v-list-item-title>
+                <v-list-item-title>Cuota</v-list-item-title>
                 <v-list-item-subtitle>{{
-                  this.$store.state.user.donante.nameBank
+                  this.$store.state.user.donante.cuota
                 }}</v-list-item-subtitle>
-                <v-list-item-title class="mt-3">IBAN</v-list-item-title>
-                <v-list-item-subtitle>{{
-                  this.$store.state.user.donante.iban
-                }}</v-list-item-subtitle>
+               
               </v-list-item-content>
             </v-list-item>
 
@@ -218,5 +210,10 @@ export default {
   display: flex;
   margin-bottom: 5px;
   margin-top: 20px;
+}
+
+@media screen and (max-width: 600px){
+        
+
 }
 </style>

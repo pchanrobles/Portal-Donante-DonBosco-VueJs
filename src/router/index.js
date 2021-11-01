@@ -76,11 +76,7 @@ const routes = [
         component: () => import(/* webpackChunkName: "Donaciones" */ '../views/Donaciones.vue'),
         meta: { requiresAuth: true },
       },
-      {
-        path: '/certificados',
-        name: 'Certificados',
-        component: () => import(/* webpackChunkName: "Certificados" */ '../views/Certificados.vue'),
-      },
+     
       {
         path: '/donacionesPuntuales',
         name: 'DonacionesPuntuales',

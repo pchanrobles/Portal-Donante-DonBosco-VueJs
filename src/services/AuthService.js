@@ -9,6 +9,7 @@ export default {
             return respuesta
         
     },
+    
     async login(data) {
 
         await apiClient.get('/sanctum/csrf-cookie')
