@@ -29,7 +29,8 @@
                 style="font-size: 25px; color:white"
               ></i>
             </v-list-item-icon>
-            <a href="/" style="color: white; font-family: MONTSERRAT">INICIO</a>
+            <a href="/admin" style="color: white; font-family: MONTSERRAT"
+            >Lista de Donantes</a>
           </v-list-item>
 
        
@@ -46,15 +47,7 @@
             >
           </v-list-item>
 
-           <v-list-item>
-            <v-list-item-icon>
-              <i class="far fa-user" style="font-size: 22px; color: cyan"></i>
-            </v-list-item-icon>
-            <a href="BuscarDonantes" style="color: white; font-family: MONTSERRAT"
-              >&nbsp;Perfil de Donantes</a
-            >
 
-          </v-list-item>
 
            <v-list-item>
             <v-list-item-icon>

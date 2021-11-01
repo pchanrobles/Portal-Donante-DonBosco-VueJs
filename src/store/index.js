@@ -56,6 +56,7 @@ export default new Vuex.Store({
         commit("GET_DONANTES", data);
       });
     },
+    //buscar por dodcumento
     byDocument({ commit }, document) {
       return apiClient.post("/api/donantes/byDocument", {documento: document})
       .then(({ data }) => {

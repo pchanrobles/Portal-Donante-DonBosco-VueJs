@@ -4,7 +4,7 @@
       style="display: flex; position: fixed; background-color: #dc001b"
       height="100%"
       v-model="drawer"
-      absolute
+       temporary
       app
     >
       <v-list nav dense>
