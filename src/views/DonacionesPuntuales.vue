@@ -1,13 +1,13 @@
 <template>
   <div>
-    <div style="color: #dc001b; text-align: center">
+    <div style="color: #dc001b; text-align: center; margin-top: 50px">
       <h2>OTRAS OPCIONES DE DONACION</h2>
 
       <h6>LLÁMANOS Y TE INFORMAREMOS 957 475 267</h6>
     </div>
 
     <a href="https://donboscosalesianos.social/haz-un-donativo/" target="_blank"
-      ><v-card-actions style="display: flex; justify-content: center">
+      ><v-card-actions style="display: flex; justify-content: center; margin-top: 30px;">
         <v-btn
           style="background-color: #dc001b; color: white; margin-bottom: 3em"
         >

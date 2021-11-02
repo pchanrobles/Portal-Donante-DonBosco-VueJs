@@ -41,7 +41,7 @@
 
  <script>
 import axios from "axios";
-axios.defaults.baseURL = "http://localhost:81/wordpress";
+axios.defaults.baseURL = "http://localhost/wordpress-api/mi-api-2/";
 export default {
   data: () => ({
     entradas: [],
@@ -49,11 +49,12 @@ export default {
 
     config: {
       headers: {
-        Authorization:
-          "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3RcL3dvcmRwcmVzcy1hcGlcL2FwaV9kb25hbnRlc19ib3NjbyIsImlhdCI6MTYzNTQ5ODg2NCwibmJmIjoxNjM1NDk4ODY0LCJleHAiOjE2MzYxMDM2NjQsImRhdGEiOnsidXNlciI6eyJpZCI6IjEifX19.0z_UWDRkq5jkcCSJrRMq-zOBBUlaeGXIMmQi6_P6XOo",
+                  Authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3RcL3dvcmRwcmVzcy1hcGlcL21pLWFwaS0yIiwiaWF0IjoxNjM1ODQzNTM2LCJuYmYiOjE2MzU4NDM1MzYsImV4cCI6MTYzNjQ0ODMzNiwiZGF0YSI6eyJ1c2VyIjp7ImlkIjoiMSJ9fX0.XG_U21iOPCWggM4oLUtrRHiL19_bJr8nvAMBQ0jkIb0',
       },
+    
     },
   }),
+  
 
   computed: {},
 

@@ -148,7 +148,7 @@
         ></i>
       </v-app-bar-nav-icon>
       <v-btn text @click="$vuetify.theme.dark = !$vuetify.theme.dark">
-        <i class="far fa-eye" style="font-size: 30px; color: white"></i>
+        <i class="far fa-eye" style="font-size: 20px; color: white"></i>
       </v-btn>
       <v-toolbar-title style="color: white; font-family: MONTSERRAT">
         {{
