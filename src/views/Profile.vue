@@ -166,3 +166,23 @@ export default {
   },
 };
 </script>
+
+<style>
+.titulo{
+  color: white;
+  
+}
+#icon {
+  margin-left: 5%;
+}
+.h2 {
+  display: flex;
+  margin-bottom: 5px;
+  margin-top: 20px;
+}
+
+@media screen and (max-width: 600px){
+        
+
+}
+</style>

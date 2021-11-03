@@ -31,7 +31,6 @@
             target="_blank"
             ><v-img src="../assets/bizumC.png"></v-img>
           </a>
-<<<<<<< HEAD
 
           <v-card-title>Fundacion Don Bosco</v-card-title>
         </v-card>
@@ -50,8 +49,6 @@
          
 
          
-=======
->>>>>>> porfile
         </v-card>
       </div>
     </div>

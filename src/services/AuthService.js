@@ -1,4 +1,6 @@
 
+import index from "../store/index.js";
+
 export default {
     async register(data) {
 
@@ -9,6 +11,7 @@ export default {
             return respuesta
         
     },
+    
     async login(data) {
 
         await apiClient.get('/sanctum/csrf-cookie')
@@ -17,5 +20,5 @@ export default {
 
             return respuesta
         
-    }
+    },
 }

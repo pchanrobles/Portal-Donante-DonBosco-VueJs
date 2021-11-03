@@ -406,8 +406,10 @@
             <img
               class="image_"
               src="../assets/socio.png"
+               onmouseover="this.width=750; this.height=50;"
+                onmouseout="this.width=600;this.height=50;"
               alt="socio"
-              width="1000px"
+              width="750px"
             />
             <div>
               <p>
@@ -713,6 +715,7 @@
         </v-expansion-panel>
       </v-expansion-panel>
     </v-expansion-panels>
+     <!-- preguntas frecuentes -->
   </div>
 </template>
 
