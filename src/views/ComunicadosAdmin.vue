@@ -43,7 +43,6 @@
       <p>
         <a href="javascript:void(0)" @click="reset()">Inténtelo de nuevo</a>
       </p>
-      <pre>{{ uploadError }}</pre>
     </div>
   </div>
 </template>
@@ -60,7 +59,6 @@ export default {
   data() {
     return {
       uploadedFiles: [],
-      uploadError: null,
       currentStatus: null,
       uploadFieldName: "file",
     };
@@ -84,7 +82,6 @@ export default {
       // reset form to initial state
       this.currentStatus = STATUS_INITIAL;
       this.uploadedFiles = [];
-      this.uploadError = null;
     },
 
     save(formData) {
@@ -97,7 +94,7 @@ export default {
           this.currentStatus = STATUS_SUCCESS;
         })
         .catch((err) => {
-          this.uploadError = err.response;
+          console.log('ERROR AL SUBIR ARCHIVO')
           this.currentStatus = STATUS_FAILED;
         });
     },

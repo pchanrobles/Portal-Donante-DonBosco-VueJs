@@ -1,7 +1,8 @@
 <template>
   <v-app>
     <v-navigation-drawer
-      style="background-color: #8b0000"
+      style="display: flex; position: fixed; background-color: #dc001b"
+      height="100%"
       v-model="drawer"
       absolute
       temporary
@@ -13,12 +14,11 @@
           active-class="#DC001B --text text--accent-4"
         >
           <v-list-item>
-            <v-list-item-icon> </v-list-item-icon>
-            <v-list-item-title>
-              <h3 style="color: white; font-family: MONTSERRAT">
-                Admin
-              </h3></v-list-item-title
-            >
+            <img
+              style="display: block; margin: auto"
+              src="../assets/imagotipo_vertical_fondos policromáticos_RGB.png"
+              width="50%"
+            />
           </v-list-item>
 
           <v-main></v-main>
@@ -26,56 +26,41 @@
             <v-list-item-icon>
               <i
                 class="fas fa-house-user"
-                style="font-size: 25px; color:white"
+                style="font-size: 22px; color:white"
               ></i>
             </v-list-item-icon>
-            <a href="/" style="color: white; font-family: MONTSERRAT">INICIO</a>
+            <router-link
+              style="color: white; font-family: MONTSERRAT"
+              :to="{ path: '/admin' }"
+              >Buscar Donantes</router-link
+            >
           </v-list-item>
-
-       
 
           <v-list-item>
             <v-list-item-icon>
               <i
                 class="fas fa-bullhorn"
-                style="font-size: 22px; color: #ffe900"
+                style="font-size: 22px; color: white"
               ></i>
             </v-list-item-icon>
-            <a href="ComunicadosAdmin" style="color: white; font-family: MONTSERRAT"
-              >Comunicados</a
-            >
-          </v-list-item>
-
-           <v-list-item>
-            <v-list-item-icon>
-              <i class="far fa-user" style="font-size: 22px; color: cyan"></i>
-            </v-list-item-icon>
-            <a href="BuscarDonantes" style="color: white; font-family: MONTSERRAT"
-              >&nbsp;Perfil de Donantes</a
-            >
-
-          </v-list-item>
-
-           <v-list-item>
-            <v-list-item-icon>
-              <i class="far fa-bell" style="font-size: 22px; color: orange"></i>
-            </v-list-item-icon>
-            <a
-              href="ComunicadosAdmin"
+            <router-link
               style="color: white; font-family: MONTSERRAT"
-              >&nbsp;Notificaciones</a
+              :to="{ name: 'ComunicadosAdmin' }"
+              >Comunicados</router-link
             >
           </v-list-item>
 
           <v-list-item>
             <v-list-item-icon>
               <i
-                class="fas fa-question"
-                style="font-size: 22px; color: blue"
+                class="far fa-file-alt"
+                style="font-size: 22px; color: white"
               ></i>
             </v-list-item-icon>
-            <a href="Peticion" style="color: white; font-family: MONTSERRAT"
-              >&nbsp;Peticiones</a
+            <router-link
+              style="color: white; font-family: MONTSERRAT"
+              :to="{ name: 'Peticion' }"
+              >Peticiones</router-link
             >
           </v-list-item>
 
@@ -83,7 +68,7 @@
             <v-list-item-icon>
               <i
                 class="far fa-times-circle"
-                style="font-size: 22px; color: grey"
+                style="font-size: 22px; color: white"
               ></i>
             </v-list-item-icon>
             <a href="Login" style="color: white; font-family: MONTSERRAT"
@@ -124,9 +109,7 @@ Vue.use(Vuetify);
 import Vue from "vue";
 import Vuetify from "vuetify/lib";
 
-
 export default {
- 
   data: () => ({
     drawer: false,
     group: null,

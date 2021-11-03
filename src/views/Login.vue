@@ -49,7 +49,6 @@
                 :class="{ 'pa-3': $vuetify.breakpoint.smAndUp }"
               >
                 <div class="box">
-                 
                   <div class="chekboxBtn align-items-stretch flex-column">
                     <v-btn
                       @click="login()"
@@ -98,6 +97,8 @@ import Vue from "vue";
 import Vuetify from "vuetify/lib";
 import PrivacyPolitics from "@/components/PrivacyPolitics.vue";
 import VueSimpleAlert from "vue-simple-alert";
+import index from "../store/index.js";
+import AuthService from "../services/AuthService.js";
 
 Vue.use(Vuetify, VueSimpleAlert);
 const vuetify = new Vuetify({
@@ -124,7 +125,7 @@ export default {
       dialog: false,
       password: "",
       documento: "",
-      error:false,
+      error: false,
       show3: false,
       rules: {
         required: (value) => !!value || "Requerido.",
@@ -141,6 +142,8 @@ export default {
     },
     login() {
       let data = {
+        is_admin: "",
+        state: "",
         documento: this.documento.toUpperCase(),
         password: this.password,
       };
@@ -148,21 +151,21 @@ export default {
         .dispatch("login", data)
         .then(() => {
           this.$fire({
+            allowOutsideClick: false,
             title: "Inicio de sesión correcto",
             type: "success",
-            timer: 4000,
+          }).then(() => {
+            window.location.reload();
           });
-          this.$router.push("/");
         })
         .catch((err) => {
-      this.$fire({
+          this.$fire({
+            allowOutsideClick: false,
             title: "Inicio de sesión incorrecto",
             type: "error",
-            timer: 4000,
           });
           console.log(err);
         });
-        
     },
     redirectToForgot() {
       this.$router.push({
