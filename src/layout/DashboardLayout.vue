@@ -4,12 +4,8 @@
       style="display: flex; position: fixed; background-color: #dc001b"
       height="100%"
       v-model="drawer"
-<<<<<<< HEAD
       absolute
       temporary
-=======
-       temporary
->>>>>>> 97e2a9dc7a004fa623cd4b21a41a1bdedf074d4b
       app
     >
       <v-list nav dense>
@@ -95,23 +91,8 @@
             >
           </v-list-item>
 
-<<<<<<< HEAD
          
           <v-list-item class="menu-link">
-=======
-          <v-list-item class="menu-link" v-show="this.$store.state.user.estado">
-            <v-list-item-icon>
-              <i class="fas fa-award" style="font-size: 22px; color: white"></i>
-            </v-list-item-icon>
-            <router-link
-              style="color: white; font-family: MONTSERRAT"
-              :to="{ path: 'Certificados' }"
-              >Certificados</router-link
-            >
-          </v-list-item>
-
-          <v-list-item class="menu-link" v-show="this.$store.state.user.estado">
->>>>>>> 97e2a9dc7a004fa623cd4b21a41a1bdedf074d4b
             <v-list-item-icon>
               <i class="far fa-bell" style="font-size: 22px; color: white"></i>
             </v-list-item-icon>

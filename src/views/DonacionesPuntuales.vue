@@ -52,21 +52,12 @@
               <h4 style="text-align: center">Apoya nuestro trabajo</h4></v-title
             >
 
-<<<<<<< HEAD
             <v-card-text> </v-card-text>
           </v-card>
         </v-flex>
       </v-layout>
     </v-container>
     <!-- cards -->
-=======
-         
-
-         
-        </v-card>
-      </div>
-    </div>
->>>>>>> 97e2a9dc7a004fa623cd4b21a41a1bdedf074d4b
   </div>
 </template>
 

@@ -2,12 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-<<<<<<< HEAD
-
-
-=======
 import index from './store/index.js'
->>>>>>> 97e2a9dc7a004fa623cd4b21a41a1bdedf074d4b
 /* Vuetify */
 import vuetify from './plugins/vuetify'
 
