@@ -41,7 +41,7 @@
 
  <script>
 import axios from "axios";
-axios.defaults.baseURL = "http://localhost/wordpress-api/mi-api-2/";
+axios.defaults.baseURL = "http://localhost:81/wordpress-api/mi-api-2/";
 export default {
   data: () => ({
     entradas: [],
