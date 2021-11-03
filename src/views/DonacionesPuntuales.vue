@@ -1,15 +1,15 @@
 <template>
-  <div class="donar">
+  <div>
     <div style="color: #dc001b; text-align: center">
-      <h2>DONAR AHORA</h2>
+      <h2>OTRAS OPCIONES DE DONACION</h2>
 
-      <h6>INFORMACIÓN 957 475 267</h6>
+      <h6>LLÁMANOS Y TE INFORMAREMOS 957 475 267</h6>
     </div>
 
-    <a href="https://donboscosalesianos.social/haz-un-donativo/" target="_blank"
+    <a href="https://donboscosalesianos.social/haz-un-donativo/"  target="_blank"
       ><v-card-actions style="display: flex; justify-content: center">
         <v-btn style="background-color: #dc001b; color: white">
-          DONAR AQUÍ
+          CLICK PARA DONAR
         </v-btn>
       </v-card-actions></a
     >
@@ -24,12 +24,9 @@
               indeterminate
             ></v-progress-linear>
           </template>
-          <br />
-          <a
-            class="bizum"
-            href="https://donboscosalesianos.social/bizum/"
-            target="_blank"
-            ><v-img src="../assets/bizumC.png"></v-img>
+
+          <a href="https://donboscosalesianos.social/bizum/" target="_blank"
+            ><v-img height="250" src="../assets/bizumC.png"></v-img>
           </a>
 
           <v-card-title>Fundacion Don Bosco</v-card-title>
@@ -46,9 +43,11 @@
             ></v-progress-linear>
           </template>
 
-         
+          <a href="https://donboscosalesianos.social/haz-un-donativo/" target="_blank"
+            ><v-img height="250" src="../assets/telefono.png"></v-img
+          ></a>
 
-         
+          <v-card-title>Apoya nuestro trabajo</v-card-title>
         </v-card>
       </div>
     </div>
@@ -56,25 +55,10 @@
 </template>
 
 <style>
-.donar {
- display: flex;
-    margin-top: 10%;
-    align-items: center;
-    justify-content: flex-end;
-    align-content: flex-start;
-    flex-wrap: wrap;
-    flex-direction: column;
-}
-.bizum {
-  width: 40%;
-  display: flex;
-  align-items: center;
-}
 .container {
   display: flex;
   justify-content: center;
 }
-
 .cards {
   margin-left: 30px;
   width: 600px;

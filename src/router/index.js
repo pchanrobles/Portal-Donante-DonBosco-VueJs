@@ -84,14 +84,7 @@ const routes = [{
           requiresAuth: true
            }
         },
-        {
-          path: "/certificados",
-          name: "Certificados",
-          component: () =>
-            import(
-              /* webpackChunkName: "Certificados" */ "../views/Certificados.vue"
-            ),
-             },
+    
       
      
       {

@@ -98,12 +98,7 @@ export default new Vuex.Store({
            commit("WRITE_DETAILS", data);
         });
     },
-    requestDonanteInfo({ commit }, ) {
-      return apiClient.post("/api/donantes/request/+$id", {})
-      .then(({ data }) => {
-        commit("BUSCAR_DONANTES", data);
-      });
-       },
+   
     updateStateUser({      commit
     }, credentials) {
       return apiClient
