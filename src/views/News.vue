@@ -9,7 +9,8 @@
         >
       </v-toolbar>
     </v-layout>
-    <v-layout><div><h3 style="color:#dc001b; margin-top: 20px;">NOTICAS</h3></div></v-layout>
+    <v-layout><div><h3 style="color:#dc001b; margin-top: 20px;">NOTICAS</h3>
+   </div></v-layout>
     <v-card
       v-for="entrada in entradas"
       :key="entrada.id"
