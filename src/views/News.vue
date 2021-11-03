@@ -3,18 +3,18 @@
     <v-layout justify-center>
       <v-toolbar color="gray ">
         <v-toolbar-title style="color: #dc001b"
-          ><h4 style="margin-left: 225px; padding: 225px">
+          ><h1 style="margin-left: 225px; padding: 225px; margin-top: 30px; margin-bottom: 30px;">
             Noticias Fundacion Don Bosco
-          </h4></v-toolbar-title
+          </h1></v-toolbar-title
         >
       </v-toolbar>
     </v-layout>
-    <v-img><img class="img" src="../assets/refugiados.png" /></v-img>
+    <v-layout><div><h3 style="color:#dc001b; margin-top: 20px;">NOTICAS</h3></div></v-layout>
     <v-card
       v-for="entrada in entradas"
       :key="entrada.id"
       color="#DC001B"
-      style="margin-bottom: 8px"
+      style="margin-bottom: 10px; margin-top: 12px;"
       dark
     >
       <v-card-title class="text-h5">
