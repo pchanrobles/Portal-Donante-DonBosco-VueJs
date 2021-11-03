@@ -29,12 +29,7 @@ export default {
   components: {
     Tarjeta,
   },
-  data() {
-    return {
-      buscador: "",
-      setTimeoutBuscador: "",
-    };
-  },
+ 
   created() {
       this.changeDonantes();
   },
@@ -57,6 +52,7 @@ export default {
         });
     },
     buscarDonante(e) {
+      //buscar a partir de la 3ª palabra
       if (e.target.value.length >= 3) {
         this.$store
         .dispatch("byDocument", e.target.value)

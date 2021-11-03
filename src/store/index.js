@@ -7,14 +7,14 @@ export default new Vuex.Store({
   state: {
     user: null,
     donantes: null,
-   
+    details: null,
   },
   mutations: {
     SET_USER_DATA(state, data) {
       state.user = data.usuario;
       localStorage.setItem("user", JSON.stringify(data.usuario));
       localStorage.setItem("token", JSON.stringify(data.token));
-      console.log('set_user_Data')
+      console.log("set_user_Data");
       apiClient.defaults.headers.common[
         "Authorization"
       ] = `Bearer ${data.token}`;
@@ -27,15 +27,14 @@ export default new Vuex.Store({
       location.reload();
     },
     GET_DONANTES(state, data) {
-      console.log(data[0]);
       state.donantes = data;
     },
     BUSCAR_DONANTES(state, data) {
-      console.log(data[0]);
       state.donantes = data;
     },
-    Estado_Donantes(state, data) {
-      state.donantes = data;
+    WRITE_DETAILS(state, data) {
+      state.details = data;
+     
     },
   },
   actions: {
@@ -59,11 +58,29 @@ export default new Vuex.Store({
         commit("GET_DONANTES", data);
       });
     },
+    //buscar por dodcumento
     byDocument({ commit }, document) {
-      return apiClient.post("/api/donantes/byDocument", {documento: document})
-      .then(({ data }) => {
-        commit("BUSCAR_DONANTES", data);
-      });
+      return apiClient
+        .post("/api/donantes/byDocument", { documento: document })
+        .then(({ data }) => {
+          commit("BUSCAR_DONANTES", data);
+        });
+    },
+    //mandar petición de cambios de datos
+    requestDonantesInfo({ commit }, tmp) {
+      return apiClient
+        .post("/api/donantes/request/" + tmp.id, { details: tmp.details })
+        .then(({ data }) => {
+          commit("WRITE_DETAILS", data);
+        });
+    },
+    request({ commit }) {
+      return apiClient
+        .get("/api/donantes/request")
+        .then(({ data }) => {
+          console.log(data)
+           commit("WRITE_DETAILS", data);
+        });
     },
     requestDonanteInfo({ commit }, ) {
       return apiClient.post("/api/donantes/request/+$id", {})
