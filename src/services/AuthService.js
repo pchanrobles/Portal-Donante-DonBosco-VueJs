@@ -1,22 +1,24 @@
-import axios from 'axios'
 
-const apiCliente = axios.create({
-    baseURL: 'http://localhost:8000',
-    withCredentials: true,
-    headers: {
-        Accept: 'application/json',
-        'Content-type': 'application/json',
-    }
-});
+import index from "../store/index.js";
 
 export default {
-    async login(data) {
+    async register(data) {
 
-        await apiCliente.get('/sanctum/csrf-cookie')
+        await apiClient.get('/sanctum/csrf-cookie')
 
-            let respuesta = await apiCliente.post('/api/login', data)
+            let respuesta = await apiClient.post('/api/register', data)
 
             return respuesta
         
-    }
+    },
+    
+    async login(data) {
+
+        await apiClient.get('/sanctum/csrf-cookie')
+
+            let respuesta = await apiClient.post('/api/login', data)
+
+            return respuesta
+        
+    },
 }
